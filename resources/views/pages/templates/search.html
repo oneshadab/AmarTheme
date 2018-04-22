@@ -1,0 +1,87 @@
+{% extends 'base_template.html' %}
+{% block content %}
+
+<style>
+.clickable:hover {
+    cursor: hand;
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+</style>
+
+<script >
+$(document).ready(function () {
+    // Or use this to Open link in same window (similar to target=_blank)
+
+    $(".remove-button").click(function (event) {
+        url = $(this).find("input:first").attr('name')
+        message = $(this).find("input:first").attr('value')
+        var answer = confirm(message)
+        if(answer) window.location = url
+        event.stopPropagation()
+    })
+
+    $(".clickable").click(function(){
+        window.location = $(this).find(".card-link:first").attr("href");
+        return false;
+    });
+
+});
+
+
+
+</script>
+
+ <div class="container-fluid">
+
+ <form class="row pb-3 mb-3 align-content-center border-bottom" action="{% url 'search_patients' %}" method="post">
+     {% csrf_token %}
+        <div class="col-1">
+            <h2>Search: </h2>
+        </div>
+     <div class="col-8 p-0 ml-5 mr-4"> {{ search_form.text }}</div>
+     <button class="col-1 btn btn-primary w-100" type="submit">
+         <i class="fas fa-search"></i>
+     </button>
+
+ </form>
+<div class="row w-100">
+<div class="col-1 mr-5"></div>
+<div class="col-10">
+{% for p in patients %}
+    <div class="row card w-100 mb-3 clickable" >
+        <div class="card-header">
+            <div class="row">
+                <div class="col-10">
+                    <h5>Patient #{{ p.id }}</h5>
+                </div>
+                <div class="col-2">
+                    <button  class="btn btn-danger w-100 remove-button">
+                        <i class="fas fa-trash-alt"></i>
+                        <input type="hidden" name='{% url "remove_patient" p.id %}' value='Are you sure you want to delete Patient #{{ p.id }}'>
+                        Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body row">
+            <div class="col-0"><a class="card-link" href="{% url 'show_patient' p.id%}" style="display: none">{{p}}</a></div>
+            <div class="col-1 pl-4">
+                <div class="row" for="{{ p.name.auto_id }}">Name: </div>
+                <div class="row" for="{{ p.telephone.auto_id }}">Phone: </div>
+            </div>
+            <div class="col-8">
+                 <div class=""> {{p.name}}</div>
+                 <div class=""> {{p.telephone}}</div>
+            </div>
+
+         </div>
+
+    </div>
+{% endfor %}
+</div>
+ </div>
+</div>
+
+{% endblock %}

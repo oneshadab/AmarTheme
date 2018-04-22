@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    -->
+    <title>{% block title %} Onyx Dental {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'dist/fa/web-fonts-with-css/css/fontawesome-all.css' %}" >
+
+    <script src="{% static 'dist/js/' %}/jquery-3.3.1.min.js" ></script>
+    <script src="{% static 'dist/js/' %}/popper.min.js" ></script>
+    <script src="{% static 'dist/js/' %}bootstrap.min.js"></script>
+
+</head>
+<body class="h-100">
+<style>
+    .list-group-item-action:hover {
+        background-color: #0056b3 !important;
+    }
+</style>
+
+
+<div class="container-fluid h-100 p-0">
+    <div class="row h-100">
+        <div class="col-sm-2 container-fluid bg-dark p-0 border-right">
+            <nav class="navbar p-0">
+                <a class="navbar-nav navbar-brand text-white pl-5 pt-2 pb-3 border-bottom m-0 w-100" href="#">Onyx Dental</a>
+                <div class="navbar-nav list-group w-100">
+                    <a class="list-group-item list-group-item-action bg-dark text-white pl-5 pt-4 pb-4"
+                       style="border: 0px;"
+                       href="{% url 'search_patients' %}"
+                    >
+                        <i class="fas fa-search"></i>
+                        Search
+                    </a>
+                    </span>
+                    <a class="list-group-item list-group-item-action bg-dark text-white pl-5 pt-4 pb-4"
+                       style="border: 0px;"
+                       href="{% url 'add_patient' %}"
+                    > <i class="fas fa-plus"></i>
+                        New
+                    </a>
+                </div>
+            </nav>
+
+        </div>
+        <div class="col-sm-10 p-4">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>
