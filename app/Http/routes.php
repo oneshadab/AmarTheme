@@ -26,6 +26,7 @@ Route::get('/registration', function(){
 });
 
 Route::get('/login','userController@userLogin');
+Route::post('/authenticate','userController@userAuthentication');
 
 Route::get('/home', 'homeController@index');
 

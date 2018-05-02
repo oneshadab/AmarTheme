@@ -13,5 +13,14 @@ class userController extends Controller
     {
         return view('auth.login');
     }
+    public function userAuthentication()
+    {
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $users=\DB::table('user')->where('email',$email)->where('password',$password)->exists();
+        if($users)
+            return "Exists";
+        return "Doesn't Exist";
+    }
 
 }
