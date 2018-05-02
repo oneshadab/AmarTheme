@@ -24,3 +24,10 @@ Route::get('/product', function(){
 Route::get('/registration', function(){
     return view('registration');
 });
+
+Route::get('/login','userController@userLogin');
+
+Route::get('/home', 'homeController@index');
+
+
+?>
