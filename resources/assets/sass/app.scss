@@ -1,2 +1,7 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+$col : red;
+body {
 
+  font: 100% Helvetica, sans-serif;
+  color: $col;
+}

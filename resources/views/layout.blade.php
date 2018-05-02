@@ -67,7 +67,9 @@
 
 
             </div>
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
             <div class="container-fluid bg-info w-100 text-white m-0 w-100 p-5 mt-5">
                 <div class="row">
                     <div class="col-2"></div>
