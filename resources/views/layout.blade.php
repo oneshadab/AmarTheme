@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
 </head>
-<body class="w-100 bg-light">
+<body class="w-100 bg-info">
+
+
 <div class="container">
-    <div class="row p-0">
-        <div class="col-1"></div>
-        <div class="col-10 bg-white">
+    <div class="row">
+        <div class="col-12 bg-white">
             <div class="container w-100">
                 <div class="row p-4">
                     <h1 class="">AmarTheme.com</h1>
@@ -67,27 +68,31 @@
 
 
             </div>
-            <div class="container">
-                @yield('content')
-            </div>
-            <div class="container-fluid bg-info w-100 text-white m-0 w-100 p-5 mt-5">
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-2">
-                        <div class="row"><div class="col-12"><i class="fas fa-address-card"></i> Contact</div> </div>
-                        <div class="row"><div class="col-12"><i class="fas fa-at"></i> E-mail</div></div>
-                    </div>
+        </div>
+    </div>
+    <div class="row p-0 bg-white" style="min-height: 700px;">
+        <div class="container mt-5">
+            @yield('content')
+        </div>
+    </div>
 
-                    <div class="col-4"></div>
-                    <div class="col-2">
-                        <div class="row"><div class="col-12"><i class="fas fa-question-circle"></i> Help and Support</div></div>
-                        <div class="row"><div class="col-12"><i class="fas fa-smile"></i> Feedback</div></div>
-                    </div>
-                </div>
-            </div>
+
+</div>
+
+<div class="container-fluid bg-secondary w-100 text-white m-0 w-100 p-5">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2">
+            <div class="row"><div class="col-12"><i class="fas fa-address-card"></i> Contact</div> </div>
+            <div class="row"><div class="col-12"><i class="fas fa-at"></i> E-mail</div></div>
+        </div>
+
+        <div class="col-4"></div>
+        <div class="col-2">
+            <div class="row"><div class="col-12"><i class="fas fa-question-circle"></i> Help and Support</div></div>
+            <div class="row"><div class="col-12"><i class="fas fa-smile"></i> Feedback</div></div>
         </div>
     </div>
 </div>
-<div class="col-1 bg-info"></div>
 </body>
 </html>
