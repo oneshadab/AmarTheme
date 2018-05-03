@@ -23,8 +23,10 @@
         $(document).ready(function ($) {
             $('.clickable').click(function () {
                 var url = $(this).data('url');
-                window.location = url;
-                return false;
+                if(url){
+                    window.location = url;
+                    return false;
+                }
             });
         });
     </script>

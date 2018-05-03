@@ -28,7 +28,7 @@
         }
         #product-carousel .carousel-indicators {
             margin: 10px 0 0;
-            overflow: auto;
+            overflow: hidden;
             position: static;
             text-align: left;
             white-space: nowrap;
@@ -49,13 +49,16 @@
         #product-carousel .carousel-outer {
             position: relative;
         }
+        .carousel-indicators-li.active img{
+            border: 2px solid #005cbf;
+        }
     </style>
     <div class="container " style="height: 450px;">
         <div class="row mt-5 h-100" >
             <div class="col-8 h-100">
                 <div class="card h-100"  >
                     <div class="card-body p-0">
-                        <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                        <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach($images as $i)
                                 <div class="carousel-item">
@@ -71,14 +74,22 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
-                            <ol class="carousel-indicators">
-                                @for($index = 0; $index < sizeof($images); $index++)
-                                    @php($i = $images[$index])
-                                    <li class="carousel-indicators-li" data-target="#product-carousel" data-slide-to="{{$index}}">
-                                        <img src="{{$i}}" height="80px">
-                                    </li>
-                                @endfor
-                            </ol>
+                            <div class="row">
+                                <div class="col-6 pr-0">
+                                    <ol class="carousel-indicators m-0 bg-dark">
+                                        @for($index = 0; $index < sizeof($images); $index++)
+                                            @php($i = $images[$index])
+                                            <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="{{$index}}">
+                                                <img src="{{$i}}" height="90px" width="90px" style="object-fit: cover;" align="left">
+                                            </li>
+                                        @endfor
+                                    </ol>
+                                </div>
+                                <div class="col-6 pl-0">
+                                    <div class="container-fluid bg-dark h-100 w-100">a</div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -110,7 +121,14 @@
 
                     </div>
                     <div class="card-body" >
-
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and scrambled it to make a type
+                            specimen book. It has survived not only five centuries, but also the leap into
+                            electronic typesetting, remaining essentially unchanged. It was popularised in
+                            the 1960s with the
+                        </p>
                     </div>
                 </div>
             </div>
