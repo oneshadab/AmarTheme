@@ -17,6 +17,8 @@ Route::get('/search', function(){
 });
 Route::post('/validate','userController@validateLogin');
 Route::get('/validate','userController@validateLogin');
+Route::get('/logout','userController@userLogout');
+Route::get('/dashboard','userController@userLogin');
 
 
 Route::get('/product', function(){

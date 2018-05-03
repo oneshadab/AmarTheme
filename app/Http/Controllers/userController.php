@@ -8,6 +8,7 @@ use Validator;
 use Auth;
 
 
+
 class userController extends Controller
 {
     //
@@ -26,13 +27,23 @@ class userController extends Controller
         if(Auth::attempt($user_data))
         {
 
-            return view('dashboard');
+            $request->session()->set('email',$request->get('email'));
+            return redirect('/dashboard');
         }
         else
         {
 
-            return "Doesn't";
+            return redirect('/registration');
         }
 
+    }
+    public function userLogin()
+    {
+        return view('/dashboard');
+    }
+    public function userLogout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/');
     }
 }
