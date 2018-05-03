@@ -15,7 +15,25 @@
 
 </head>
 <body class="w-100 bg-info">
-
+<!--
+    Snippet for clickable class
+    Usage <... class="clickable" data-url=$target_url >
+!-->
+    <script>
+        $(document).ready(function ($) {
+            $('.clickable').click(function () {
+                var url = $(this).data('url');
+                window.location = url;
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .clickable:hover{
+            cursor: pointer;
+        }
+    </style>
+<!-- -------------------------- !-->
 
 <div class="container">
     <div class="row">

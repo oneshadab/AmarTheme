@@ -1,6 +1,7 @@
 
 @extends('layout')
 @section('content')
+
     <div class="container mt-5 mb-5">
         <div class="card">
             <div class="card-body row p-0 pl-3">
@@ -28,25 +29,23 @@
         );
         @endphp
         @foreach($categories as $c)
-            <div class="row ml-2 mt-5">
+            <div class="row ml-2 mt-5 mb-2">
                 <h4>
                     <i class="{{$c['icon']}}"></i>
                     {{ $c['title'] }}
                 </h4>
             </div>
+
             <div class="card">
                 <div class="row card-body">
                     @foreach($products as $p)
                     <div class="col-4">
-                        <div class="row">
+                        <div class="row" >
                             <div class="col-2"></div>
-                            <div class="col-7 card pl-0 pr-0 pb-3 text-center">
+                            <div class="col-7 card pl-0 pr-0 pb-3 text-center clickable" data-url="{{$p['id']}}">
                                 <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="206px">
                                 <div class="row mt-1 p-1">
                                     <div class="col-12 mx-auto">
-                                        <div class="row mx-auto">
-                                            <h4 class="mx-auto">{{ $p['name']  }}</h4>
-                                        </div>
                                         <div class="row mx-auto">
                                             <h5 class="text-center mx-auto">
                                                 @for($i = 1; $i <= 5; $i++)
@@ -58,11 +57,8 @@
                                                 @endfor
                                             </h5>
                                         </div>
-                                        <div class="row text-center">
-                                            <button class="btn btn-primary mx-auto">
-                                                <i class="fas fa-eye"></i>
-                                                view
-                                            </button>
+                                        <div class="row mx-auto">
+                                            <h4 class="mx-auto">{{ $p['name']  }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +66,6 @@
                             </div>
 
                         </div>
-
                     </div>
                     @endforeach
                 </div>
