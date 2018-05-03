@@ -51,6 +51,10 @@
                     <div class="card-body">
                         <form id="register-form">
                             <div class="form-group row">
+                                <label class="col-3 col-form-label" for="email">Name: </label>
+                                <div class="col-9"> <input type="text" class="form-control" name="name" placeholder="Full name"></div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-3 col-form-label" for="email">Email: </label>
                                 <div class="col-9"> <input type="text" class="form-control" name="email" placeholder="Email"></div>
                             </div>

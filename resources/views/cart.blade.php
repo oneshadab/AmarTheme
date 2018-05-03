@@ -24,10 +24,10 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th>Name</th>
-                        <th class="text-right">Price</th>
-                        <th class="text-right">Quantity</th>
-                        <th class="text-right">Cost</th>
+                        <th><h5>Name</h5></th>
+                        <th class="text-right"><h5>Price</h5></th>
+                        <th class="text-right"><h5>Quantity</h5></th>
+                        <th class="text-right"><h5>Cost</h5></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,10 +36,10 @@
                         <td style="width: 64px;">
                             <img src="{{$i['image_url']}}"  style="object-fit: cover;" align="right" height="128px" width="128px">
                         </td>
-                        <td><?= $i['name']?></td>
-                        <td class="text-right">{{$i['price']}}</td>
-                        <td class="text-right">{{$i['count']}}</td>
-                        <td class="text-right">{{$i['price'] * $i['count']}}</td>
+                        <td><h5>{{$i['name']}}</h5></td>
+                        <td class="text-right"><h5>{{$i['price']}}</h5></td>
+                        <td class="text-right"><h5>{{$i['count']}}</h5></td>
+                        <td class="text-right"><h5>{{$i['price'] * $i['count']}}</h5></td>
 
                     </tr>
                     @endforeach
