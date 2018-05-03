@@ -32,10 +32,10 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <button type="submit" class="btn btn-primary btn-block">
+                                    <a class="btn btn-primary btn-block text-white" href="{{route('registration')}}">
                                         <i class="fas fa-user-plus"></i>
                                         Register
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="form-group col-6">
                                     <button type="submit" class="btn btn-primary btn-block">

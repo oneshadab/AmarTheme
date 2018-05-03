@@ -42,7 +42,7 @@
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-2"></div>
-                            <div class="col-7 card pl-0 pr-0 pb-3 text-center clickable" data-url="{{$p['id']}}">
+                            <div class="col-7 card pl-0 pr-0 pb-3 text-center clickable" data-url="{{route('product')}}">
                                 <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="206px">
                                 <div class="row mt-1 p-1">
                                     <div class="col-12 mx-auto">
