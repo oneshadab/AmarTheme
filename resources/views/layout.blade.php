@@ -75,10 +75,13 @@
             </div>
         </div>
     </div>
-    <div class="row p-0 bg-white" style="min-height: 700px;">
+    <div class="row p-0 bg-white">
         <div class="container mt-5">
             @yield('content')
         </div>
+    </div>
+    <div class="row bg-white" style="min-height: 200px;">
+
     </div>
 
 
