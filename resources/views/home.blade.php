@@ -1,7 +1,18 @@
 
 @extends('layout')
 @section('content')
-
+    @php
+        #Remove this snippet once backend is complete
+        $categories = array(
+            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
+            array("title" => "Event", "icon" => "fas fa-calendar"),
+        );
+        $products = array(
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+        );
+    @endphp
     <div class="container mt-5 mb-5">
         <div class="card">
             <div class="card-body row p-0 pl-3">
@@ -16,18 +27,7 @@
         </div>
     </div>
     <div class="container">
-        @php
-        #Remove this snippet once backend is complete
-        $categories = array(
-            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
-            array("title" => "Event", "icon" => "fas fa-calendar"),
-        );
-        $products = array(
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-        );
-        @endphp
+
         @foreach($categories as $c)
             <div class="row ml-2 mt-5 mb-2">
                 <h4>
