@@ -24,3 +24,6 @@ Route::get('/product', function(){
 Route::get('/registration', function(){
     return view('registration');
 });
+Route::get('/cart', function(){
+    return view('cart');
+});

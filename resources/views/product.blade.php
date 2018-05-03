@@ -22,20 +22,40 @@
 
         });
     </script>
+    <style type='text/css'>
+        #product-carousel {
+            margin: 20px auto;
+        }
+        #product-carousel .carousel-indicators {
+            margin: 10px 0 0;
+            overflow: auto;
+            position: static;
+            text-align: left;
+            white-space: nowrap;
+            width: 100%;
+        }
+        #product-carousel .carousel-indicators li {
+            background-color: transparent;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            display: inline-block;
+            height: auto;
+            margin: 0 !important;
+            width: auto;
+        }
+        #product-carousel .carousel-indicators li img {
+            display: block;
+        }
+        #product-carousel .carousel-outer {
+            position: relative;
+        }
+    </style>
     <div class="container " style="height: 450px;">
         <div class="row mt-5 h-100" >
             <div class="col-8 h-100">
                 <div class="card h-100"  >
                     <div class="card-body p-0">
                         <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                @for($index = 0; $index < sizeof($images); $index++)
-                                @php($i = $images[$index])
-                                <li class="carousel-indicators-li" data-target="#product-carousel" data-slide-to="{{$index}}">
-                                    <img src="{{$i}}">
-                                </li>
-                                @endfor
-                            </ol>
                             <div class="carousel-inner">
                                 @foreach($images as $i)
                                 <div class="carousel-item">
@@ -51,6 +71,14 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+                            <ol class="carousel-indicators">
+                                @for($index = 0; $index < sizeof($images); $index++)
+                                    @php($i = $images[$index])
+                                    <li class="carousel-indicators-li" data-target="#product-carousel" data-slide-to="{{$index}}">
+                                        <img src="{{$i}}" height="80px">
+                                    </li>
+                                @endfor
+                            </ol>
                         </div>
                     </div>
                 </div>
