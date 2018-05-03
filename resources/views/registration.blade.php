@@ -61,8 +61,9 @@
                                 </div>
                             </div>
                         </form>
-                        <form id="login-form">
+                        <form id="login-form" action="{{ url('/validate') }}" method="post">
                             <div class="form-group row">
+                                {{ csrf_field() }}
                                 <label class="col-3 col-form-label" for="email">Email: </label>
                                 <div class="col-9"> <input type="text" class="form-control" name="email" placeholder="Email"></div>
                             </div>

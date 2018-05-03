@@ -10,13 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/','homeController@index');
 
 Route::get('/search', function(){
     return view('search');
 });
+Route::post('/validate','userController@validateLogin');
+Route::get('/validate','userController@validateLogin');
+
 
 Route::get('/product', function(){
     return view('product');
@@ -24,3 +25,8 @@ Route::get('/product', function(){
 Route::get('/registration', function(){
     return view('registration');
 });
+Route::get('/dashboard', function(){
+    return view('dashboard');
+});
+
+?>
