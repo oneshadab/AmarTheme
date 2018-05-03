@@ -15,187 +15,96 @@
         </div>
     </div>
     <div class="container">
-        <div class="row ml-2 mt-5">
-            <h4>
-                <i class="fab fa-sellcast"></i>
-                E-Commerce
-            </h4>
-        </div>
-        <div class="card">
-            <div class="row card-body">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
+            <div class="row ml-2 mt-5">
+                <h4>
+                    <i class="fab fa-sellcast"></i>
+                    E-Commerce
+                </h4>
+            </div>
+            <div class="card">
+                <div class="row card-body">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-9 card pl-4 pt-2">
+                                <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
+                                <div class="row mt-1 p-1">
+                                    <div class="col-2"></div>
+                                    <div class="col-9">
+                                        <div class="row ml-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="row mt-1 ml-3"><button class="btn btn-primary">
+                                                <i class="fas fa-eye"></i>
+                                                view
+                                            </button></div>
                                     </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-9 card pl-4 pt-2">
+                                <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
+                                <div class="row mt-1 p-1">
+                                    <div class="col-2"></div>
+                                    <div class="col-9">
+                                        <div class="row ml-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="row mt-1 ml-3"><button class="btn btn-primary">
+                                                <i class="fas fa-eye"></i>
+                                                view
+                                            </button></div>
                                     </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-9 card pl-4 pt-2">
+                                <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
+                                <div class="row mt-1 p-1">
+                                    <div class="col-2"></div>
+                                    <div class="col-9">
+                                        <div class="row ml-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <div class="row mt-1 ml-3"><button class="btn btn-primary">
+                                                <i class="fas fa-eye"></i>
+                                                view
+                                            </button></div>
                                     </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
                                 </div>
+
                             </div>
 
                         </div>
 
                     </div>
-
                 </div>
             </div>
-        </div>
-        <div class="row ml-2 mt-5">
-            <h4>
-                <i class="fas fa-calendar"></i>
-                Event
-            </h4>
-        </div>
-        <div class="card">
-            <div class="row card-body">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
 @stop

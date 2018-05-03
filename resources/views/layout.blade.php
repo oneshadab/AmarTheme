@@ -21,8 +21,13 @@
     <div class="row">
         <div class="col-12 bg-white">
             <div class="container w-100">
-                <div class="row p-4">
-                    <h1 class="">AmarTheme.com</h1>
+                <div class="row p-4 h-75 pr-0">
+                    <div class="col-8">
+                        <h1 class="">AmarTheme.com</h1>
+                    </div>
+                    <div class="col-4">
+                        @include('registration_box')
+                    </div>
                 </div>
                 <div class="w-100 mt-4">
                     <nav class="navbar navbar-expand navbar-dark bg-primary rounded">
