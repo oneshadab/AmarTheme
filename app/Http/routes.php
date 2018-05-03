@@ -12,15 +12,18 @@
 */
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/search', function(){
     return view('search');
-});
+})->name('search');
 
 Route::get('/product', function(){
     return view('product');
-});
+})->name('product');
 Route::get('/registration', function(){
     return view('registration');
-});
+})->name('registration');
+Route::get('/cart', function(){
+    return view('cart');
+})->name('cart');

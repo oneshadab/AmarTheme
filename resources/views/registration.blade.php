@@ -9,37 +9,51 @@
                 $('#login-form').hide();
                 $('#register-tab').addClass('active');
                 $('#login-tab').removeClass('active');
+                $('#login-tab').addClass('disabled');
+                $('#register-tab').removeClass('disabled');
+                event.stopPropagation();
             });
             $('#login-tab').click(function () {
                 $('#register-form').hide();
                 $('#login-form').show();
                 $('#login-tab').addClass('active');
                 $('#register-tab').removeClass('active');
+                $('#register-tab').addClass('disabled');
+                $('#login-tab').removeClass('disabled');
+                event.stopPropagation();
+
             });
             $('#register-tab').trigger("click");
         })
     </script>
+    <style>
+        button:focus {outline:0 !important;}
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
                 <div class="card">
                     <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark active" id="register-tab" href="#">
+                        <ul class="nav nav-tabs card-header-tabs w-100">
+                            <li class="nav-item w-50">
+                                <button class="nav-link text-dark active w-100" id="register-tab">
                                     <i class="fas fa-user-plus"></i> Register
-                                </a>
+                                </button>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark"  id="login-tab" href="#" >
+                            <li class="nav-item w-50">
+                                <button class="nav-link text-dark w-100 disabled"  id="login-tab" href="#" >
                                     <i class="fas fa-sign-in-alt"></i> Login
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body">
                         <form id="register-form">
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label" for="email">Name: </label>
+                                <div class="col-9"> <input type="text" class="form-control" name="name" placeholder="Full name"></div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="email">Email: </label>
                                 <div class="col-9"> <input type="text" class="form-control" name="email" placeholder="Email"></div>
