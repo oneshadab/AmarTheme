@@ -10,6 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/','homeController@index');
+
+Route::get('/search', function(){
+    return view('search');
+});
+Route::post('/validate','userController@validateLogin');
+Route::get('/validate','userController@validateLogin');
+Route::get('/logout','userController@userLogout');
+Route::get('/dashboard','userController@userLogin');
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -27,3 +37,5 @@ Route::get('/registration', function(){
 Route::get('/cart', function(){
     return view('cart');
 })->name('cart');
+
+?>
