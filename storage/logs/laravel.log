@@ -3888,3 +3888,329 @@ Stack trace:
 #17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #18 C:\xampp\htdocs\AmarTheme\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #19 {main}  
+[2018-05-04 22:28:23] local.ERROR: exception 'Symfony\Component\Console\Exception\CommandNotFoundException' with message 'Command "db:seen" is not defined.
+
+Did you mean this?
+    db:seed' in C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php:515
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(183): Symfony\Component\Console\Application->find('db:seen')
+#1 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2018-05-04 22:28:34] local.ERROR: exception 'ErrorException' with message 'The use statement with non-compound name 'DB' has no effect' in C:\xampp\htdocs\AmarTheme\database\seeds\ProductTableSeeder.php:4
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\composer\ClassLoader.php(444): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'The use stateme...', 'C:\\xampp\\htdocs...', 4, Array)
+#1 C:\xampp\htdocs\AmarTheme\vendor\composer\ClassLoader.php(444): Composer\Autoload\includeFile()
+#2 C:\xampp\htdocs\AmarTheme\vendor\composer\ClassLoader.php(322): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#3 [internal function]: Composer\Autoload\ClassLoader->loadClass('ProductTableSee...')
+#4 [internal function]: spl_autoload_call('ProductTableSee...')
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(734): ReflectionClass->__construct('ProductTableSee...')
+#6 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(629): Illuminate\Container\Container->build('ProductTableSee...', Array)
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(697): Illuminate\Container\Container->make('ProductTableSee...', Array)
+#8 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(74): Illuminate\Foundation\Application->make('ProductTableSee...')
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): Illuminate\Database\Console\Seeds\SeedCommand->getSeeder()
+#10 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#11 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#12 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#13 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#15 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}  
+[2018-05-04 22:31:00] local.ERROR: exception 'Symfony\Component\Console\Exception\CommandNotFoundException' with message 'Command "make" is not defined.
+
+Did you mean one of these?
+    make:controller
+    make:middleware
+    make:migration
+    make:provider
+    make:listener
+    make:console
+    make:request
+    make:policy
+    make:seeder
+    make:model
+    make:event
+    make:test
+    make:auth
+    make:job' in C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php:515
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(183): Symfony\Component\Console\Application->find('make')
+#1 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2018-05-04 22:34:01] local.ERROR: exception 'ErrorException' with message 'Illegal offset type in isset or empty' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php:1076
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(1076): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Illegal offset ...', 'C:\\xampp\\htdocs...', 1076, Array)
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(691): Illuminate\Container\Container->getAlias(Array)
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(55): Illuminate\Foundation\Application->make(Array)
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): Illuminate\Database\Seeder->resolve(Array)
+#4 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(19): Illuminate\Database\Seeder->call(Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#6 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#8 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#11 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#13 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#16 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}  
+[2018-05-04 22:39:25] local.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:457
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(457): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(722): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `pr...', Array)
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `pr...', Array, Object(Closure))
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `pr...', Array, Object(Closure))
+#4 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `pr...', Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `pr...', Array)
+#6 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(31): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#8 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#13 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#16 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#18 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#19 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY' (SQL: insert into `products` (`product_id`, `product_name`, `product_category`, `product_description`, `product_status`, `product_price`, `developer_id`) values (1, First Product, WORDPRESS, Worse Product Ever, available, 10, 1))' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:729
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `pr...', Array, Object(Closure))
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `pr...', Array, Object(Closure))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `pr...', Array)
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `pr...', Array)
+#4 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(31): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#6 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#8 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#11 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#13 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#16 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}  
+[2018-05-04 22:39:46] local.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`demodb`.`images`, CONSTRAINT `images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE)' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:457
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(457): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(722): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `im...', Array)
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `im...', Array, Object(Closure))
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `im...', Array, Object(Closure))
+#4 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `im...', Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `im...', Array)
+#6 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(52): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#8 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#13 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#16 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#18 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#19 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`demodb`.`images`, CONSTRAINT `images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE) (SQL: insert into `images` (`link`, `product_id`) values (http://i68.tinypic.com/124j41d.png, 13))' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:729
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `im...', Array, Object(Closure))
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `im...', Array, Object(Closure))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `im...', Array)
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `im...', Array)
+#4 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(52): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#6 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#8 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#11 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#13 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#16 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}  
+[2018-05-04 22:40:17] local.ERROR: exception 'Symfony\Component\Console\Exception\CommandNotFoundException' with message 'Command "seed" is not defined.
+
+Did you mean one of these?
+    db:seed
+    make:seeder' in C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php:515
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(183): Symfony\Component\Console\Application->find('seed')
+#1 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2018-05-04 22:40:25] local.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`demodb`.`images`, CONSTRAINT `images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE)' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:457
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(457): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(722): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `im...', Array)
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `im...', Array, Object(Closure))
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `im...', Array, Object(Closure))
+#4 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `im...', Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `im...', Array)
+#6 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(52): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#8 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#13 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`demodb`.`images`, CONSTRAINT `images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE) (SQL: insert into `images` (`link`, `product_id`) values (http://i68.tinypic.com/124j41d.png, 13))' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:729
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `im...', Array, Object(Closure))
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `im...', Array, Object(Closure))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `im...', Array)
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `im...', Array)
+#4 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(52): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#6 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#8 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#11 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 {main}  
+[2018-05-04 22:41:20] local.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`demodb`.`images`, CONSTRAINT `images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE)' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:457
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(457): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(722): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `im...', Array)
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `im...', Array, Object(Closure))
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `im...', Array, Object(Closure))
+#4 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `im...', Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `im...', Array)
+#6 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(61): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#8 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#13 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#16 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#18 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#19 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`demodb`.`images`, CONSTRAINT `images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE) (SQL: insert into `images` (`link`, `product_id`) values (http://i68.tinypic.com/124j41d.png, 23))' in C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php:729
+Stack trace:
+#0 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(685): Illuminate\Database\Connection->runQueryCallback('insert into `im...', Array, Object(Closure))
+#1 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(458): Illuminate\Database\Connection->run('insert into `im...', Array, Object(Closure))
+#2 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Connection.php(414): Illuminate\Database\Connection->statement('insert into `im...', Array)
+#3 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2091): Illuminate\Database\Connection->insert('insert into `im...', Array)
+#4 C:\xampp\htdocs\AmarTheme\database\seeds\DatabaseSeeder.php(61): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#6 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2314): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#7 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#8 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#9 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#11 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#12 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#13 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#14 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(86): Illuminate\Console\Command->call('db:seed', Array)
+#15 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(58): Illuminate\Database\Console\Migrations\RefreshCommand->runSeeder(NULL)
+#16 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#17 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Container\Container.php(507): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(794): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\AmarTheme\vendor\symfony\console\Application.php(117): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\AmarTheme\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\AmarTheme\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}  

@@ -22,15 +22,16 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('1')]
 
         );
+        //$this->call(ProductTableSeeder::class);
         DB::table('products')->insert(
             ['product_id' => 1,'product_name'=>'First Product',
-                'product_category'=>'Wordpress','product_description' => 'Worse Product Ever' ,
+                'product_category'=>'WORDPRESS','product_description' => 'Worse Product Ever' ,
                 'product_status' => 'available','product_price' => 10,'developer_id' => 1]
 
         );
         DB::table('products')->insert(
             ['product_name'=>'Second Product',
-                'product_category'=>'Html','product_description' => 'Best Product Ever' ,
+                'product_category'=>'HTML','product_description' => 'Best Product Ever' ,
                 'product_status' => 'unavailable','product_price' => 100,'developer_id' => 1]
 
         );
@@ -38,18 +39,21 @@ class DatabaseSeeder extends Seeder
         {
             DB::table('products')->insert(
                 ['product_name'=>"Product $i",
-                    'product_category'=>'Html','product_description' => 'Best Product Ever' ,
+                    'product_category'=>'HTML','product_description' => 'Best Product Ever' ,
                     'product_status' => 'available','product_price' => 100,'developer_id' => 1]
 
             );
         }
-        for($i=1;$i<=12;$i++)
-        {
-            DB::table('images')->insert(
-                ['link' => 'http://i68.tinypic.com/124j41d.png','product_id'=>$i]
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('products')->insert(
+                ['product_name' => "Product $i",
+                    'product_category' => 'WORDPRESS', 'product_description' => 'Best Product Ever $i',
+                    'product_status' => 'available', 'product_price' => 100, 'developer_id' => 1]
 
             );
+
         }
+
         for($i=1;$i<=12;$i++)
         {
             $r=($i%5)+1;
@@ -77,5 +81,6 @@ class DatabaseSeeder extends Seeder
             ['quantity'=>2,'product_id' => 2,'buyer_id' => 2]
 
         );
+        $this->call(ImageTableSeeder::class);
     }
 }
