@@ -21,7 +21,13 @@ class homeController extends Controller
             $email=Session::get('email');
             $user_info=DB::select("SELECT user_id,user_name,email FROM users WHERE email LIKE '$email' ");
             $user_info=$user_info[0];
-            return view('home',compact('user_info'));
+
+            $WORDPRESS=DB::select("SELECT * FROM products WHERE product_category LIKE 'WORDPRESS' ORDER BY rand() LIMIT 6");
+            $HTML=DB::select("SELECT * FROM products WHERE product_category LIKE 'HTML' ORDER BY rand() LIMIT 6");
+            $TITLES=array('WORDPRESS','HTML');
+            $PRODUCTS=array('0' => $WORDPRESS,'1'=> $HTML);
+
+            return view('home',compact('user_info','PRODUCTS','TITLES'));
         }
         else
         {

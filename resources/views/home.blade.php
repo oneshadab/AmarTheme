@@ -4,7 +4,21 @@
     @php
         #Remove this snippet once backend is complete
         if(isset($user_info))
-            echo "Welcome ".$user_info->user_name;
+        {
+            //echo "Welcome ".$user_info->user_name."<br>";
+
+            for($i=0;$i<2;$i++)
+            {
+                echo  "<b>".$TITLES[$i]."</b><br><br>";
+                foreach ($PRODUCTS[$i] as $PRODUCT)
+                {
+                    echo $PRODUCT->product_name."<br>";
+                }
+            }
+        }
+
+
+
         $categories = array(
             array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
             array("title" => "Event", "icon" => "fas fa-calendar"),
