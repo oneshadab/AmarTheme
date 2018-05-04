@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
 use Auth;
+use Session;
 
 
 
@@ -27,7 +28,7 @@ class userController extends Controller
         if(Auth::attempt($user_data))
         {
 
-            $request->session()->set('email',$request->get('email'));
+            Session::set('email',$request->get('email'));
             return redirect('/dashboard');
         }
         else
@@ -39,7 +40,11 @@ class userController extends Controller
     }
     public function userLogin()
     {
-        return view('/dashboard');
+        $email=Session::get('email');
+       // $user_info=DB::selct("SELECT * FROM users WHERE email LIKE $email ");
+        //dd($user_info);
+
+        return view('dashboard')->with('name', 'Victoria');
     }
     public function userLogout(Request $request)
     {
