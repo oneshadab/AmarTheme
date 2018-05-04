@@ -13,11 +13,12 @@ class CreateImageTable extends Migration
     public function up()
     {
         Schema::create('images', function ($table) {
+            $table->increments('image_id');
             $table->longText('link');
         });
         Schema::table('images', function (Blueprint $table) {
             $table->unsignedInteger('product_id');
-            $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateImageTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('image');
+        Schema::dropIfExists('images');
     }
 }

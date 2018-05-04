@@ -14,7 +14,7 @@ class CreateProductTable extends Migration
     {
         //
 
-        Schema::create('product',function (Blueprint $table)
+        Schema::create('products',function (Blueprint $table)
         {
             $table->increments('product_id');
             $table->string('product_name');
@@ -23,7 +23,7 @@ class CreateProductTable extends Migration
             $table->enum('product_status', ['available', 'unavailable']);
             $table->float('product_price');
         });
-        Schema::table('product', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->unsignedInteger('developer_id');
             $table->foreign('developer_id')->references('user_id')->on('users')->onDelete('cascade');
         });
@@ -37,6 +37,6 @@ class CreateProductTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 }
