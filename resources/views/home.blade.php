@@ -1,6 +1,18 @@
 
 @extends('layout')
 @section('content')
+    @php
+        #Remove this snippet once backend is complete
+        $categories = array(
+            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
+            array("title" => "Event", "icon" => "fas fa-calendar"),
+        );
+        $products = array(
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+        );
+    @endphp
     <div class="container mt-5 mb-5">
         <div class="card">
             <div class="card-body row p-0 pl-3">
@@ -15,187 +27,49 @@
         </div>
     </div>
     <div class="container">
-        <div class="row ml-2 mt-5">
-            <h4>
-                <i class="fab fa-sellcast"></i>
-                E-Commerce
-            </h4>
-        </div>
-        <div class="card">
-            <div class="row card-body">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
+
+        @foreach($categories as $c)
+            <div class="row ml-2 mt-5 mb-2">
+                <h4>
+                    <i class="{{$c['icon']}}"></i>
+                    {{ $c['title'] }}
+                </h4>
+            </div>
+
+            <div class="card">
+                <div class="row card-body">
+                    @foreach($products as $p)
+                    <div class="col-4">
+                        <div class="row" >
+                            <div class="col-2"></div>
+                            <div class="col-7 card pl-0 pr-0 pb-3 text-center clickable" data-url="{{route('product')}}">
+                                <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="206px">
+                                <div class="row mt-1 p-1">
+                                    <div class="col-12 mx-auto">
+                                        <div class="row mx-auto">
+                                            <h5 class="text-center mx-auto">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    @if($p['rating'] >= $i)
+                                                        <i class="fas fa-star"></i>
+                                                    @else
+                                                        <i class="far fa-star"></i>
+                                                    @endif
+                                                @endfor
+                                            </h5>
+                                        </div>
+                                        <div class="row mx-auto">
+                                            <h4 class="mx-auto">{{ $p['name']  }}</h4>
+                                        </div>
                                     </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
                                 </div>
+
                             </div>
 
                         </div>
-
                     </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
-        </div>
-        <div class="row ml-2 mt-5">
-            <h4>
-                <i class="fas fa-calendar"></i>
-                Event
-            </h4>
-        </div>
-        <div class="card">
-            <div class="row card-body">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 @stop
