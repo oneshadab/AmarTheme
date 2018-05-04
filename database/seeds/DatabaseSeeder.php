@@ -34,22 +34,33 @@ class DatabaseSeeder extends Seeder
                 'product_status' => 'unavailable','product_price' => 100,'developer_id' => 1]
 
         );
-        DB::table('images')->insert(
-            ['link' => 'http://oi39.tinypic.com/vzhris.jpg','product_id'=>1]
+        for($i=0;$i<10;$i++)
+        {
+            DB::table('products')->insert(
+                ['product_name'=>"Product $i",
+                    'product_category'=>'Html','product_description' => 'Best Product Ever' ,
+                    'product_status' => 'available','product_price' => 100,'developer_id' => 1]
 
-        );
-        DB::table('images')->insert(
-            ['link' => 'https://i.ytimg.com/vi/4tdKl-gTpZg/maxresdefault.jpg','product_id'=>1]
+            );
+        }
+        for($i=1;$i<=12;$i++)
+        {
+            DB::table('images')->insert(
+                ['link' => 'http://oi39.tinypic.com/vzhris.jpg','product_id'=>$i]
 
-        );
-        DB::table('ratings')->insert(
-            ['rating'=>'3','product_id' => 1,'user_id' => 2]
+            );
+        }
+        for($i=1;$i<=12;$i++)
+        {
+            $r=($i%5)+1;
+            DB::table('ratings')->insert(
+                ['rating'=>"$r",'product_id' => $i,'user_id' => 2]
 
-        );
-        DB::table('ratings')->insert(
-            ['rating'=>'5','product_id' => 1,'user_id' => 1]
+            );
+        }
 
-        );
+
+
         DB::table('transactions')->insert(
             ['quantity'=>3,'product_id' => 1,'buyer_id' => 2]
 
