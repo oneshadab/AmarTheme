@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRatingTable extends Migration
+class CreateCartTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateRatingTable extends Migration
     public function up()
     {
         //
-        Schema::create('rating', function ($table) {
-            $table->increments('rating_id');
-            $table->enum('rating', ['1','2','3','4','5']);
+        Schema::create('cart', function ($table) {
+            $table->increments('cart_id');
+            $table->interger('quantity');
+
         });
-        Schema::table('rating', function (Blueprint $table) {
+        Schema::table('cart', function (Blueprint $table) {
             $table->unsignedInteger('product_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('buyer_id');
             $table->foreign('product_id')->references('product_id')->on('product')->onDelete('cascade');
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('buyer_id')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -33,6 +34,6 @@ class CreateRatingTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('rating');
+        Schema::dropIfExists('cart');
     }
 }
