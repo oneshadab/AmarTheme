@@ -18,6 +18,7 @@ class CreateProductTable extends Migration
         {
             $table->increments('product_id');
             $table->string('product_name');
+            $table->string('product_category');
             $table->string('product_description');
             $table->enum('product_status', ['available', 'unavailable']);
             $table->float('product_price');
