@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         for($i=1;$i<=12;$i++)
         {
             DB::table('images')->insert(
-                ['link' => 'http://oi39.tinypic.com/vzhris.jpg','product_id'=>$i]
+                ['link' => 'http://i68.tinypic.com/124j41d.png','product_id'=>$i]
 
             );
         }

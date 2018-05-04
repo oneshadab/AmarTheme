@@ -3,9 +3,7 @@
         <div class="alert alert-danger success-block">
             <strong>Welcome  <?php echo e(Session::get('email')); ?></strong>
             <br />
-            <?php foreach($info as $i): ?>
-                <li><?php echo e($i); ?></li>
-            <?php endforeach; ?>
+
             <a href="<?php echo e(url('/logout')); ?>">Logout</a>
         </div>
     <?php else: ?>

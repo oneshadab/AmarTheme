@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Validator;
 use Auth;
 use Session;
+use DB;
 
 
 
@@ -29,7 +30,7 @@ class userController extends Controller
         {
 
             Session::set('email',$request->get('email'));
-            return redirect('/dashboard');
+            return redirect('/loginSuccess');
         }
         else
         {
@@ -41,14 +42,23 @@ class userController extends Controller
     public function userLogin()
     {
         $email=Session::get('email');
-       // $user_info=DB::selct("SELECT * FROM users WHERE email LIKE $email ");
-        //dd($user_info);
-
-        return view('dashboard')->with('name', 'Victoria');
+        $user_info=DB::select("SELECT * FROM users WHERE email LIKE '$email' ");
+        $user_type=$user_info[0]->user_type;
+        $user_name=$user_info[0]->user_name;
+       // return $user_name;
+        if($user_type=='developer')
+            return view('dashboard',compact('user_name'));
+        //return view('dashboard',compact('user_name'));
+        return redirect('/');
     }
     public function userLogout(Request $request)
     {
-        $request->session()->flush();
+        Session()->flush();
         return redirect('/');
     }
+    public function getUsername()
+    {
+        return "Antor";
+    }
+
 }

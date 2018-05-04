@@ -3,6 +3,8 @@
 @section('content')
     @php
         #Remove this snippet once backend is complete
+        if(isset($user_info))
+            echo "Welcome ".$user_info->user_name;
         $categories = array(
             array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
             array("title" => "Event", "icon" => "fas fa-calendar"),
