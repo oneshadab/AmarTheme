@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
     <?php 
         #Remove this snippet once backend is complete
-        if(isset($user_info))// <- If user is logged in
+        if(isset($user_info))// <- If user is logged in | temporary
         {
             echo "Welcome ".$user_info->user_name."<br>";
-            
+
 
 
         }

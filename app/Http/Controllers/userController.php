@@ -56,6 +56,14 @@ class userController extends Controller
         Session()->flush();
         return redirect('/');
     }
+    public function toCart()
+    {
+        return "Cart in progress";
+    }
+    public function viewCart()
+    {
+        return view('cart');
+    }
     public function getUsername()
     {
         return "Antor";

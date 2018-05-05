@@ -61,4 +61,16 @@ class homeController extends Controller
 
 
     }
+    public function searchProduct()
+    {
+        return view('search');
+    }
+    public function productDetails()
+    {
+        return view('product');
+    }
+    public function registration()
+    {
+        return view('registration');
+    }
 }
