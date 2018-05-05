@@ -23,22 +23,11 @@ class DatabaseSeeder extends Seeder
 
         );
         //$this->call(ProductTableSeeder::class);
-        DB::table('products')->insert(
-            ['product_id' => 1,'product_name'=>'First Product',
-                'product_category'=>'WORDPRESS','product_description' => 'Worse Product Ever' ,
-                'product_status' => 'available','product_price' => 10,'developer_id' => 1]
 
-        );
-        DB::table('products')->insert(
-            ['product_name'=>'Second Product',
-                'product_category'=>'HTML','product_description' => 'Best Product Ever' ,
-                'product_status' => 'unavailable','product_price' => 100,'developer_id' => 1]
-
-        );
         for($i=0;$i<10;$i++)
         {
             DB::table('products')->insert(
-                ['product_name'=>"Product $i",
+                ['product_name'=>"HTML Product $i",
                     'product_category'=>'HTML','product_description' => 'Best Product Ever' ,
                     'product_status' => 'available','product_price' => 100,'developer_id' => 1]
 
@@ -46,7 +35,7 @@ class DatabaseSeeder extends Seeder
         }
         for ($i = 0; $i < 10; $i++) {
             DB::table('products')->insert(
-                ['product_name' => "Product $i",
+                ['product_name' => "WP Product $i",
                     'product_category' => 'WORDPRESS', 'product_description' => 'Best Product Ever $i',
                     'product_status' => 'available', 'product_price' => 100, 'developer_id' => 1]
 
@@ -54,7 +43,7 @@ class DatabaseSeeder extends Seeder
 
         }
 
-        for($i=1;$i<=12;$i++)
+        for($i=1;$i<=20;$i++)
         {
             $r=($i%5)+1;
             DB::table('ratings')->insert(

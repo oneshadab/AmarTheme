@@ -16,23 +16,33 @@ class homeController extends Controller
     //
     public function index()
     {
+        $TITLES=array('WORDPRESS','HTML');
+        for($i=0;$i<2;$i++)
+        {
+            $PRODUCTS[$i]=DB::select( "SELECT products.product_name,products.product_id,ratings.rating,images.link 
+                                     FROM products,ratings,images 
+                                    WHERE products.product_category 
+                                    LIKE '$TITLES[$i]' 
+                                      AND products.product_id=ratings.product_id
+                                      AND products.product_id=images.product_id
+                                    ORDER BY rand() 
+                                    LIMIT 6");
+        }
         if(Session::has('email'))
         {
             $email=Session::get('email');
             $user_info=DB::select("SELECT user_id,user_name,email FROM users WHERE email LIKE '$email' ");
             $user_info=$user_info[0];
 
-            $WORDPRESS=DB::select("SELECT * FROM products WHERE product_category LIKE 'WORDPRESS' ORDER BY rand() LIMIT 6");
-            $HTML=DB::select("SELECT * FROM products WHERE product_category LIKE 'HTML' ORDER BY rand() LIMIT 6");
-            $TITLES=array('WORDPRESS','HTML');
-            $PRODUCTS=array('0' => $WORDPRESS,'1'=> $HTML);
+
+
 
             return view('home',compact('user_info','PRODUCTS','TITLES'));
         }
         else
         {
 
-            return view('home');
+            return view('home',compact('PRODUCTS','TITLES'));
         }
 
     }
