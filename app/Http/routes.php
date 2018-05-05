@@ -37,8 +37,8 @@ Route::get('/registration', function(){
 Route::get('/cart', function(){
     return view('cart');
 })->name('cart');
-Route::get('/tmp', function(){
-    return view('layouts.app');
+Route::get('/dash', function(){
+    return view('dash');
 });
 
 ?>
