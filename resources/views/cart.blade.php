@@ -3,10 +3,6 @@
 
 
 @php
-    $items = array(
-        array("name" => "Product", "image_url" => "http://i68.tinypic.com/124j41d.png", "price" => 100, "count" => 2),
-        array("name" => "Product", "image_url" => "http://i68.tinypic.com/124j41d.png", "price" => 100, "count" => 2),
-    );
     $total = 0;
     foreach ($items as $i){
         $total += $i['price'] * $i['count'];
@@ -34,7 +30,7 @@
                     @foreach ($items as $i)
                     <tr>
                         <td style="width: 64px;">
-                            <img src="{{$i['image_url']}}"  style="object-fit: cover;" align="right" height="128px" width="128px">
+                            <img src="{{$i['img']}}"  style="object-fit: cover;" align="right" height="128px" width="128px">
                         </td>
                         <td><h5>{{$i['name']}}</h5></td>
                         <td class="text-right"><h5>{{$i['price']}}</h5></td>
@@ -62,7 +58,7 @@
                 <form class="row" method="post">
                     <input type="hidden" name="total" value="{{ $total }}">
                     <div class="col-6 text-left">
-                        <a class="btn btn-warning text-white" href="{{$refer}}">
+                        <a class="btn btn-warning text-white" href="{{URL::previous()}}">
                             <i class="fas fa-chevron-left"></i> Continue shopping
                         </a>
                     </div>

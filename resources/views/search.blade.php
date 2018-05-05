@@ -3,13 +3,6 @@
 
     @php
         #Remove this snippet once backend is complete
-        $results = array(
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-        );
         $filters = array(
             array("name" => "Category", "options" => array("E-Commerce", "Event", "WordPress")),
             array("name" => "Rating", "options" => array("1", "2", "3", "4", "5")),
@@ -39,8 +32,13 @@
                             </div>
                             @endforeach
                         </form>
-
+                        <div class="footer">
+                            <button class="btn btn-primary">
+                                Filter
+                            </button>
+                        </div>
                     </div>
+
                 </div>
                 <div class="card w-100 mt-5 " style="min-height: 500px;">
                     <div class="card-body w-100">
@@ -54,11 +52,11 @@
                 @foreach($results as $r)
                 <div class="row mt-3 mr-1">
                     <div class="col-12 card">
-                        <div class="row clickable card-body p-0" data-url="#">
+                        <div class="row clickable card-body p-0" data-url="{{route('product', $r['id'])}}">
                             <div class="col-3 p-0">
-                                <img src="{{$r['img']}}" height="190px" width="190px" style="object-fit: cover;">
+                                <img src="{{$r['img']}}" height="190px" width="236px" style="object-fit: cover;">
                             </div>
-                            <div class="col-9 w-100 p-3">
+                            <div class="col-9 w-100 pt-3 pl-5">
                                 <div class="row">
                                     <div class="col-6">
                                         <h4 class="text-left">{{$r['name']}}</h4>

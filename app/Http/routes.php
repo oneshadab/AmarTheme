@@ -24,16 +24,15 @@ Route::get('/validate','userController@validateLogin');
 Route::get('/logout','userController@userLogout');
 Route::get('/loginSuccess','userController@userLogin');
 Route::get('/addToCart/{id}','userController@toCart')->name('addToCart');
+Route::get('/clearCart/','userController@clearCart')->name('clearCart');
+Route::get('/cart/','userController@viewCart')->name('cart');
 
-Route::get('/product', function(){
-    return view('product');
-})->name('product');
+
+Route::get('/product/{id}', 'productController@show')->name('product');
 Route::get('/registration', function(){
     return view('registration');
 })->name('registration');
-Route::get('/cart', function(){
-    return view('cart');
-})->name('cart');
+
 Route::get('/dash', function(){
     return view('dash');
 });

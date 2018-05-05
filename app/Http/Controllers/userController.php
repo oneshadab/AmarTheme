@@ -58,12 +58,22 @@ class userController extends Controller
     public function toCart($id)
     {
         if(!Session::has('cart')) Session::put('cart', array());
-        Session::push('cart', $id);
+        $cart = Session::get('cart');
+        if(empty($cart[$id])) $cart[$id] = 0;
+        $cart[$id] ++;
+        Session::put('cart', $cart);
         return redirect('/cart');
     }
     public function viewCart()
     {
-
+        $products = array();
+        foreach (Session::get('cart') as $id => $count){
+            $p = productController::get($id);
+            $p['price'] = 100;
+            $p['count'] = $count;
+            $products[] = $p;
+        }
+        return view('cart', ['items' => $products]);
     }
     public function getUsername()
     {
@@ -73,6 +83,10 @@ class userController extends Controller
     public function addToCart($pid)
     {
 
+    }
+
+    public function clearCart(){
+        Session()->flush();
     }
 
 }

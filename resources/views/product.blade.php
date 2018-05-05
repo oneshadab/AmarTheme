@@ -3,16 +3,10 @@
 @section('content')
     @php
         #Remove this snippet once backend is complete
-        $product = array(
-            'name' => "Product",
-            "rating" => 3,
-            "id" => 1,
-            "details" => "lorem",
-        );
         $images = array(
-            "http://i68.tinypic.com/124j41d.png",
-            "http://i68.tinypic.com/124j41d.png",
-            "http://i68.tinypic.com/124j41d.png",
+            $product['img'],
+            $product['img'],
+            $product['img'],
         )
     @endphp
     <script>
@@ -51,6 +45,12 @@
         }
         .carousel-indicators-li.active img{
             border: 2px solid #005cbf;
+        }
+
+        .product-description {
+            max-height: 270px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
     <div class="container " style="height: 450px;">
@@ -113,7 +113,9 @@
                                     <button class="btn btn-primary btn-block">Demo</button>
                                 </div>
                                 <div class="col-6 text-left pl-1 pr-4">
-                                    <button class="btn btn-primary btn-block">Add to cart</button>
+                                    <a class="btn btn-primary btn-block text-white" href="{{route('addToCart', $product['id'])}}">
+                                        Add to cart
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -121,13 +123,8 @@
 
                     </div>
                     <div class="card-body" >
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries, but also the leap into
-                            electronic typesetting, remaining essentially unchanged. It was popularised in
-                            the 1960s with the
+                        <p class="product-description">
+                            {{$product['details']}}
                         </p>
                     </div>
                 </div>

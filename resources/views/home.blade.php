@@ -4,15 +4,7 @@
     @php
         #Remove this snippet once backend is complete
 
-        $categories = array(
-            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
-            array("title" => "Event", "icon" => "fas fa-calendar"),
-        );
-        $products = array(
-            array("name" => "80's MOD", "img" => "http://i67.tinypic.com/6h8ec9.jpg", "rating" => 3, "id" => 1),
-            array("name" => "Bootshop", "img" => "http://i66.tinypic.com/2najjw4.jpg", "rating" => 4, "id" => 2),
-            array("name" => "MayaShop", "img" => "http://i65.tinypic.com/2vanla1.jpg", "rating" => 2, "id" => 3),
-        );
+
     @endphp
     <div class="container mt-5 mb-5">
         <div class="card">
@@ -39,11 +31,11 @@
 
             <div class="card">
                 <div class="row card-body">
-                    @foreach($products as $p)
+                    @foreach($c['products'] as $p)
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-2"></div>
-                            <div class="col-9 card pl-0 pr-0 text-center clickable" data-url="{{route('product')}}">
+                            <div class="col-9 card pl-0 pr-0 text-center clickable" data-url="{{route('product', $p['id'])}}">
                                 <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="265px">
                                 <div class="row mt-1 p-1">
                                     <div class="col-12 mx-auto">
