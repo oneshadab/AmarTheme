@@ -75,9 +75,9 @@
                                         </h5>
                                         <div class="row mt-5"></div>
                                         <div class="text-right mt-5">
-                                            <button class="btn btn-primary">
+                                            <a class="btn btn-primary text-white" href="{{route('addToCart', $r['id'])}} ">
                                                 <i class="fas fa-shopping-cart"></i> Add to cart
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

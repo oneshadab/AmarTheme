@@ -38,7 +38,7 @@
 <!-- -------------------------- !-->
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="min-height: 232px;">
         <div class="col-12 bg-white">
             <div class="container w-100">
                 <div class="row p-4 h-75 pr-0">
@@ -46,7 +46,19 @@
                         <h1 class="">AmarTheme.com</h1>
                     </div>
                     <div class="col-4">
-                        @include('registration_box')
+                        @if(Session::has('email'))
+                            <div class="row">
+                                <div class="col-4">
+                                    <h6></h6>
+                                </div>
+                                <div class="col-8 text-right">
+                                    <button class="btn btn-primary text-right">Dashboard</button>
+                                    <button class="btn btn-primary">Logout</button>
+                                </div>
+                            </div>
+                        @else
+                            @include('registration_box')
+                        @endif
                     </div>
                 </div>
             </div>

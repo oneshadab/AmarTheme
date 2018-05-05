@@ -23,7 +23,7 @@ Route::post('/validate','userController@validateLogin');
 Route::get('/validate','userController@validateLogin');
 Route::get('/logout','userController@userLogout');
 Route::get('/loginSuccess','userController@userLogin');
-Route::get('/addToCart/{id}','userController@toCart');
+Route::get('/addToCart/{id}','userController@toCart')->name('addToCart');
 
 Route::get('/product', function(){
     return view('product');

@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    @if(True)
+    @if(Session::has('email'))
         <div class="alert alert-danger success-block">
             <strong>Welcome  {{Session::get('email')}}</strong>
             <br />

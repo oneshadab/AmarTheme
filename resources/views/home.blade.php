@@ -3,35 +3,15 @@
 @section('content')
     @php
         #Remove this snippet once backend is complete
-        if(isset($user_info))// <- If user is logged in | temporary
-        {
-            echo "Welcome ".$user_info->user_name."<br>";
-
-
-
-        }
-        else
-        {
-
-        }
-
-        for($i=0;$i<2;$i++)
-            {
-                echo  "<b>".$TITLES[$i]."</b><br><br>";
-                foreach ($PRODUCTS[$i] as $PRODUCT)
-                {
-                    echo "Name -> ".$PRODUCT->product_name."<img src=\"$PRODUCT->link\">ID -> $PRODUCT->product_id Rating -> $PRODUCT->rating<br>";
-                }
-            }
 
         $categories = array(
             array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
             array("title" => "Event", "icon" => "fas fa-calendar"),
         );
         $products = array(
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "80's MOD", "img" => "http://i67.tinypic.com/6h8ec9.jpg", "rating" => 3, "id" => 1),
+            array("name" => "Bootshop", "img" => "http://i66.tinypic.com/2najjw4.jpg", "rating" => 4, "id" => 2),
+            array("name" => "MayaShop", "img" => "http://i65.tinypic.com/2vanla1.jpg", "rating" => 2, "id" => 3),
         );
     @endphp
     <div class="container mt-5 mb-5">
@@ -63,8 +43,8 @@
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-2"></div>
-                            <div class="col-7 card pl-0 pr-0 text-center clickable border-0" data-url="{{route('product')}}">
-                                <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="206px">
+                            <div class="col-9 card pl-0 pr-0 text-center clickable" data-url="{{route('product')}}">
+                                <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="265px">
                                 <div class="row mt-1 p-1">
                                     <div class="col-12 mx-auto">
                                         <div class="row mx-auto">

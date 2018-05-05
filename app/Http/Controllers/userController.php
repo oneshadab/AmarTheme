@@ -19,7 +19,6 @@ class userController extends Controller
         $this->validate($request,[
             'email' => 'required|email',
             'password' => 'required'
-
         ]);
 
         $user_data = array(
@@ -56,17 +55,24 @@ class userController extends Controller
         Session()->flush();
         return redirect('/');
     }
-    public function toCart()
+    public function toCart($id)
     {
-        return "Cart in progress";
+        if(!Session::has('cart')) Session::put('cart', array());
+        Session::push('cart', $id);
+        return redirect('/cart');
     }
     public function viewCart()
     {
-        return view('cart');
+
     }
     public function getUsername()
     {
         return "Antor";
+    }
+
+    public function addToCart($pid)
+    {
+
     }
 
 }
