@@ -43,9 +43,25 @@ class homeController extends Controller
 
 
     }
-    public function searchProduct()
+
+    public static function startsWith($haystack, $needle)
     {
-        return view('search', ['results' => productController::getAll()]);
+         $length = strlen($needle);
+        return (substr($haystack, 0, $length) === $needle);
+    }
+
+
+    public function searchProduct(Request $request)
+    {
+        $text = $request->input('text');
+        $results = array();
+        $products = productController::getAll();
+        foreach($products as $p){
+            if(self::startsWith($p['name'], $text)){
+                $results[] = $p;
+            }
+        }
+        return view('search', ['results' => $results]);
     }
     public function productDetails()
     {

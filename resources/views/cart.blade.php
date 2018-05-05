@@ -13,7 +13,16 @@
     <div class="row pl-5 mt-5">
         <div class="card ml-5 mr-5 w-100">
             <div class="card-header">
-                <h4>Shopping Cart</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <h4>Shopping Cart</h4>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a class="btn btn-danger text-right text-white" href="{{route('clearCart')}}">
+                            <i class="fas fa-trash"></i> Clear
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <table class="table">

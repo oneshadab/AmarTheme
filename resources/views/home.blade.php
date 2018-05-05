@@ -10,11 +10,14 @@
         <div class="card">
             <div class="card-body row p-0 pl-3">
                 <div class="col-4 p-0">
-                    <img class="p-0 m-0" src="http://i66.tinypic.com/2d854q0.png" height="300">
+                    <img class="p-0 m-0" src="http://i66.tinypic.com/rcqces.jpg" height="300px" width="300px" style="object-fit: cover;">
                 </div>
                 <div class="col-8 pl-4">
                     <h3>Amartheme.com</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulpu tate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>
+                    <p>Amartheme is an online market .At Amartheme you can buy and sell HTML templates as well as themes for popular CMS products like WordPress,
+                        Joomla and Drupal. Here product price is reasonable and fixed. We provide the customers with all types of facilities, guidelines to help them use the product with ease.
+                        We welcome both local and interntional customers. We also provide them with easy payment method (according to their region).
+                        The site is home to a bustling community of web designers and developers and is the biggest marketplace of its kind.</p>
                 </div>
             </div>
         </div>

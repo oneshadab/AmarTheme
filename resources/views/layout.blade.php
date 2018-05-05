@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" href="http://i67.tinypic.com/2cngrrk.jpg" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
@@ -21,6 +21,9 @@
 !-->
     <script>
         $(document).ready(function ($) {
+            $('.clickable a').click(function () {
+               event.stopPropagation();
+            });
             $('.clickable').click(function () {
                 var url = $(this).data('url');
                 if(url){
@@ -43,7 +46,8 @@
             <div class="container w-100">
                 <div class="row p-4 h-75 pr-0">
                     <div class="col-8">
-                        <h1 class="">AmarTheme.com</h1>
+                        <img src="http://i63.tinypic.com/53v6f7.jpg" height="150px">
+
                     </div>
                     <div class="col-4">
                         @if(Session::has('email'))
@@ -104,15 +108,15 @@
                             </ul>
                         </div>
                         <div class="col-6">
-                            <form >
+                            <form action="{{route('search')}}" method="get">
                                 <div class="row">
                                     <div class="col-10 p-0">
-                                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                                        <input class="form-control" type="text" name='text' placeholder="Search" aria-label="Search">
                                     </div>
                                     <div class="col-1 p-0">
-                                        <a class="btn btn-primary text-white" href="{{route('search')}}">
+                                        <button class="btn btn-primary text-white">
                                             <i class="fas fa-search"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                     <div class="col-1 p-0">
                                         <a class="btn btn-primary text-white" href="{{route('cart')}}">

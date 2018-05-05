@@ -66,6 +66,7 @@ class userController extends Controller
     }
     public function viewCart()
     {
+        if(!Session::has('cart')) Session::put('cart', array());
         $products = array();
         foreach (Session::get('cart') as $id => $count){
             $p = productController::get($id);
@@ -87,6 +88,7 @@ class userController extends Controller
 
     public function clearCart(){
         Session()->flush();
+        return redirect('/cart');
     }
 
 }
