@@ -262,8 +262,12 @@ class ComposerStaticInit31a1be943bd4855bd3558ce6177b6300
     );
 
     public static $classMap = array (
+        'CreateCartTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_202013_create_cart_table.php',
+        'CreateImageTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_195920_create_image_table.php',
         'CreateProductTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_02_184847_create_product_table.php',
+        'CreateRatingTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_200729_create_rating_table.php',
         'CreateSessionTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_03_190144_create_session_table.php',
+        'CreateTransactionTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_200752_create_transaction_table.php',
         'CreateUserTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_02_184839_create_user_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -338,6 +342,7 @@ class ComposerStaticInit31a1be943bd4855bd3558ce6177b6300
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+        'ImageTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ImageTableSeeder.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -743,6 +748,7 @@ class ComposerStaticInit31a1be943bd4855bd3558ce6177b6300
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'ProductTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ProductTableSeeder.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
         'SebastianBergmann\\Comparator\\Comparator' => __DIR__ . '/..' . '/sebastian/comparator/src/Comparator.php',
         'SebastianBergmann\\Comparator\\ComparisonFailure' => __DIR__ . '/..' . '/sebastian/comparator/src/ComparisonFailure.php',

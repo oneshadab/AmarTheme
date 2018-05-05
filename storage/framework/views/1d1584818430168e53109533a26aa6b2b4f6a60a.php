@@ -1,4 +1,37 @@
 <?php $__env->startSection('content'); ?>
+    <?php 
+        #Remove this snippet once backend is complete
+        if(isset($user_info))// <- If user is logged in | temporary
+        {
+            echo "Welcome ".$user_info->user_name."<br>";
+
+
+
+        }
+        else
+        {
+
+        }
+
+        for($i=0;$i<2;$i++)
+            {
+                echo  "<b>".$TITLES[$i]."</b><br><br>";
+                foreach ($PRODUCTS[$i] as $PRODUCT)
+                {
+                    echo "Name -> ".$PRODUCT->product_name."<img src=\"$PRODUCT->link\">ID -> $PRODUCT->product_id Rating -> $PRODUCT->rating<br>";
+                }
+            }
+
+        $categories = array(
+            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
+            array("title" => "Event", "icon" => "fas fa-calendar"),
+        );
+        $products = array(
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
+        );
+     ?>
     <div class="container mt-5 mb-5">
         <div class="card">
             <div class="card-body row p-0 pl-3">
@@ -13,188 +46,51 @@
         </div>
     </div>
     <div class="container">
-        <div class="row ml-2 mt-5">
-            <h4>
-                <i class="fab fa-sellcast"></i>
-                E-Commerce
-            </h4>
-        </div>
-        <div class="card">
-            <div class="row card-body">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
+
+        <?php foreach($categories as $c): ?>
+            <div class="row ml-2 mt-5 mb-2">
+                <h4>
+                    <i class="<?php echo e($c['icon']); ?>"></i>
+                    <?php echo e($c['title']); ?>
+
+                </h4>
+            </div>
+
+            <div class="card">
+                <div class="row card-body">
+                    <?php foreach($products as $p): ?>
+                    <div class="col-4">
+                        <div class="row" >
+                            <div class="col-2"></div>
+                            <div class="col-7 card pl-0 pr-0 pb-3 text-center clickable" data-url="<?php echo e(route('product')); ?>">
+                                <img src="<?php echo e($p['img']); ?>" style="object-fit: cover;" height="206px" width="206px">
+                                <div class="row mt-1 p-1">
+                                    <div class="col-12 mx-auto">
+                                        <div class="row mx-auto">
+                                            <h5 class="text-center mx-auto">
+                                                <?php for($i = 1; $i <= 5; $i++): ?>
+                                                    <?php if($p['rating'] >= $i): ?>
+                                                        <i class="fas fa-star"></i>
+                                                    <?php else: ?>
+                                                        <i class="far fa-star"></i>
+                                                    <?php endif; ?>
+                                                <?php endfor; ?>
+                                            </h5>
+                                        </div>
+                                        <div class="row mx-auto">
+                                            <h4 class="mx-auto"><?php echo e($p['name']); ?></h4>
+                                        </div>
                                     </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
                                 </div>
+
                             </div>
 
                         </div>
-
                     </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
             </div>
-        </div>
-        <div class="row ml-2 mt-5">
-            <h4>
-                <i class="fas fa-calendar"></i>
-                Event
-            </h4>
-        </div>
-        <div class="card">
-            <div class="row card-body">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-9 card pl-4 pt-2">
-                            <div class="row p-1"><img src="http://i68.tinypic.com/124j41d.png" height="180px"></div>
-                            <div class="row mt-1 p-1">
-                                <div class="col-2"></div>
-                                <div class="col-9">
-                                    <div class="row ml-2">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <div class="row mt-1 ml-3"><button class="btn btn-primary">
-                                            <i class="fas fa-eye"></i>
-                                            view
-                                        </button></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

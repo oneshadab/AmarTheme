@@ -3,6 +3,27 @@
 @section('content')
     @php
         #Remove this snippet once backend is complete
+        if(isset($user_info))// <- If user is logged in | temporary
+        {
+            echo "Welcome ".$user_info->user_name."<br>";
+
+
+
+        }
+        else
+        {
+
+        }
+
+        for($i=0;$i<2;$i++)
+            {
+                echo  "<b>".$TITLES[$i]."</b><br><br>";
+                foreach ($PRODUCTS[$i] as $PRODUCT)
+                {
+                    echo "Name -> ".$PRODUCT->product_name."<img src=\"$PRODUCT->link\">ID -> $PRODUCT->product_id Rating -> $PRODUCT->rating<br>";
+                }
+            }
+
         $categories = array(
             array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
             array("title" => "Event", "icon" => "fas fa-calendar"),

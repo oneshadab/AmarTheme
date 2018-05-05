@@ -1,8 +1,9 @@
 <?php $__env->startSection('content'); ?>
     <?php if(Session::has('email')): ?>
         <div class="alert alert-danger success-block">
-            <strong>Welcome<?php echo e(Session::get('email')); ?></strong>
+            <strong>Welcome  <?php echo e(Session::get('email')); ?></strong>
             <br />
+
             <a href="<?php echo e(url('/logout')); ?>">Logout</a>
         </div>
     <?php else: ?>

@@ -10,23 +10,20 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/','homeController@index');
+Route::get('/','homeController@index')->name('home');
+Route::get('/dashboard','homeController@dashboard');
+Route::get('/search', 'homeController@searchProduct')->name('search');
+Route::get('/product', 'homeController@productDetails')->name('product');
+//Route::get('/product/{id}', 'homeController@productDetails')->name('product'); //<- Should be like this
+Route::get('/registration', 'homeController@registration')->name('registration');
 
-Route::get('/search', function(){
-    return view('search');
-});
+
+Route::get('/cart', 'userController@viewCart')->name('cart');
 Route::post('/validate','userController@validateLogin');
 Route::get('/validate','userController@validateLogin');
 Route::get('/logout','userController@userLogout');
-Route::get('/dashboard','userController@userLogin');
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/search', function(){
-    return view('search');
-})->name('search');
+Route::get('/loginSuccess','userController@userLogin');
+Route::get('/addToCart/{id}','userController@toCart');
 
 Route::get('/product', function(){
     return view('product');
@@ -41,4 +38,3 @@ Route::get('/dash', function(){
     return view('dash');
 });
 
-?>
