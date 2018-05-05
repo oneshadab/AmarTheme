@@ -133,18 +133,21 @@
 
 </div>
 
-<div class="container-fluid bg-secondary w-100 text-white m-0 w-100 p-5">
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-2">
-            <div class="row"><div class="col-12"><i class="fas fa-address-card"></i> Contact</div> </div>
-            <div class="row"><div class="col-12"><i class="fas fa-at"></i> E-mail</div></div>
-        </div>
+<div class="container-fluid bg-dark w-100 text-white m-0 w-100 p-5">
+        <div class="row text-center w-75 mx-auto">
+            <div class="col-3">
+                <h6><i class="fas fa-address-card"></i> Contact</h6>
+            </div>
+            <div class="col-3">
+                <h6><i class="fas fa-at"></i> E-mail</h6>
+            </div>
 
-        <div class="col-4"></div>
-        <div class="col-2">
-            <div class="row"><div class="col-12"><i class="fas fa-question-circle"></i> Help and Support</div></div>
-            <div class="row"><div class="col-12"><i class="fas fa-smile"></i> Feedback</div></div>
+            <div class="col-3">
+                <h6><i class="fas fa-question-circle"></i> Help and Support</h6>
+            </div>
+            <div class="col-3">
+                <h6><i class="fas fa-smile"></i> Feedback</h6>
+            </div>
         </div>
     </div>
 </div>

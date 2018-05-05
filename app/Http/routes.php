@@ -25,4 +25,16 @@ Route::get('/logout','userController@userLogout');
 Route::get('/loginSuccess','userController@userLogin');
 Route::get('/addToCart/{id}','userController@toCart');
 
+Route::get('/product', function(){
+    return view('product');
+})->name('product');
+Route::get('/registration', function(){
+    return view('registration');
+})->name('registration');
+Route::get('/cart', function(){
+    return view('cart');
+})->name('cart');
+Route::get('/dash', function(){
+    return view('dash');
+});
 

@@ -62,7 +62,7 @@
                             <div class="carousel-inner">
                                 @foreach($images as $i)
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{$i}}" style="object-fit: cover;" height="350px" width="500px">
+                                    <img class="d-block w-100 bg-secondary" src="{{$i}}" style="object-fit: contain;" height="350px" width="500px">
                                 </div>
                                 @endforeach
                             </div>

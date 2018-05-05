@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    @if(Session::has('email'))
+    @if(True)
         <div class="alert alert-danger success-block">
             <strong>Welcome  {{Session::get('email')}}</strong>
             <br />
@@ -8,6 +8,8 @@
             <a href="{{ url('/logout') }}">Logout</a>
         </div>
     @else
-        {{"GO HOME"}}
+        <div>
+            {{"GO HOME"}}
+        </div>
     @endif
 @stop
