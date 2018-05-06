@@ -6,6 +6,16 @@
 
 
     @endphp
+    <style>
+        .product-card{
+            min-height: 470px;
+            transition: .3s;
+        }
+        .product-card:hover{
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+    </style>
     <div class="container mt-5 mb-5">
         <div class="card">
             <div class="card-body row p-0 pl-3">
@@ -25,25 +35,28 @@
     <div class="container">
 
         @foreach($categories as $c)
-            <div class="row ml-2 mt-5 mb-2">
-                <h4>
-                    <i class="{{$c['icon']}}"></i>
-                    {{ $c['title'] }}
-                </h4>
+            <div class="row ml-2 mt-5 mb-2 text-center">
+
             </div>
 
-            <div class="card">
-                <div class="row card-body">
+            <div class="row">
                     @foreach($c['products'] as $p)
                     <div class="col-4">
                         <div class="row" >
-                            <div class="col-2"></div>
-                            <div class="col-9 card pl-0 pr-0 text-center clickable" data-url="{{route('product', $p['id'])}}">
-                                <img src="{{ $p['img'] }}" style="object-fit: cover;" height="206px" width="265px">
-                                <div class="row mt-1 p-1">
-                                    <div class="col-12 mx-auto">
-                                        <div class="row mx-auto">
-                                            <h5 class="text-center mx-auto">
+                            <div class="col-12">
+                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card" data-url="{{route('product', $p['id'])}}">
+                                    <img src="{{ $p['img'] }}" style="object-fit: cover;" height="290px" width="348px">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <p class="col-12 mb-1" style="font-size: 22px;">{{ $p['name']  }}</p>
+                                        </div>
+                                        <div class="row" style="height: 50px;">
+                                            <p class="col-12 text-secondary">
+                                                Joomla Template for Home Maintenance and Handyman Service Websites
+                                            </p>
+                                        </div>
+                                        <div class="row align-middle pt-1" style="align-content: center">
+                                            <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
                                                 @for($i = 1; $i <= 5; $i++)
                                                     @if($p['rating'] >= $i)
                                                         <i class="fas fa-star"></i>
@@ -51,21 +64,20 @@
                                                         <i class="far fa-star"></i>
                                                     @endif
                                                 @endfor
-                                            </h5>
-                                        </div>
-                                        <div class="row mx-auto">
-                                            <h4 class="mx-auto">{{ $p['name']  }}</h4>
+                                            </p>
+                                            <h4 class="col-6 text-right align-middle">
+                                                $5
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
 
                         </div>
                     </div>
                     @endforeach
                 </div>
-            </div>
         @endforeach
     </div>
 @stop

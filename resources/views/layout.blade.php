@@ -40,37 +40,9 @@
     </style>
 <!-- -------------------------- !-->
 
-<div class="container">
-    <div class="row" style="min-height: 232px;">
-        <div class="col-12 bg-white">
-            <div class="container w-100">
-                <div class="row p-4 h-75 pr-0">
-                    <div class="col-8">
-                        <img src="http://i63.tinypic.com/53v6f7.jpg" height="150px">
-
-                    </div>
-                    <div class="col-4">
-                        @if(Session::has('email'))
-                            <div class="row">
-                                <div class="col-4">
-                                    <h6></h6>
-                                </div>
-                                <div class="col-8 text-right">
-                                    <button class="btn btn-primary text-right">Dashboard</button>
-                                    <button class="btn btn-primary">Logout</button>
-                                </div>
-                            </div>
-                        @else
-                            @include('registration_box')
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="w-100">
-            <nav class="navbar navbar-expand navbar-dark bg-primary rounded">
+<div class="container-fluid bg-light">
+    <div class="row bg-primary fixed-top">
+        <nav class="col-10 navbar navbar-expand navbar-dark bg-primary rounded mx-auto">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -85,17 +57,6 @@
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Themes<span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Wordpress<span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Joomla<span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Drupal<span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Custom<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
@@ -109,8 +70,9 @@
                         </div>
                         <div class="col-6">
                             <form action="{{route('search')}}" method="get">
-                                <div class="row">
-                                    <div class="col-10 p-0">
+                                <div class="row text-right">
+                                    <div class="col-6"></div>
+                                    <div class="col-4 p-0">
                                         <input class="form-control" type="text" name='text' placeholder="Search" aria-label="Search">
                                     </div>
                                     <div class="col-1 p-0">
@@ -132,17 +94,12 @@
 
                 </div>
             </nav>
-        </div>
-
-
     </div>
 
-    <div class="row p-0 bg-white">
-        <div class="container mt-5">
-            @yield('content')
-        </div>
+    <div class="row p-0 bg-light">
+        @yield('content')
     </div>
-    <div class="row bg-white" style="min-height: 200px;">
+    <div class="row bg-light" style="min-height: 200px;">
 
     </div>
 
