@@ -13,8 +13,8 @@
                     <img class="p-0 m-0" src="http://i66.tinypic.com/rcqces.jpg" height="300px" width="300px" style="object-fit: cover;">
                 </div>
                 <div class="col-8 pl-4">
-                    <h3>Amartheme.com</h3>
-                    <p>Amartheme is an online market .At Amartheme you can buy and sell HTML templates as well as themes for popular CMS products like WordPress,
+                    <h3>Amar Theme</h3>
+                    <p>Amar Theme is an online market .At Amartheme you can buy and sell HTML templates as well as themes for popular CMS products like WordPress,
                         Joomla and Drupal. Here product price is reasonable and fixed. We provide the customers with all types of facilities, guidelines to help them use the product with ease.
                         We welcome both local and interntional customers. We also provide them with easy payment method (according to their region).
                         The site is home to a bustling community of web designers and developers and is the biggest marketplace of its kind.</p>
