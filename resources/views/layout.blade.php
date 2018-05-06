@@ -96,7 +96,7 @@
             </nav>
     </div>
 
-    <div class="row p-0 bg-light">
+    <div class="row p-0 bg-light pt-5">
         @yield('content')
     </div>
     <div class="row bg-light" style="min-height: 200px;">
@@ -106,20 +106,30 @@
 
 </div>
 
-<div class="container-fluid bg-dark w-100 text-white m-0 w-100 p-5">
-        <div class="row text-center w-75 mx-auto">
-            <div class="col-3">
-                <h6><i class="fas fa-address-card"></i> Contact</h6>
+<div class="container-fluid bg-dark w-100 text-white m-0 w-100 p-5" style="height: 250px;">
+        <div class="row w-75 mx-auto">
+            <div class="col-4">
+                <div class="row"><h6 class="lead">Amar Theme</h6></div>
+                <div class="row"><p class="small text-secondary">Amar Theme is a registerd trademark of Amartheme.com</p></div>
             </div>
             <div class="col-3">
-                <h6><i class="fas fa-at"></i> E-mail</h6>
+                <div class="row"><h6 class="lead">Products</h6></div>
+                <div class="row"><p class="small text-secondary clickable">Wordpress</p></div>
+                <div class="row"><p class="small text-secondary clickable">Joomla</p></div>
+                <div class="row"><p class="small text-secondary clickable">Drupal</p></div>
+            </div>
+            <div class="col-3">
+                <div class="row"><h6 class="lead">Company</h6></div>
+                <div class="row"><p class="small text-secondary clickable">About</p></div>
+                <div class="row"><p class="small text-secondary clickable">Team</p></div>
+                <div class="row"><p class="small text-secondary clickable">Contact</p></div>
+                <div class="row"><p class="small text-secondary clickable">Careers</p></div>
             </div>
 
-            <div class="col-3">
-                <h6><i class="fas fa-question-circle"></i> Help and Support</h6>
-            </div>
-            <div class="col-3">
-                <h6><i class="fas fa-smile"></i> Feedback</h6>
+            <div class="col-2">
+                <div class="row"><h6 class="lead">Others</h6></div>
+                <div class="row"><p class="small text-secondary clickable">Facebook</p></div>
+                <div class="row"><p class="small text-secondary clickable">Twitter</p></div>
             </div>
         </div>
     </div>
