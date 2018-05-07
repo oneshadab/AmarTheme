@@ -8117,3 +8117,9 @@ Stack trace:
 [2018-05-05 19:09:05] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'App\Http\Controllers\Input' not found' in E:\Google Drive\Dev\PHP\Git\AmarTheme\app\Http\Controllers\homeController.php:56
 Stack trace:
 #0 {main}  
+[2018-05-07 13:43:31] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '$features' (T_VARIABLE)' in E:\Google Drive\Dev\PHP\Git\AmarTheme\storage\framework\views\d942a7df4dfca301f3405111585185197565cfe9.php:9
+Stack trace:
+#0 {main}  
+[2018-05-07 13:43:37] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '$features' (T_VARIABLE)' in E:\Google Drive\Dev\PHP\Git\AmarTheme\storage\framework\views\d942a7df4dfca301f3405111585185197565cfe9.php:9
+Stack trace:
+#0 {main}  

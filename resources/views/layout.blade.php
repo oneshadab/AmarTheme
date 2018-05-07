@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body class="w-100 bg-info">
 <!--
@@ -37,25 +37,34 @@
         .clickable:hover{
             cursor: pointer;
         }
+        .product-card{
+            min-height: 470px;
+            transition: .3s;
+        }
+        .product-card:hover{
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
     </style>
 <!-- -------------------------- !-->
 
 <div class="container-fluid bg-light">
+
     <div class="row bg-primary fixed-top">
-        <nav class="col-10 navbar navbar-expand navbar-dark bg-primary rounded mx-auto">
+        <nav class="col-11 navbar navbar-expand navbar-dark bg-primary rounded mx-auto pl-5" style="min-height: 82px;">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" style="font-family: Roboto, sans-serif; font-weight: 500;">
                     <div class="row w-100">
                         <div class="col-6">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{route('home')}}">Home<span class="sr-only">(current)</span></a>
+                                <li class="nav-item">
+                                    <a class="navbar-brand" href="{{route('home')}}">Amar Theme<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">Themes<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="#">Themes</a>
                                 </li>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -68,14 +77,20 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-6">
+                        <div class="col-1"></div>
+                        <div class="col-2 text-right">
+                            <button class="btn btn-primary border text-right" href="#">
+                                Login
+                            </button>
+                        </div>
+                        <div class="col-3">
+
                             <form action="{{route('search')}}" method="get">
                                 <div class="row text-right">
-                                    <div class="col-6"></div>
-                                    <div class="col-4 p-0">
+                                    <div class="col-8 p-0">
                                         <input class="form-control" type="text" name='text' placeholder="Search" aria-label="Search">
                                     </div>
-                                    <div class="col-1 p-0">
+                                    <div class="col-2 p-0 text-left">
                                         <button class="btn btn-primary text-white">
                                             <i class="fas fa-search"></i>
                                         </button>
@@ -85,6 +100,7 @@
                                             <i class="fas fa-shopping-cart"></i>
                                         </a>
                                     </div>
+
                                 </div>
                             </form>
 
@@ -96,7 +112,7 @@
             </nav>
     </div>
 
-    <div class="row p-0 bg-light pt-5">
+    <div class="row p-0 bg-light pt-5 p-5">
         @yield('content')
     </div>
     <div class="row bg-light" style="min-height: 200px;">

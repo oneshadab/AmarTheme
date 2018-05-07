@@ -9,16 +9,16 @@
     }
     $refer = "";
 @endphp
-<div class="container pb-5 " style="min-height: 700px;">
+<div class="container p-5 " style="min-height: 700px;">
     <div class="row pl-5 mt-5">
         <div class="card ml-5 mr-5 w-100">
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <h4>Shopping Cart</h4>
+                        <p class="display-4" style="font-size: 32px;">Shopping Cart</p>
                     </div>
                     <div class="col-6 text-right">
-                        <a class="btn btn-danger text-right text-white" href="{{route('clearCart')}}">
+                        <a class="btn btn-danger text-right text-white mt-1" href="{{route('clearCart')}}">
                             <i class="fas fa-trash"></i> Clear
                         </a>
                     </div>
@@ -29,22 +29,22 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th><h5>Name</h5></th>
-                        <th class="text-right"><h5>Price</h5></th>
-                        <th class="text-right"><h5>Quantity</h5></th>
-                        <th class="text-right"><h5>Cost</h5></th>
+                        <th class="text-left "><p class="lead mb-0" style="font-size: 22px;">Name</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 22px;">Price</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 22px;">Quantity</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 22px;">Cost</p></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($items as $i)
                     <tr>
                         <td style="width: 64px;">
-                            <img src="{{$i['img']}}"  style="object-fit: cover;" align="right" height="128px" width="128px">
+                            <img src="{{$i['img']}}"  style="object-fit: cover;" align="right" height="128px" width="188px">
                         </td>
-                        <td><h5>{{$i['name']}}</h5></td>
-                        <td class="text-right"><h5>{{$i['price']}}</h5></td>
-                        <td class="text-right"><h5>{{$i['count']}}</h5></td>
-                        <td class="text-right"><h5>{{$i['price'] * $i['count']}}</h5></td>
+                        <th class="text-left "><p class="lead mb-0" style="font-size: 18px;">{{$i['name']}}</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 18px;">${{$i['price']}}</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 18px;">{{$i['count']}}</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 18px;">${{$i['price'] * $i['count']}}</p></th>
 
                     </tr>
                     @endforeach
@@ -54,8 +54,8 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="text-right"><h4>Total:</h4> </td>
-                        <td class="text-right"><h4>{{$total}}</h4></td>
+                        <td class="text-right"><h4 class="lead" style="font-size: 28px;">Total:</h4> </td>
+                        <td class="text-right"><h4 class="lead" style="font-size: 28px;">${{$total}}</h4></td>
                     </tr>
                     </tfoot>
 

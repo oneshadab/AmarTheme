@@ -7,14 +7,7 @@
 
     @endphp
     <style>
-        .product-card{
-            min-height: 470px;
-            transition: .3s;
-        }
-        .product-card:hover{
-            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
-            transform: translateY(-4px);
-        }
+
     </style>
     <div class="container mt-5 mb-5">
         <div class="card">
