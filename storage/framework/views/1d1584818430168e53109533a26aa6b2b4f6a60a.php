@@ -18,7 +18,7 @@
                 echo  "<b>".$TITLES[$i]."</b><br><br>";
                 foreach ($PRODUCTS[$i] as $PRODUCT)
                 {
-                    echo "Name -> ".$PRODUCT->product_name."<img src=\"$PRODUCT->link\">ID -> $PRODUCT->product_id Rating -> $PRODUCT->rating<br>";
+                    echo "Name -> ".$PRODUCT->name."<img src=\"$PRODUCT->img\">ID -> $PRODUCT->id Rating -> $PRODUCT->rating<br>";
                 }
             }
 

@@ -19,7 +19,10 @@ class homeController extends Controller
         $TITLES=array('WORDPRESS','HTML');
         for($i=0;$i<2;$i++)
         {
-            $PRODUCTS[$i]=DB::select( "SELECT products.product_name,products.product_id,ratings.rating,images.link 
+            $PRODUCTS[$i]=DB::select( "SELECT products.product_name AS name,
+                                          products.product_id as id,
+                                          ratings.rating as rating,
+                                          images.link as img 
                                      FROM products,ratings,images 
                                     WHERE products.product_category 
                                     LIKE '$TITLES[$i]' 

@@ -262,6 +262,7 @@ class ComposerStaticInit31a1be943bd4855bd3558ce6177b6300
     );
 
     public static $classMap = array (
+        'ActualDataSeeder' => __DIR__ . '/../..' . '/database/seeds/ActualDataSeeder.php',
         'CreateCartTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_202013_create_cart_table.php',
         'CreateImageTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_04_195920_create_image_table.php',
         'CreateProductTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_02_184847_create_product_table.php',
