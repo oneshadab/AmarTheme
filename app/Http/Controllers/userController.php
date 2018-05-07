@@ -19,7 +19,6 @@ class userController extends Controller
         $this->validate($request,[
             'email' => 'required|email',
             'password' => 'required'
-
         ]);
 
         $user_data = array(
@@ -56,17 +55,40 @@ class userController extends Controller
         Session()->flush();
         return redirect('/');
     }
-    public function toCart()
+    public function toCart($id)
     {
-        return "Cart in progress";
+        if(!Session::has('cart')) Session::put('cart', array());
+        $cart = Session::get('cart');
+        if(empty($cart[$id])) $cart[$id] = 0;
+        $cart[$id] ++;
+        Session::put('cart', $cart);
+        return redirect('/cart');
     }
     public function viewCart()
     {
-        return view('cart');
+        if(!Session::has('cart')) Session::put('cart', array());
+        $products = array();
+        foreach (Session::get('cart') as $id => $count){
+            $p = productController::get($id);
+            $p['price'] = 100;
+            $p['count'] = $count;
+            $products[] = $p;
+        }
+        return view('cart', ['items' => $products]);
     }
     public function getUsername()
     {
         return "Antor";
+    }
+
+    public function addToCart($pid)
+    {
+
+    }
+
+    public function clearCart(){
+        Session()->flush();
+        return redirect('/cart');
     }
 
 }
