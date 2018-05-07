@@ -8,6 +8,8 @@
             <a href="{{ url('/logout') }}">Logout</a>
         </div>
     @else
-        {{"GO HOME"}}
+        <div>
+            {{"GO HOME"}}
+        </div>
     @endif
 @stop

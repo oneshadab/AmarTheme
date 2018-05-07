@@ -91,7 +91,7 @@ All Theme Options available in Theme Customizer with live preview
 3 recommended widgets (news show pro, tabs, widget rules)
 Translatable, includes .mo and .po files
 Support for Social Network',
-                'product_type' => 'E-Commerce', 'product_price' =>15.50, 'developer_id' => 1]
+                'product_type' => 'Event', 'product_price' =>15.50, 'developer_id' => 1]
 
         );
         DB::table('images')->insert(
@@ -103,12 +103,12 @@ Support for Social Network',
         );
         DB::table('products')->insert(
             ['product_id' => 5,'product_name' => "Titanium",
-                'product_category' => 'WORDPRESS',
+                'product_category' => 'HTMl',
                 'product_description' => 'Titanium is a contemporary, one page, responsive HTML template design ideal for any Titanium,
  conference, meet up, summit, camp and many more. With Titanium, your next conference website could be world-class.
 Itâ€™s designed to provide useful information about your Titanium. This template comes in 10 yummy colors, 
 but possibilities are unlimited.',
-                'product_type' => 'E-Commerce', 'product_price' => 9.99, 'developer_id' => 1]
+                'product_type' => 'Event', 'product_price' => 9.99, 'developer_id' => 1]
 
         );
         DB::table('images')->insert(
@@ -125,7 +125,7 @@ but possibilities are unlimited.',
 It is a highly suitable template for companies that plan meetings as well as   management websites.
  It has purpose oriented design, responsive layout and special features like appointment forms, services,   planner,
  schedules, pricing plans and other pages',
-                'product_type' => 'E-Commerce', 'product_price' => 9.99, 'developer_id' => 1]
+                'product_type' => 'Event', 'product_price' => 9.99, 'developer_id' => 1]
 
         );
         DB::table('images')->insert(
