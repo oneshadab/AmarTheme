@@ -25,12 +25,14 @@ class productController extends Controller
                                     ORDER BY rand() 
                                     LIMIT 3");
         }
+        $products=json_decode(json_encode($products), true);
         return $products;
     }
     public static function get($id){
         $result = DB::select("SELECT products.product_name AS name,
                                           products.product_id as id,
                                           products.product_description as details,
+                                          products.product_price as price,
                                           ratings.rating as rating,
                                           images.link as img 
                                      FROM products,ratings,images 

@@ -70,21 +70,15 @@ class userController extends Controller
         $products = array();
         foreach (Session::get('cart') as $id => $count){
             $p = productController::get($id);
-            $p['price'] = 100;
             $p['count'] = $count;
             $products[] = $p;
         }
+       // dd($products);
         return view('cart', ['items' => $products]);
     }
-    public function getUsername()
-    {
-        return "Antor";
-    }
 
-    public function addToCart($pid)
-    {
 
-    }
+
 
     public function clearCart(){
         Session()->flush();

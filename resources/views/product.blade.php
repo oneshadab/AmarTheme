@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-    
+
         #Remove this snippet once backend is complete
         $images = array(
             $product['img'],

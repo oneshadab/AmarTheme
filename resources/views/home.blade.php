@@ -1,7 +1,10 @@
+
 @extends('layout')
 @section('content')
     @php
         #Remove this snippet once backend is complete
+
+
     @endphp
     <style>
         .product-card{

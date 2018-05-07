@@ -12,8 +12,10 @@ class homeController extends Controller
     public function index()
     {
         $result = productController::getAll();
+        //dd($result);
         $categories = json_decode(json_encode($result), true);
-        return view('home', ['categories' => $categories]);
+        //dd($categories);
+        return view('home', compact('categories'));
     }
     public function dashboard()
     {
