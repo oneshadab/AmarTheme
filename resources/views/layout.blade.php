@@ -79,9 +79,9 @@
                         </div>
                         <div class="col-1"></div>
                         <div class="col-2 text-right">
-                            <button class="btn btn-primary border text-right" href="#">
+                            <a class="btn btn-primary border text-right" href="{{route('registration')}}">
                                 Login
-                            </button>
+                            </a>
                         </div>
                         <div class="col-3">
 

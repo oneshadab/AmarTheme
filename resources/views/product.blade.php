@@ -69,7 +69,6 @@
         <div class="row pt-5" style="height: 100px;"></div>
         <div class="row mt-5 " >
             <div class="col-8">
-
                 <div class="card"  >
                     <div class="card-body p-0">
                         <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
@@ -171,36 +170,36 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5 ">
-            <div class="col-8">
-
-
-                <div class="card rounded-0 h-100 border-0"  >
+        <div class="row mt-5 " style="height: 400px;">
+            <div class="col-12">
+                <div class="card rounded-0 h-100"  >
                     <div class="card-header bg-dark text-white rounded-0">
                         <p class="lead mb-0" style="font-size: 22px;">Details</p>
                     </div>
-                    <div class="card-body bg-light p-4">
-                        <p class="lead" style="font-size: 18px;">
-                            {{$product['details']}}
-                        </p>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-8">
+                                <p class="lead" style="font-size: 18px;">
+                                    {{$product['details']}}
+                                </p>
+                            </div>
+                            <div class="col-4" >
+                                <ul class="list-group h-100" style="font-family: 'Palanquin', sans-serif;">
+                                    @foreach($info as $i)
+                                        <li class="list-group-item"><span class="p-2">{{$i}}</span></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
-            <div class="col-4" >
-                <div class="row card h-100 rounded-0 p-0 mt-4">
-                    <div class="card-body text-secondary p-0" >
-                        <ul class="list-group h-100" style="font-family: 'Palanquin', sans-serif;">
-                            @foreach($info as $i)
-                            <li class="list-group-item"><span class="p-2">{{$i}}</span></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
+        <div class="row pt-5" style="height: 100px;"></div>
         <div class="row ml-2 mt-5 mb-2 text-center">
-            <p class="col-12 text-center lead" style="font-size: 32px;">Similar themes</p>
+            <p class="col-12 text-center lead" style="font-size: 32px;">You may also like</p>
         </div>
         <div class="row">
             <div class="col-4">
