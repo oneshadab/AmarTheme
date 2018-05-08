@@ -32,18 +32,15 @@
                 }
             });
             $(window).scroll(function() {
-                console.log("Hello");
                 var windowBottom = $(this).scrollTop() + $(this).innerHeight();
                 $(".fade").each(function() {
-                    /* Check the location of each desired element */
                     var objectBottom = $(this).offset().top;
-
-                    /* If the element is completely within bounds of the window, fade it in */
-                    if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+                    if (objectBottom < windowBottom) {
                         if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
                     }
                 });
-            }).scroll(); //invoke scroll-handler on page-load
+            }).scroll();
+
         });
     </script>
     <style>
@@ -69,16 +66,21 @@
         }
         .transparent{
             background: none !important;
+            box-shadow: none !important;
         }
         .fade {
             opacity: 0;
+        }
+        .nav-row{
+            background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
     </style>
 <!-- -------------------------- !-->
 
 <div class="container-fluid bg-tint w-100">
-    <div class="row fixed-top nav-row" style="background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%)">
+    <div class="row fixed-top nav-row">
         <nav class="col-11 navbar navbar-expand navbar-dark mx-auto" style="min-height: 82px;">
             <div class="container">
                 <a class="navbar-brand roboto" href="{{route('home')}}" style="font-size: 24px;">Amar Theme</a>
@@ -114,7 +116,7 @@
                             <form action="{{route('search')}}" method="get">
                                 <div class="row text-right">
                                     <div class="col-9 p-0">
-                                        <input class="form-control" type="text" name='text' placeholder="Search" aria-label="Search">
+                                        <input class="form-control roboto" type="text" name='text' placeholder="Search" aria-label="Search">
                                     </div>
                                     <div class="col-2 p-0 text-left">
                                         <button class="btn transparent text-white">

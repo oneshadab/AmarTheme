@@ -9,13 +9,14 @@
     <script>
         $(document).ready(function ($) {
             var navbar = $('.nav-row');
-            navbar.addClass('transparent');
+            navbar.css('transition', 'all 300ms ease-in');
             $(window).scroll(function(){
-                console.log($(window).scrollTop());
                 if($(window).scrollTop() >= 40){
-                    navbar.removeClass('transparent');
+                    navbar.css('background', 'linear-gradient(145deg, #349aed 50%, #34d8ed 100%');
+                    navbar.css('box-shadow', '0 1px 2px rgba(0, 0, 0, 0.3)');
                 } else {
-                    navbar.addClass('transparent');
+                    navbar.css('background', 'none');
+                    navbar.css('box-shadow', 'none');
                 }
             });
         });
@@ -28,6 +29,10 @@
             color: #fff;
             text-align: center;
         }
+        .nav-row{
+            background: none;
+            box-shadow: none;
+        }
     </style>
     <div class="container-fluid splash" style="min-height: 500px;">
         <div class="col-12 fade">
@@ -37,7 +42,7 @@
             <div class="row">
                 <form class="mx-auto col-7">
                     <div class="input-group py-5">
-                        <input class="form-control border-light py-3" type="search" placeholder="Search">
+                        <input class="form-control border-light py-3 roboto" type="search" placeholder="Search">
                         <div class="input-group-append">
                             <button class="btn bg-transparent text-white btn-outline-light px-5">
                                 <h4><i class="fas fa-search"></i></h4>
