@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body class="w-100 bg-info">
+<body class="w-100">
 <!--
     Snippet for clickable class
     Usage <... class="clickable" data-url=$target_url >
@@ -31,6 +31,7 @@
                     return false;
                 }
             });
+
         });
     </script>
     <style>
@@ -45,24 +46,36 @@
             box-shadow: 0 20px 25px rgba(0,0,0,0.15);
             transform: translateY(-4px);
         }
+        .roboto{
+            font-family: Roboto, sans-serif;
+        }
+        .bg-tint{
+            background-color: rgb(236, 239, 241);
+        }
+        .transparent{
+            background: none !important;
+        }
+        * {
+            background: #000 !important;
+            color: #0f0 !important;
+            outline: solid #f00 1px !important;
+        }
     </style>
 <!-- -------------------------- !-->
 
-<div class="container-fluid bg-light">
-
-    <div class="row bg-primary fixed-top">
-        <nav class="col-11 navbar navbar-expand navbar-dark bg-primary rounded mx-auto pl-5" style="min-height: 82px;">
+<div class="container-fluid bg-tint p-0 w-100">
+    <div class="row fixed-top nav-row" style="background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%)">
+        <nav class="col-11 navbar navbar-expand navbar-dark mx-auto pl-5" style="min-height: 82px;">
+            <div class="container">
+                <a class="navbar-brand roboto" href="{{route('home')}}" style="font-size: 24px;">Amar Theme</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" style="font-family: Roboto, sans-serif; font-weight: 500;">
+                <div class="collapse navbar-collapse">
                     <div class="row w-100">
                         <div class="col-6">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="navbar-brand" href="{{route('home')}}">Amar Theme<span class="sr-only">(current)</span></a>
-                                </li>
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Themes</a>
                                 </li>
@@ -79,24 +92,23 @@
                         </div>
                         <div class="col-1"></div>
                         <div class="col-2 text-right">
-                            <a class="btn btn-primary border text-right" href="{{route('registration')}}">
+                            <a class="roboto btn transparent border text-right text-white" href="{{route('registration')}}">
                                 Login
                             </a>
                         </div>
                         <div class="col-3">
-
                             <form action="{{route('search')}}" method="get">
                                 <div class="row text-right">
-                                    <div class="col-8 p-0">
+                                    <div class="col-9 p-0">
                                         <input class="form-control" type="text" name='text' placeholder="Search" aria-label="Search">
                                     </div>
                                     <div class="col-2 p-0 text-left">
-                                        <button class="btn btn-primary text-white">
+                                        <button class="btn transparent text-white">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>
                                     <div class="col-1 p-0">
-                                        <a class="btn btn-primary text-white" href="{{route('cart')}}">
+                                        <a class="btn transparent text-white" href="{{route('cart')}}">
                                             <i class="fas fa-shopping-cart"></i>
                                         </a>
                                     </div>
@@ -109,13 +121,12 @@
 
 
                 </div>
+            </div>
             </nav>
     </div>
 
-    <div class="row p-0 bg-light pt-5 p-5">
-        @yield('content')
-    </div>
-    <div class="row bg-light" style="min-height: 200px;">
+    @yield('content')
+    <div class="row" style="min-height: 200px;">
 
     </div>
 
