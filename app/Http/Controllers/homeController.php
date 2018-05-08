@@ -49,7 +49,6 @@ class homeController extends Controller
     {
         $result = productController::get($id);
         $product = json_decode(json_encode($result), true);
-        $product=$product[0];
        // dd($product);
         return view('product',compact('product'));
     }

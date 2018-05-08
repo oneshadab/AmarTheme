@@ -41,8 +41,8 @@ class productController extends Controller
                                       AND products.product_id=ratings.product_id
                                       AND products.product_id=images.product_id
                                       LIMIT 1");
-        //$result=json_decode(json_encode($result), true);
-        return $result;
+        $result=json_decode(json_encode($result), true);
+        return $result[0];
     }
     public function show($id){
         return view('product', ['product' => self::get($id)]);

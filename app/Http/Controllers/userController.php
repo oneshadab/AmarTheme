@@ -70,10 +70,10 @@ class userController extends Controller
         $products = array();
         foreach (Session::get('cart') as $id => $count){
             $p = productController::get($id);
+
             $p['count'] = $count;
             $products[] = $p;
         }
-       // dd($products);
         return view('cart', ['items' => $products]);
     }
 
