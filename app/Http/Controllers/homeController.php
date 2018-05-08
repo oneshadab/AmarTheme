@@ -43,6 +43,7 @@ class homeController extends Controller
                 $results[] = $p;
             }
         }
+
         return view('search', ['results' => $results]);
     }
     public function productDetails($id)
