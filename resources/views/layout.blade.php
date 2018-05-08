@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="http://i65.tinypic.com/27zlnn.jpg" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
@@ -31,7 +31,19 @@
                     return false;
                 }
             });
+            $(window).scroll(function() {
+                console.log("Hello");
+                var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+                $(".fade").each(function() {
+                    /* Check the location of each desired element */
+                    var objectBottom = $(this).offset().top;
 
+                    /* If the element is completely within bounds of the window, fade it in */
+                    if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+                        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+                    }
+                });
+            }).scroll(); //invoke scroll-handler on page-load
         });
     </script>
     <style>
@@ -52,20 +64,22 @@
         .bg-tint{
             background-color: rgb(236, 239, 241);
         }
+        .bg-deep-blue{
+            background-color: #349aed"
+        }
         .transparent{
             background: none !important;
         }
-        * {
-            background: #000 !important;
-            color: #0f0 !important;
-            outline: solid #f00 1px !important;
+        .fade {
+            opacity: 0;
         }
+
     </style>
 <!-- -------------------------- !-->
 
-<div class="container-fluid bg-tint p-0 w-100">
+<div class="container-fluid bg-tint w-100">
     <div class="row fixed-top nav-row" style="background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%)">
-        <nav class="col-11 navbar navbar-expand navbar-dark mx-auto pl-5" style="min-height: 82px;">
+        <nav class="col-11 navbar navbar-expand navbar-dark mx-auto" style="min-height: 82px;">
             <div class="container">
                 <a class="navbar-brand roboto" href="{{route('home')}}" style="font-size: 24px;">Amar Theme</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,8 +138,11 @@
             </div>
             </nav>
     </div>
-
-    @yield('content')
+    <div class="row">
+        <div class="col-12 p-0">
+            @yield('content')
+        </div>
+    </div>
     <div class="row" style="min-height: 200px;">
 
     </div>

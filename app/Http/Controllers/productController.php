@@ -25,16 +25,16 @@ For shopping, you’ll get the great features like YITH WooCommerce Ajax Product
  For clients, it has a fully managed and comprehensive cart, checkout, and account management system.
  80’s Mod comes with all the possible variants for blog, supporting full width, left sidebar, right sidebar,
  Standard, Gallery, Image, Vimeo Video, YouTube Video, DailyMotion video, and so on."),
-            array("name" => "Bootshop", "img" => "http://i66.tinypic.com/2najjw4.jpg", "rating" => 4, "id" => 2, "details" => "Bootshop is a fully responsive layout bootstrap eCommerce html5 template. 
-Bootshop has a multi page include and easy customize and color combination.
-Bootshop has a file include and easy customize and color combination"),
-            array("name" => "MayaShop", "img" => "http://i65.tinypic.com/2vanla1.jpg", "rating" => 2, "id" => 3, "details" => "MayaShop is a fresh WordPress theme that utilises the powerful WooCommerce plugins to create a versatile
- Wordpress powered shop, with unlimited layout options and unlimited skins. Make this theme your own.
+            array("name" => "Time", "img" => "http://i67.tinypic.com/4qpv1e.jpg" , "rating" => 3, "id" => 2, "details" => "  Time is a HTML template for conference, meeting and   websites. 
+It is a highly suitable template for companies that plan meetings as well as   management websites.
+ It has purpose oriented design, responsive layout and special features like appointment forms, services,   planner,
+ schedules, pricing plans and other pages"),
 
-Mix up content on the homepage with widgets and shortcodes, set the layout full width or boxed style,
- choose your background color or set one of the 50+ custom backgrounds, set your header color,
- change the style of your products, chose from 8 different sliders.. a theme so versatile that you 
-can customize it to suit your business by simply changing a few settings. With MayaShop you can sell everything!"),
+            array("name" => "Titanium", "img" => "http://i63.tinypic.com/2czes6g.jpg", "rating" => 1, "id" => 3, "details" => "Titanium is a contemporary, one page, responsive HTML template design ideal for any Titanium,
+ conference, meet up, summit, camp and many more. With Titanium, your next conference website could be world-class.
+It’s designed to provide useful information about your Titanium. This template comes in 10 yummy colors, 
+but possibilities are unlimited."),
+
             array("name" => "MyEvents", "img" => "http://i64.tinypic.com/110c3m9.jpg", "rating" => 5, "id" => 4, "details" => "Fully Responsive layout
 Page Weight optimized for mobile devices
 Mobile Optimised Menu
@@ -51,14 +51,16 @@ All Theme Options available in Theme Customizer with live preview
 3 recommended widgets (news show pro, tabs, widget rules)
 Translatable, includes .mo and .po files
 Support for Social Network"),
-            array("name" => "Titanium", "img" => "http://i63.tinypic.com/2czes6g.jpg", "rating" => 1, "id" => 5, "details" => "Titanium is a contemporary, one page, responsive HTML template design ideal for any Titanium,
- conference, meet up, summit, camp and many more. With Titanium, your next conference website could be world-class.
-It’s designed to provide useful information about your Titanium. This template comes in 10 yummy colors, 
-but possibilities are unlimited."),
-            array("name" => "Time", "img" => "http://i67.tinypic.com/4qpv1e.jpg" , "rating" => 3, "id" => 6, "details" => "  Time is a HTML template for conference, meeting and   websites. 
-It is a highly suitable template for companies that plan meetings as well as   management websites.
- It has purpose oriented design, responsive layout and special features like appointment forms, services,   planner,
- schedules, pricing plans and other pages"),
+            array("name" => "MayaShop", "img" => "http://i65.tinypic.com/2vanla1.jpg", "rating" => 2, "id" => 5, "details" => "MayaShop is a fresh WordPress theme that utilises the powerful WooCommerce plugins to create a versatile
+ Wordpress powered shop, with unlimited layout options and unlimited skins. Make this theme your own.
+
+Mix up content on the homepage with widgets and shortcodes, set the layout full width or boxed style,
+ choose your background color or set one of the 50+ custom backgrounds, set your header color,
+ change the style of your products, chose from 8 different sliders.. a theme so versatile that you 
+can customize it to suit your business by simply changing a few settings. With MayaShop you can sell everything!"),
+            array("name" => "Bootshop", "img" => "http://i66.tinypic.com/2najjw4.jpg", "rating" => 4, "id" => 6, "details" => "Bootshop is a fully responsive layout bootstrap eCommerce html5 template. 
+Bootshop has a multi page include and easy customize and color combination.
+Bootshop has a file include and easy customize and color combination"),
         );
         return $products;
     }

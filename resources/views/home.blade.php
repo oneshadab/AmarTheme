@@ -30,17 +30,32 @@
         }
     </style>
     <div class="container-fluid splash" style="min-height: 500px;">
-        <div class="row p-0">
-            <div class="col-12 text-center p-0">
-                <h1 class="roboto">Welcome to Amar Theme</h1>
+        <div class="col-12 fade">
+            <div class="row">
+                <h1 class="col-12 roboto">Welcome to Amar Theme</h1>
             </div>
+            <div class="row">
+                <form class="mx-auto col-7">
+                    <div class="input-group py-5">
+                        <input class="form-control border-light py-3" type="search" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn bg-transparent text-white btn-outline-light px-5">
+                                <h4><i class="fas fa-search"></i></h4>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
+
     </div>
 
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col-12 text-center">
-                <h2 class="roboto">Most popular</h2>
+                <h2 class="roboto fade">Most popular</h2>
             </div>
         </div>
         @foreach($categories as $c)
@@ -49,7 +64,7 @@
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-12">
-                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card" data-url="{{route('product', $p['id'])}}">
+                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card fade" data-url="{{route('product', $p['id'])}}">
                                     <img src="{{ $p['img'] }}" style="object-fit: cover;" height="290px" width="348px">
                                     <div class="card-body p-4">
                                         <div class="row">
