@@ -33,7 +33,7 @@
             });
             $(window).scroll(function() {
                 var windowBottom = $(this).scrollTop() + $(this).innerHeight();
-                $(".fade").each(function() {
+                $(".amar-fade").each(function() {
                     var objectBottom = $(this).offset().top;
                     if (objectBottom < windowBottom) {
                         if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
@@ -64,21 +64,43 @@
         .bg-deep-blue{
             background-color: #349aed"
         }
+        .bg-nav{
+            background: linear-gradient(145deg, #349aed 100%, #34d8ed 100%)
+        }
         .transparent{
             background: none !important;
             box-shadow: none !important;
         }
-        .fade {
+        .amar-fade {
             opacity: 0;
         }
         .nav-row{
             background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%);
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
+        .full-height{
+            height: 100vh;
+        }
+        .text-nav{
+            color: #349aed !important;
+        }
 
     </style>
 <!-- -------------------------- !-->
 
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+           
+            <div class="modal-body p-0">
+
+                @include('registration_card')
+            </div>
+        </div>
+    </div>
+
+</div>
 <div class="container-fluid bg-tint w-100">
     <div class="row fixed-top nav-row">
         <nav class="col-11 navbar navbar-expand navbar-dark mx-auto" style="min-height: 82px;">
@@ -112,9 +134,9 @@
                                 Dashboard
                             </a>
                             @else
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('registration')}}">
+                            <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
                                 Login
-                            </a>
+                            </button>
                             @endif
                         </div>
                         <div class="col-3">

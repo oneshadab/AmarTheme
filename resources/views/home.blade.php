@@ -36,7 +36,7 @@
         }
     </style>
     <div class="container-fluid splash" style="min-height: 500px;">
-        <div class="col-12 fade">
+        <div class="col-12 amar-fade">
             <div class="row">
                 <h1 class="col-12 roboto">Welcome to Amar Theme</h1>
             </div>
@@ -64,7 +64,7 @@
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col-12 text-center">
-                <h2 class="roboto fade">Most popular</h2>
+                <h2 class="roboto amar-fade">Most popular</h2>
             </div>
         </div>
         @foreach($categories as $c)
@@ -73,7 +73,7 @@
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-12">
-                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card fade" data-url="{{route('product', $p['id'])}}">
+                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card amar-fade" data-url="{{route('product', $p['id'])}}">
                                     <img src="{{ $p['img'] }}" style="object-fit: cover;" height="290px" width="348px">
                                     <div class="card-body p-4">
                                         <div class="row">
