@@ -25,7 +25,8 @@
         .splash {
             padding: 12em 0 6em;
             background: #349aed;
-            background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%);
+            background-image: url('https://www.codexcoder.com/wp-content/themes/codexcoder/assets/images/banner/bg.jpg');
+            background-size: 100%;
             color: #fff;
             text-align: center;
         }
@@ -38,6 +39,9 @@
         <div class="col-12 fade">
             <div class="row">
                 <h1 class="col-12 roboto">Welcome to Amar Theme</h1>
+            </div>
+            <div class="row">
+                <h1 class="col-12 roboto" style="font-size: 18px;">Jinish jeta bhalo, dam tar ektu beshi...</h1>
             </div>
             <div class="row">
                 <form class="mx-auto col-7">

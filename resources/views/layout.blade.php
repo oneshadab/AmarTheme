@@ -90,7 +90,7 @@
 
                 <div class="collapse navbar-collapse">
                     <div class="row w-100">
-                        <div class="col-6">
+                        <div class="col-4">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Themes</a>
@@ -106,11 +106,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-1"></div>
-                        <div class="col-2 text-right">
+                        <div class="col-5 text-right">
+                            @if(Session::has('email'))
+                            <a class="roboto btn transparent border text-right text-white" href="{{route('dash')}}">
+                                Dashboard
+                            </a>
+                            @else
                             <a class="roboto btn transparent border text-right text-white" href="{{route('registration')}}">
                                 Login
                             </a>
+                            @endif
                         </div>
                         <div class="col-3">
                             <form action="{{route('search')}}" method="get">
