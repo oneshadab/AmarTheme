@@ -31,7 +31,7 @@
                 event.stopPropagation();
 
             });
-            $('#register-tab').trigger("click");
+            $('#login-tab').trigger("click");
         })
     </script>
     <style>
@@ -78,8 +78,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer bg-white">
-                <button type="submit" class="btn btn-primary btn-block">
+            <div class="card-footer bg-white text-right">
+                <button type="submit" class="btn btn-primary">
                     <i class="fas fa-check"></i>
                     Register
                 </button>
@@ -104,8 +104,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer bg-white">
-                <button type="submit" class="btn btn-primary btn-block">
+            <div class="card-footer bg-white text-right">
+                <button type="submit" class="btn btn-primary">
                     <i class="fas fa-check"></i>
                     Login
                 </button>

@@ -65,7 +65,7 @@
             background-color: #349aed"
         }
         .bg-nav{
-            background: linear-gradient(145deg, #349aed 100%, #34d8ed 100%)
+            background: #2a88f9;
         }
         .transparent{
             background: none !important;
