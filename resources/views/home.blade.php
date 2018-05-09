@@ -46,9 +46,9 @@
             <div class="row">
                 <form class="mx-auto col-7">
                     <div class="input-group py-5">
-                        <input class="form-control border-light py-3 roboto" type="search" placeholder="Search">
+                        <input class="form-control border-light py-3 roboto shadow-nav" type="search" placeholder="Search">
                         <div class="input-group-append">
-                            <button class="btn bg-transparent text-white btn-outline-light px-5">
+                            <button class="btn bg-transparent text-white btn-outline-light px-5 shadow-nav">
                                 <h4><i class="fas fa-search"></i></h4>
                             </button>
                         </div>
@@ -73,7 +73,7 @@
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-12">
-                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card amar-fade" data-url="{{route('product', $p['id'])}}">
+                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card amar-fade shadow-nav" data-url="{{route('product', $p['id'])}}">
                                     <img src="{{ $p['img'] }}" style="object-fit: cover;" height="290px" width="348px">
                                     <div class="card-body p-4">
                                         <div class="row">

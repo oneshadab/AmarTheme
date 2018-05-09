@@ -84,15 +84,18 @@
         .text-nav{
             color: #349aed !important;
         }
+        .shadow-nav{
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
 
     </style>
 <!-- -------------------------- !-->
 
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
-           
+
             <div class="modal-body p-0">
 
                 @include('registration_card')

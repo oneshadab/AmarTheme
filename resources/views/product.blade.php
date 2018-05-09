@@ -69,7 +69,7 @@
         <div class="row pt-5" style="height: 100px;"></div>
         <div class="row mt-5 " >
             <div class="col-8">
-                <div class="card"  >
+                <div class="card shadow-nav"  >
                     <div class="card-body p-0">
                         <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
                             <div class="">
@@ -110,7 +110,7 @@
 
             </div>
             <div class="col-4">
-                <div class="card h-100 rounded-0 text-white">
+                <div class="card h-100 rounded-0 text-white shadow-nav">
                     <div class="card-header bg-dark" >
                         <div class="container-fluid">
                             <div class="row mb-0">
@@ -172,7 +172,7 @@
         </div>
         <div class="row mt-5 " style="height: 400px;">
             <div class="col-12">
-                <div class="card rounded-0 h-100"  >
+                <div class="card rounded-0 h-100 shadow-nav"  >
                     <div class="card-header bg-dark text-white rounded-0">
                         <p class="lead mb-0" style="font-size: 22px;">Details</p>
                     </div>

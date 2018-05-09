@@ -35,19 +35,24 @@
         })
     </script>
     <style>
-        .reg-button:focus {outline:0 !important;}
+        .reg-button:focus {
+            outline:0 !important;
+        }
+        .reg-button{
+            font-size: 16px;
+        }
     </style>
     <div class="card border-0 rounded">
                     <div class="card-header bg-nav">
                         <ul class="nav nav-tabs card-header-tabs w-100">
                             <li class="nav-item w-50">
-                                <button class="nav-link text-nav active w-100 reg-button" id="register-tab">
-                                    <i class="fas fa-user-plus"></i> Register
+                                <button class="nav-link text-nav active w-100 reg-button roboto" id="register-tab">
+                                    <i class="fas fa-user-plus"></i><br>Register
                                 </button>
                             </li>
                             <li class="nav-item w-50">
-                                <button class="nav-link text-white w-100 disabled bg-nav reg-button"  id="login-tab" href="#" >
-                                    <i class="fas fa-sign-in-alt"></i> Login
+                                <button class="nav-link text-white w-100 disabled bg-nav reg-button roboto"  id="login-tab" href="#" >
+                                    <i class="fas fa-sign-in-alt"></i><br>Login
                                 </button>
                             </li>
                         </ul>

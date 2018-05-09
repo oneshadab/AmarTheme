@@ -12,15 +12,11 @@
     <style>
         .search-card{
             transition: .3s;
-            box-shadow: rgb(204, 204, 204) 0px 0px 16px 0px;
             min-height: 220px;
         }
         .search-card:hover{
             box-shadow: 0 20px 25px rgba(0,0,0,0.15);
             transform: translateY(-4px);
-        }
-        .bg-nav{
-            background: linear-gradient(145deg, #349aed 100%, #34d8ed 100%);
         }
     </style>
     <div class="container">
@@ -29,16 +25,16 @@
         <div class="row">
             <div class="col-3 w-100 mt-4 mb-5">
 
-                <div class="card w-100" style="min-height: 500px;">
-                    <div class="card-header bg-nav text-white">
-                        <h4>Filters:</h4>
+                <div class="card w-100 shadow-nav" style="min-height: 500px;">
+                    <div class="card-header bg-white text-dark">
+                        <h3 class="roboto text-center">Filter</h3>
                     </div>
-                    <div class="card-body w-100">
+                    <div class="card-body w-100 bg-white text-dark">
                         <form>
                             @foreach($filters as $f)
-                            <div class="form-group">
-                                <label class='roboto' for="{{$f['name']}}">{{$f['name']}}</label>
-                                <select class="form-control" id="{{$f['name']}}">
+                            <div class="form-group ">
+                                <label class='roboto text-center' for="{{$f['name']}}">{{$f['name']}}</label>
+                                <select class="form-control bg-transparent border-top-0 border-left-0 border-right-0 text-dark roboto" id="{{$f['name']}}">
                                     @foreach($f['options'] as $op)
                                     <option class='roboto'>{{$op}}</option>
                                     @endforeach
@@ -48,14 +44,14 @@
                         </form>
                         
                     </div>
-                    <div class="card-footer">
-                        <button class="btn btn-primary btn-block">
-                            Filter
+                    <div class="card-footer bg-white">
+                        <button class="btn btn-dark btn-block roboto">
+                            <i class="fas fa-search"></i>
                         </button>
                     </div>
 
                 </div>
-                <div class="card w-100 mt-5 " style="min-height: 500px;">
+                <div class="card w-100 mt-5 shadow-nav" style="min-height: 500px;">
                     <div class="card-body w-100">
                         <img src="http://i64.tinypic.com/2chmdug.png" height="350px" width="">
                     </div>
@@ -65,7 +61,7 @@
                 <div class="row mt-2">
                 </div>
                 @foreach($results as $r)
-                <div class="row mt-3 mr-1">
+                <div class="row mt-3 mr-1 shadow-nav">
                     <div class="col-12 card search-card rounded-0">
                         <div class="row clickable card-body p-0" data-url="{{route('product', $r['id'])}}">
                             <div class="col-4 p-1">
