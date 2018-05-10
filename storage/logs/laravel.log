@@ -10697,3 +10697,25 @@ Stack trace:
 #57 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(2350): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #58 E:\Google Drive\Dev\PHP\Git\AmarTheme\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #59 {main}  
+[2018-05-10 18:59:10] local.ERROR: exception 'ReflectionException' with message 'Method App\Http\Controllers\userController::toCartREST() does not exist' in E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php:8572
+Stack trace:
+#0 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(8572): ReflectionMethod->__construct('App\\Http\\Contro...', 'toCartREST')
+#1 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(8281): Illuminate\Routing\Route->signatureParameters('Illuminate\\Data...')
+#2 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(8275): Illuminate\Routing\Router->substituteImplicitBindings(Object(Illuminate\Routing\Route))
+#3 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(8266): Illuminate\Routing\Router->substituteBindings(Object(Illuminate\Routing\Route))
+#4 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(8212): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#5 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(8207): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#6 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(2419): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#7 [internal function]: Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#8 E:\Google Drive\Dev\PHP\Git\AmarTheme\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(52): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#9 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(3286): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(9963): call_user_func_array(Array, Array)
+#12 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 E:\Google Drive\Dev\PHP\Git\AmarTheme\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(32): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#14 [internal function]: Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#15 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(9948): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#16 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(2366): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#17 E:\Google Drive\Dev\PHP\Git\AmarTheme\bootstrap\cache\compiled.php(2350): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#18 E:\Google Drive\Dev\PHP\Git\AmarTheme\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#19 {main}  

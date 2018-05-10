@@ -64,6 +64,8 @@ class userController extends Controller
         Session::put('cart', $cart);
         return redirect('/cart');
     }
+
+
     public function viewCart()
     {
         if(!Session::has('cart')) Session::put('cart', array());
@@ -85,4 +87,13 @@ class userController extends Controller
         return redirect('/cart');
     }
 
+
+    public function toCartREST($id){
+        if(!Session::has('cart')) Session::put('cart', array());
+        $cart = Session::get('cart');
+        if(empty($cart[$id])) $cart[$id] = 0;
+        $cart[$id] ++;
+        Session::put('cart', $cart);
+        return json_encode($cart);
+    }
 }

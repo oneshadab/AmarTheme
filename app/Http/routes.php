@@ -24,6 +24,7 @@ Route::get('/validate','userController@validateLogin');
 Route::get('/logout','userController@userLogout')->name('logout');
 Route::get('/loginSuccess','userController@userLogin');
 Route::get('/addToCart/{id}','userController@toCart')->name('addToCart');
+Route::get('/addToCartREST/{id}','userController@toCartREST')->name('addToCartREST');
 Route::get('/clearCart/','userController@clearCart')->name('clearCart');
 Route::get('/cart/','userController@viewCart')->name('cart');
 

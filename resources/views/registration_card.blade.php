@@ -16,14 +16,14 @@
         }
 
         $(document).ready(function () {
-            $('#register-tab').click(function () {
+            $('#register-tab').click(function (event) {
                 $('#register-form').show();
                 $('#login-form').hide();
                 activateElem($('#register-tab'));
                 deactivateElem($('#login-tab'));
                 event.stopPropagation();
             });
-            $('#login-tab').click(function () {
+            $('#login-tab').click(function (event) {
                 $('#register-form').hide();
                 $('#login-form').show();
                 activateElem($('#login-tab'));

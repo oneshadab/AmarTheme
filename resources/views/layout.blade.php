@@ -20,9 +20,20 @@
     Usage <... class="clickable" data-url=$target_url >
 !-->
     <script>
+
+
         $(document).ready(function ($) {
-            $('.clickable a').click(function () {
-               event.stopPropagation();
+            $.ajax({
+                type: "GET",
+                url: {{route('viewCartJSON')}},
+                success: function (data) {
+                    data = JSON.parse(data);
+                    $('.cart-count').text(Object.keys(data).length);
+                }
+            })
+            var cart = JSON.decode($.get({{route('viewCartREST')}}));
+            $('.clickable a').click(function (e) {
+               e.stopPropagation();
             });
             $('.clickable').click(function () {
                 var url = $(this).data('url');
@@ -40,7 +51,18 @@
                     }
                 });
             }).scroll();
-
+            $('.cart-add').click(function (e) {
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        console.log(Object.keys(data).length)
+                        $('.cart-count').text(Object.keys(data).length);
+                    }
+                });
+            });
         });
     </script>
     <style>
@@ -91,6 +113,9 @@
             color: white;
             background-color: #349aed;
         }
+        .no-highlight:hover{
+            outline: 0px !important;
+        }
     </style>
 <!-- -------------------------- !-->
 
@@ -134,7 +159,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-5 text-right">
+                        <div class="col-4 text-right">
                             @if(Session::has('email'))
                                 <div class="dropdown">
                                     <button class="btn transparent text-white border roboto dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,24 +177,29 @@
                             </button>
                             @endif
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <form action="{{route('search')}}" method="get">
-                                <div class="row text-right">
-                                    <div class="col-9 p-0">
-                                        <input class="form-control roboto" type="text" name='text' placeholder="Search" aria-label="Search">
-                                    </div>
-                                    <div class="col-2 p-0 text-left">
-                                        <button class="btn transparent text-white">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-1 p-0">
-                                        <a class="btn transparent text-white" href="{{route('cart')}}">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
+                                    <div class="input-group">
+                                        <input class="form-control border-light roboto" type="search" name="text" placeholder="Search">
+                                        <div class="input-group-append mr-3">
+                                            <button class="btn rounded bg-transparent text-white btn-outline-light no-highlight">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <a class="btn btn-dark text-white roboto transparent border rounded" href="{{route('cart')}}">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                <span class='cart-count' class="badge badge-light transparent text-white" style="font-size: 14px">
+                                                    @if(Session::has('cart'))
+                                                        {{sizeof(Session::get('cart'))}}
+                                                    @else
+                                                        0
+                                                    @endif
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
 
-                                </div>
                             </form>
 
                         </div>

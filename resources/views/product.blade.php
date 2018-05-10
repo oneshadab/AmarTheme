@@ -31,7 +31,7 @@
     </script>
     <style type='text/css'>
         #product-carousel {
-            margin: 20px auto;
+            margin: 00px auto;
         }
         #product-carousel .carousel-indicators {
             margin: 10px 0 0;
@@ -64,6 +64,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        .carousel-indicators {
+            justify-content: flex-start;
+        }
     </style>
     <div class="container ">
         <div class="row pt-5" style="height: 100px;"></div>
@@ -89,21 +92,13 @@
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <ol class="carousel-indicators m-0 bg-dark">
-                                        @for($i = 0; $i < sizeof($images); $i++)
-                                        <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="{{$i}}">
-                                            <img src="{{$images[$i]}}" height="90px" width="90px" style="object-fit: cover;" align="left">
-                                        </li>
-                                        @endfor
-                                    </ol>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="container-fluid bg-dark h-100 w-100">a</div>
-                                </div>
-                            </div>
-
+                                <ol class="carousel-indicators m-0 bg-dark text-right">
+                                    @for($i = 0; $i < sizeof($images); $i++)
+                                    <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="{{$i}}">
+                                        <img src="{{$images[$i]}}" height="90px" width="90px" style="object-fit: cover;" align="left">
+                                    </li>
+                                    @endfor
+                                </ol>
                         </div>
                     </div>
                 </div>
@@ -161,9 +156,9 @@
                             </a>
                         </div>
                         <div class="row p-1">
-                            <a class="btn btn-success btn-block text-white" href="{{route('addToCart', $product['id'])}}">
+                            <button class="btn btn-success btn-block text-white cart-add" data-url="{{route('addToCartREST', $product['id'])}}">
                                 <i class="fas fa-shopping-cart"></i> Add to cart
-                            </a>
+                            </button>
                         </div>
                     </div>
 
