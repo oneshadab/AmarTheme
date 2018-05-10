@@ -1,36 +1,54 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use Session;
 use Validator;
 use Auth;
 use DB;
+
+
 class homeController extends Controller
 {
     //
     public function index()
     {
         $result = productController::getAll();
-        $categories = json_decode(json_encode($result), true);
-        return view('home', ['categories' => $categories]);
+        //dd($result);
+        $products = json_decode(json_encode($result), true);
+        //dd($categories);
+        $categories = [];
+        foreach (array_chunk($products, 3) as $p){
+            $categories[] = ['products' => $p];
+        }
+        return view('home', ["categories" => $categories]);
     }
+
     public function dashboard()
     {
         if(Session::has('email'))
         {
             return view('dashboard');
+
         }
         else
         {
             return redirect('/');
         }
+
+
     }
+
     public static function startsWith($haystack, $needle)
     {
         $length = strlen($needle);
         return (substr($haystack, 0, $length) === $needle);
     }
+
+
     public function searchProduct(Request $request)
     {
         $text = $request->input('text');
@@ -47,10 +65,10 @@ class homeController extends Controller
     {
         $result = productController::get($id);
         $product = json_decode(json_encode($result), true);
-        //$product=$product[0];
-       // dd($product);
+        // dd($product);
         return view('product',compact('product'));
     }
+
     public function registration()
     {
         return view('registration');

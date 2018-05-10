@@ -14,7 +14,7 @@
             array("name" => "Category", "options" => array("E-Commerce", "Event", "WordPress")),
         );
     @endphp
-    <div class="container">
+    <div class="container pt-5">
         <div class="row ml-3 mt-5">
             <div class="col-6">
                 <h4><i class="fas fa-list-ul"> </i> Your Products:</h4>
@@ -119,21 +119,37 @@
                         </form>
 
                     </div>
-                </div>
-            </div>
-            <div class="col-4 w-100 mt-4 mb-5">
-                <div class="card w-100" style="min-height: 500px;">
-                    <div class="card-header">
-                        <h4 class="text-center">
-                            Profile
-                        </h4>
-                    </div>
-                    <div class="card-body w-100">
+                </div><div class="col-4 w-100 mt-4 mb-5">
+                    <div class="card w-100 shadow-nav" style="min-height: 500px;">
+                        <div class="card-header bg-dark">
+                            <h4 class="text-center text-white">
+                                Profile
+                            </h4>
+                        </div>
+                        <div class="card-body w-100 text-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 pl-5 pr-5">
+                                        <img class="rounded-circle w-100" src="http://i68.tinypic.com/124j41d.png">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-right">Name: </div>
+                                    <div class="col-6 text-left ">Antor </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-right">Age: </div>
+                                    <div class="col-6 text-left ">Male </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-right">Type: </div>
+                                    <div class="col-6 text-left ">Zunayed </div>
+                                </div>
+                            </div>
 
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 @stop

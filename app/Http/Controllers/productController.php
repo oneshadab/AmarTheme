@@ -24,7 +24,7 @@ class productController extends Controller
                                       AND products.product_id=ratings.product_id
                                       AND products.product_id=images.product_id
                                     ORDER BY rand() 
-                                    LIMIT 3");
+                                    LIMIT 9");
         }
         $products=json_decode(json_encode($products), true);
         return $products;
