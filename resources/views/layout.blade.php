@@ -87,6 +87,10 @@
         .shadow-nav{
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
+        .dropdown-item:hover{
+            color: white !important;
+            background-color: #349aed;
+        }
 
     </style>
 <!-- -------------------------- !-->
@@ -123,7 +127,7 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdown09">
+                                    <div class="dropdown-menu roboto" >
                                         <a class="dropdown-item" href="#">Action</a>
                                         <a class="dropdown-item" href="#">Another action</a>
                                         <a class="dropdown-item" href="#">Something else here</a>
@@ -133,15 +137,16 @@
                         </div>
                         <div class="col-5 text-right">
                             @if(Session::has('email'))
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('profile')}}">
-                                Profile
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('dash')}}">
-                                Dashboard
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('logout')}}">
-                                Logout
-                            </a>
+                            <div class="dropdown ">
+                                <button class="btn transparent border text-white" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{Session::get('email')}}
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right ">
+                                    <a class="dropdown-item" href="{{route('dash')}}">Dashboard</a>
+                                    <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                                    <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                </div>
+                            </div>
                             @else
                             <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
                                 Login
