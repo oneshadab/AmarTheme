@@ -188,7 +188,7 @@
                     </div>
                     <div class="card-footer bg-white">
                         <div class="row p-1">
-                            <a class="btn btn-dark btn-block text-white border" href='{{route('viewdemo',$product['id'])}}'>
+                            <a class="btn btn-dark btn-block text-white border" target="_blank" href='{{route('viewdemo',$product['id'])}}'>
                                 <i class="fas fa-desktop"></i> Demo
                             </a>
                         </div>
