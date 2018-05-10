@@ -32,7 +32,7 @@ $total  = 0;
                         </td>
                         <th class="text-left "><p class="lead mb-0" style="font-size: 18px;">{{$i['name']}}</p></th>
                         <th class="text-right">
-                            <a class="btn btn-success text-white" href="#">
+                            <a class="btn btn-success text-white" href="{{route('download',$i['id'])}}">
                                 <i class="fas fa-download"></i> Download
                             </a>
                         </th>

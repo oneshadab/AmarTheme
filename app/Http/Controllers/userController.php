@@ -29,7 +29,7 @@ class userController extends Controller
         {
 
             Session::set('email',$request->get('email'));
-            return redirect('/loginSuccess');
+            return redirect('/dash');
         }
         else
         {
@@ -45,7 +45,7 @@ class userController extends Controller
         $user_type=$user_info[0]->user_type;
         $user_name=$user_info[0]->user_name;
         // return $user_name;
-        if($user_type=='developer')
+        if(1)
             return view('dashboard',compact('user_name'));
         //return view('dashboard',compact('user_name'));
         return redirect('/');

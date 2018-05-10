@@ -51,6 +51,15 @@ class productController extends Controller
             ['product_name' => $name, 'product_description' => $description,
                 'product_category'=>$category,'product_type' => 'Event',
                 'product_price' => $price,'developer_id' => $dev_id]);
+
+        DB::table('ratings')->insert(
+            ['rating'=> 5, 'product_id' => $id,'user_id'=>2]
+        );
+
+        DB::table('images')->insert(
+            ['link'=> 'http://i66.tinypic.com/2najjw4.jpg', 'product_id' => $id]
+        );
+
         return $id;
     }
     public function validateUploadedProduct(Request $request)
@@ -88,7 +97,7 @@ class productController extends Controller
             if ($res === TRUE) {
                 $zip->extractTo("themes/demo/".$filename_without_zip."/");
                 $zip->close();
-                return redirect('/dashboard');
+                return redirect('/dash');
             } else {
                 return 'doh!';
             }

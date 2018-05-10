@@ -22,15 +22,51 @@
         );
      ?>
     <script>
+        function checkCart(id){
+            var d =  '<i class="fas fa-check"></i> Added to cart';
+            $.ajax({
+                type: "GET",
+                url: '<?php echo e(route('viewCartREST')); ?>',
+                success: function (data) {
+                    data = JSON.parse(data);
+                    $('.cart-count').text(Object.keys(data).length);
+                    cart = data;
+                    console.log(cart);
+                    if(id in cart){
+                        $('.cart-add').html(d);
+                        $('.cart-add').removeClass('btn-success');
+                        $('.cart-add').addClass('btn-dark');
+
+                    }
+                }
+            });
+
+        }
         $(document).ready(function ($) {
+            $('[data-toggle="popover"]').popover();
             $('.carousel-indicators-li').first().addClass('active');
             $('.carousel-item').first().addClass('active');
-
+            checkCart(<?php echo e($product['id']); ?>)
+            $('.cart-add').click(function (e) {
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        console.log(Object.keys(data).length)
+                        $('.cart-count').text(Object.keys(data).length);
+                        checkCart(<?php echo e($product['id']); ?>)
+                        $('.search-icon').popover('show');
+                        setTimeout(function (){$('.search-icon').popover('hide')}, 1500 );
+                    }
+                });
+            });
         });
     </script>
     <style type='text/css'>
         #product-carousel {
-            margin: 20px auto;
+            margin: 00px auto;
         }
         #product-carousel .carousel-indicators {
             margin: 10px 0 0;
@@ -63,19 +99,22 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        .carousel-indicators {
+            justify-content: flex-start;
+        }
     </style>
     <div class="container ">
         <div class="row pt-5" style="height: 100px;"></div>
         <div class="row mt-5 " >
             <div class="col-8">
-                <div class="card shadow-nav"  >
+                <div class="card shadow-nav h-100"  >
                     <div class="card-body p-0">
                         <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
                             <div class="">
                                 <div class=" col-12 carousel-inner p-0">
                                     <?php foreach($images as $i): ?>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100 bg-secondary" src="<?php echo e($i); ?>" style="object-fit: contain;" height="410px" width="500px">
+                                        <img class="d-block w-100 bg-secondary" src="<?php echo e($i); ?>" style="object-fit: contain;" height="440px" width="500px">
                                     </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -88,21 +127,13 @@
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
-                            <div class="row">
-                                <div class="col-6 pr-0">
-                                    <ol class="carousel-indicators m-0 bg-dark">
-                                        <?php for($i = 0; $i < sizeof($images); $i++): ?>
-                                        <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="<?php echo e($i); ?>">
-                                            <img src="<?php echo e($images[$i]); ?>" height="90px" width="90px" style="object-fit: cover;" align="left">
-                                        </li>
-                                        <?php endfor; ?>
-                                    </ol>
-                                </div>
-                                <div class="col-6 pl-0">
-                                    <div class="container-fluid bg-dark h-100 w-100">a</div>
-                                </div>
-                            </div>
-
+                                <ol class="carousel-indicators m-0 bg-dark text-right">
+                                    <?php for($i = 0; $i < sizeof($images); $i++): ?>
+                                    <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="<?php echo e($i); ?>">
+                                        <img src="<?php echo e($images[$i]); ?>" height="90px" width="90px" style="object-fit: cover;" align="left">
+                                    </li>
+                                    <?php endfor; ?>
+                                </ol>
                         </div>
                     </div>
                 </div>
@@ -155,14 +186,14 @@
                     </div>
                     <div class="card-footer bg-white">
                         <div class="row p-1">
-                            <a class="btn btn-dark btn-block text-white border" href='#'>
+                            <a class="btn btn-dark btn-block text-white border" href='<?php echo e(route('viewdemo',$product['id'])); ?>'>
                                 <i class="fas fa-desktop"></i> Demo
                             </a>
                         </div>
                         <div class="row p-1">
-                            <a class="btn btn-success btn-block text-white" href="<?php echo e(route('addToCart', $product['id'])); ?>">
+                            <button class="btn btn-success btn-block text-white cart-add" data-url="<?php echo e(route('addToCartREST', $product['id'])); ?>" >
                                 <i class="fas fa-shopping-cart"></i> Add to cart
-                            </a>
+                            </button>
                         </div>
                     </div>
 
