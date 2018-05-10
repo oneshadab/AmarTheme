@@ -87,7 +87,10 @@
         .shadow-nav{
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
-
+        .dropdown-item:hover{
+            color: white;
+            background-color: #349aed;
+        }
     </style>
 <!-- -------------------------- !-->
 
@@ -133,15 +136,16 @@
                         </div>
                         <div class="col-5 text-right">
                             @if(Session::has('email'))
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('profile')}}">
-                                Profile
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('dash')}}">
-                                Dashboard
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('logout')}}">
-                                Logout
-                            </a>
+                                <div class="dropdown">
+                                    <button class="btn transparent text-white border roboto dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{Session::get('email')}}
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right text-white" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="{{route('dash')}}">Dashboard</a>
+                                        <a class="dropdown-item" href="{{route('profile')}}">Profile</a>
+                                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                    </div>
+                                </div>
                             @else
                             <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
                                 Login
