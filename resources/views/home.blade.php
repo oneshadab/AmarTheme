@@ -94,7 +94,7 @@
                                                     @endif
                                                 @endfor
                                             </p>
-                                            <h4 class="col-6 text-right align-middle">
+                                            <h4 class="col-6 text-right align-middle roboto">
                                                 $5
                                             </h4>
                                         </div>

@@ -133,8 +133,14 @@
                         </div>
                         <div class="col-5 text-right">
                             @if(Session::has('email'))
+                            <a class="roboto btn transparent border text-right text-white" href="{{route('profile')}}">
+                                Profile
+                            </a>
                             <a class="roboto btn transparent border text-right text-white" href="{{route('dash')}}">
                                 Dashboard
+                            </a>
+                            <a class="roboto btn transparent border text-right text-white" href="{{route('logout')}}">
+                                Logout
                             </a>
                             @else
                             <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
