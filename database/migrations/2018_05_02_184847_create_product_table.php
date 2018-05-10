@@ -20,7 +20,7 @@ class CreateProductTable extends Migration
             $table->string('product_name');
             $table->string('product_category');
             $table->string('product_description');
-            $table->enum('product_status', ['available', 'unavailable']);
+            $table->string('product_type');
             $table->float('product_price');
         });
         Schema::table('products', function (Blueprint $table) {

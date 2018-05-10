@@ -1,46 +1,31 @@
 <?php $__env->startSection('content'); ?>
     <?php 
         #Remove this snippet once backend is complete
-        if(isset($user_info))// <- If user is logged in | temporary
-        {
-            echo "Welcome ".$user_info->user_name."<br>";
 
 
-
-        }
-        else
-        {
-
-        }
-
-        for($i=0;$i<2;$i++)
-            {
-                echo  "<b>".$TITLES[$i]."</b><br><br>";
-                foreach ($PRODUCTS[$i] as $PRODUCT)
-                {
-                    echo "Name -> ".$PRODUCT->product_name."<img src=\"$PRODUCT->link\">ID -> $PRODUCT->product_id Rating -> $PRODUCT->rating<br>";
-                }
-            }
-
-        $categories = array(
-            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
-            array("title" => "Event", "icon" => "fas fa-calendar"),
-        );
-        $products = array(
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-            array("name" => "Product", "img" => "http://i68.tinypic.com/124j41d.png", "rating" => 3, "id" => 1),
-        );
      ?>
+    <style>
+        .product-card{
+            min-height: 470px;
+            transition: .3s;
+        }
+        .product-card:hover{
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+    </style>
     <div class="container mt-5 mb-5">
         <div class="card">
             <div class="card-body row p-0 pl-3">
                 <div class="col-4 p-0">
-                    <img class="p-0 m-0" src="http://i66.tinypic.com/2d854q0.png" height="300">
+                    <img class="p-0 m-0" src="http://i66.tinypic.com/rcqces.jpg" height="300px" width="300px" style="object-fit: cover;">
                 </div>
                 <div class="col-8 pl-4">
-                    <h3>Amartheme.com</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulpu tate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>
+                    <h3>Amar Theme</h3>
+                    <p>Amar Theme is an online market .At Amartheme you can buy and sell HTML templates as well as themes for popular CMS products like WordPress,
+                        Joomla and Drupal. Here product price is reasonable and fixed. We provide the customers with all types of facilities, guidelines to help them use the product with ease.
+                        We welcome both local and interntional customers. We also provide them with easy payment method (according to their region).
+                        The site is home to a bustling community of web designers and developers and is the biggest marketplace of its kind.</p>
                 </div>
             </div>
         </div>
@@ -48,26 +33,28 @@
     <div class="container">
 
         <?php foreach($categories as $c): ?>
-            <div class="row ml-2 mt-5 mb-2">
-                <h4>
-                    <i class="<?php echo e($c['icon']); ?>"></i>
-                    <?php echo e($c['title']); ?>
+            <div class="row ml-2 mt-5 mb-2 text-center">
 
-                </h4>
             </div>
 
-            <div class="card">
-                <div class="row card-body">
-                    <?php foreach($products as $p): ?>
+            <div class="row">
+                <?php foreach($c['products'] as $p): ?>
                     <div class="col-4">
                         <div class="row" >
-                            <div class="col-2"></div>
-                            <div class="col-7 card pl-0 pr-0 pb-3 text-center clickable" data-url="<?php echo e(route('product')); ?>">
-                                <img src="<?php echo e($p['img']); ?>" style="object-fit: cover;" height="206px" width="206px">
-                                <div class="row mt-1 p-1">
-                                    <div class="col-12 mx-auto">
-                                        <div class="row mx-auto">
-                                            <h5 class="text-center mx-auto">
+                            <div class="col-12">
+                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card" data-url="<?php echo e(route('product', $p['id'])); ?>">
+                                    <img src="<?php echo e($p['img']); ?>" style="object-fit: cover;" height="290px" width="348px">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <p class="col-12 mb-1" style="font-size: 22px;"><?php echo e($p['name']); ?></p>
+                                        </div>
+                                        <div class="row" style="height: 50px;">
+                                            <p class="col-12 text-secondary">
+                                                Joomla Template for Home Maintenance and Handyman Service Websites
+                                            </p>
+                                        </div>
+                                        <div class="row align-middle pt-1" style="align-content: center">
+                                            <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
                                                 <?php for($i = 1; $i <= 5; $i++): ?>
                                                     <?php if($p['rating'] >= $i): ?>
                                                         <i class="fas fa-star"></i>
@@ -75,20 +62,19 @@
                                                         <i class="far fa-star"></i>
                                                     <?php endif; ?>
                                                 <?php endfor; ?>
-                                            </h5>
-                                        </div>
-                                        <div class="row mx-auto">
-                                            <h4 class="mx-auto"><?php echo e($p['name']); ?></h4>
+                                            </p>
+                                            <h4 class="col-6 text-right align-middle">
+                                                $5
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
 
                         </div>
                     </div>
-                    <?php endforeach; ?>
-                </div>
+                <?php endforeach; ?>
             </div>
         <?php endforeach; ?>
     </div>
