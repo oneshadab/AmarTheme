@@ -23,15 +23,7 @@
 
 
         $(document).ready(function ($) {
-            $.ajax({
-                type: "GET",
-                url: {{route('viewCartJSON')}},
-                success: function (data) {
-                    data = JSON.parse(data);
-                    $('.cart-count').text(Object.keys(data).length);
-                }
-            })
-            var cart = JSON.decode($.get({{route('viewCartREST')}}));
+
             $('.clickable a').click(function (e) {
                e.stopPropagation();
             });
@@ -51,18 +43,6 @@
                     }
                 });
             }).scroll();
-            $('.cart-add').click(function (e) {
-                var url = $(this).data('url');
-                $.ajax({
-                    type: "GET",
-                    url: url,
-                    success: function (data) {
-                        data = JSON.parse(data);
-                        console.log(Object.keys(data).length)
-                        $('.cart-count').text(Object.keys(data).length);
-                    }
-                });
-            });
         });
     </script>
     <style>
@@ -187,7 +167,7 @@
                                             </button>
                                         </div>
                                         <div class="input-group-append">
-                                            <a class="btn btn-dark text-white roboto transparent border rounded" href="{{route('cart')}}">
+                                            <a class="btn btn-dark text-white roboto transparent border rounded shopping-icon search-icon" href="{{route('cart')}}" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Added successfully">
                                                 <i class="fas fa-shopping-cart"></i>
                                                 <span class='cart-count' class="badge badge-light transparent text-white" style="font-size: 14px">
                                                     @if(Session::has('cart'))

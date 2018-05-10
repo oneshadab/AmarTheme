@@ -27,6 +27,7 @@ Route::get('/addToCart/{id}','userController@toCart')->name('addToCart');
 Route::get('/addToCartREST/{id}','userController@toCartREST')->name('addToCartREST');
 Route::get('/clearCart/','userController@clearCart')->name('clearCart');
 Route::get('/cart/','userController@viewCart')->name('cart');
+Route::get('/viewCartREST', 'userController@viewCartREST')->name('viewCartREST');
 
 
 Route::get('/product/{id}', 'productController@show')->name('product');

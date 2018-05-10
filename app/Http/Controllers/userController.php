@@ -79,7 +79,12 @@ class userController extends Controller
         return view('cart', ['items' => $products]);
     }
 
+    public function viewCartREST(){
+        if(!Session::has('cart')) Session::put('cart', array());
 
+        return json_encode(Session::get('cart'));
+
+    }
 
 
     public function clearCart(){

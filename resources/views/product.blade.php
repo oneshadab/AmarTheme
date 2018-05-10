@@ -23,10 +23,46 @@
         );
     @endphp
     <script>
+        function checkCart(id){
+            var d =  '<i class="fas fa-check"></i> Added to cart';
+            $.ajax({
+                type: "GET",
+                url: '{{route('viewCartREST')}}',
+                success: function (data) {
+                    data = JSON.parse(data);
+                    $('.cart-count').text(Object.keys(data).length);
+                    cart = data;
+                    console.log(cart);
+                    if(id in cart){
+                        $('.cart-add').html(d);
+                        $('.cart-add').removeClass('btn-success');
+                        $('.cart-add').addClass('btn-dark');
+
+                    }
+                }
+            });
+
+        }
         $(document).ready(function ($) {
+            $('[data-toggle="popover"]').popover();
             $('.carousel-indicators-li').first().addClass('active');
             $('.carousel-item').first().addClass('active');
-
+            checkCart({{$product['id']}})
+            $('.cart-add').click(function (e) {
+                var url = $(this).data('url');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        console.log(Object.keys(data).length)
+                        $('.cart-count').text(Object.keys(data).length);
+                        checkCart({{$product['id']}})
+                        $('.search-icon').popover('show');
+                        setTimeout(function (){$('.search-icon').popover('hide')}, 1500 );
+                    }
+                });
+            });
         });
     </script>
     <style type='text/css'>
@@ -72,14 +108,14 @@
         <div class="row pt-5" style="height: 100px;"></div>
         <div class="row mt-5 " >
             <div class="col-8">
-                <div class="card shadow-nav"  >
+                <div class="card shadow-nav h-100"  >
                     <div class="card-body p-0">
                         <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
                             <div class="">
                                 <div class=" col-12 carousel-inner p-0">
                                     @foreach($images as $i)
                                     <div class="carousel-item">
-                                        <img class="d-block w-100 bg-secondary" src="{{$i}}" style="object-fit: contain;" height="410px" width="500px">
+                                        <img class="d-block w-100 bg-secondary" src="{{$i}}" style="object-fit: contain;" height="440px" width="500px">
                                     </div>
                                     @endforeach
                                 </div>
@@ -156,7 +192,7 @@
                             </a>
                         </div>
                         <div class="row p-1">
-                            <button class="btn btn-success btn-block text-white cart-add" data-url="{{route('addToCartREST', $product['id'])}}">
+                            <button class="btn btn-success btn-block text-white cart-add" data-url="{{route('addToCartREST', $product['id'])}}" >
                                 <i class="fas fa-shopping-cart"></i> Add to cart
                             </button>
                         </div>
