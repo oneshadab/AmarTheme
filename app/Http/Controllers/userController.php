@@ -38,6 +38,33 @@ class userController extends Controller
         }
 
     }
+
+    public function  validateLoginREST(Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $user_data = array(
+            'email'  => $request->get('email'),
+            'password' => $request->get('password')
+        );
+        if(Auth::attempt($user_data))
+        {
+
+            Session::set('email',$request->get('email'));
+            return json_encode(['login' => True]);
+        }
+        else
+        {
+
+            return json_encode(['login' => False]);
+        }
+
+    }
+
+
     public function userLogin()
     {
         $email=Session::get('email');

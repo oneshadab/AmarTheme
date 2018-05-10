@@ -32,6 +32,26 @@
 
             });
             $('#login-tab').trigger("click");
+            $('#login-form').submit(function (e) {
+                var url = '{{route('validateLoginREST')}}';
+                $.ajax({
+                   method: "POST",
+                   url: url,
+                   data: $('#login-form').serialize(),
+                   success: function (data) {
+                       data = JSON.parse(data);
+                       if(data['login']){
+                           location.reload();
+                           $('#login-message').hide()
+                       }
+                       else{
+                           $('#login-message').show()
+                       }
+                   },
+                });
+                e.preventDefault();
+            });
+            $('#login-message').hide();
         })
     </script>
     <style>
@@ -87,7 +107,11 @@
         </form>
         <form id="login-form" action="{{ url('/validate') }}" method="post">
             <div class="card-body">
+
                 <div class="container" style="height: 300px;">
+                    <div id='login-message' class="row alert alert-danger" role="alert">
+                        wrong username or password
+                    </div>
                     <div class="form-group row">
                         {{ csrf_field() }}
                         <label class="col-3 col-form-label" for="email">Email: </label>
