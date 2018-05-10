@@ -5,6 +5,7 @@ use App\Http\Requests;
 use Validator;
 use Auth;
 use Session;
+use ZipArchive;
 use DB;
 class productController extends Controller
 {
@@ -74,14 +75,26 @@ class productController extends Controller
             //get product id in $fileid
 
             $filename=productController::insertProduct($request->input('name'),$request->input('category'),$request->input('description'),$request->input('price'),1);
+            $filename_without_zip=$filename;
             $filename="".$filename.".zip";
 
             $file->move($destinationPath,$filename);
 
-            return redirect('/dashboard');
+            $zippath="themes/".$filename;
+
+            $zip = new ZipArchive;
+
+            $res = $zip->open($zippath);
+            if ($res === TRUE) {
+                $zip->extractTo("themes/demo/".$filename_without_zip."/");
+                $zip->close();
+                return redirect('/dashboard');
+            } else {
+                return 'doh!';
+            }
 
         }
-        return "hoinai";
+        return "doh!";
 
 
     }
