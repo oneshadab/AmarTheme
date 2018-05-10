@@ -46,6 +46,7 @@ Route::get('/cart_download', function (){
     }
     return view('cart_download', ['items' => $items]);
 })->name('cart_download');
+
 Route::get('/profile', function (){
     $categories = array(
         array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
@@ -59,4 +60,7 @@ Route::get('/profile', function (){
     }
     return view('profile', ['categories' => $categories]);
 })->name('profile');
+
+Route::post('/validateUpload', 'productController@validateUploadedProduct')->name('upload');
+Route::get('/downloadTheme/{id}', 'productController@validateDownload')->name('download');
 

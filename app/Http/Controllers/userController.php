@@ -44,7 +44,7 @@ class userController extends Controller
         $user_info=DB::select("SELECT * FROM users WHERE email LIKE '$email' ");
         $user_type=$user_info[0]->user_type;
         $user_name=$user_info[0]->user_name;
-       // return $user_name;
+        // return $user_name;
         if($user_type=='developer')
             return view('dashboard',compact('user_name'));
         //return view('dashboard',compact('user_name'));
@@ -70,21 +70,15 @@ class userController extends Controller
         $products = array();
         foreach (Session::get('cart') as $id => $count){
             $p = productController::get($id);
-            $p['price'] = 100;
+
             $p['count'] = $count;
             $products[] = $p;
         }
         return view('cart', ['items' => $products]);
     }
-    public function getUsername()
-    {
-        return "Antor";
-    }
 
-    public function addToCart($pid)
-    {
 
-    }
+
 
     public function clearCart(){
         Session()->flush();

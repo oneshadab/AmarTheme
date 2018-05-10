@@ -16,17 +16,15 @@ class homeController extends Controller
     //
     public function index()
     {
-        $categories = array(
-            array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
-            array("title" => "Event", "icon" => "fas fa-calendar"),
-        );
-        for($i = 0; $i < 2; $i++){
-            $categories[$i]['products'] = array();
-            for($j = 0; $j < 3; $j++){
-                $categories[$i]['products'][] = productController::get($i * 3 + $j + 1);
-            }
+        $result = productController::getAll();
+        //dd($result);
+        $products = json_decode(json_encode($result), true);
+        //dd($categories);
+        $categories = [];
+        foreach (array_chunk($products, 3) as $p){
+            $categories[] = ['products' => $p];
         }
-        return view('home', ['categories' => $categories]);
+        return view('home', ["categories" => $categories]);
     }
 
     public function dashboard()
@@ -63,10 +61,14 @@ class homeController extends Controller
         }
         return view('search', ['results' => $results]);
     }
-    public function productDetails()
+    public function productDetails($id)
     {
-        return view('product');
+        $result = productController::get($id);
+        $product = json_decode(json_encode($result), true);
+        // dd($product);
+        return view('product',compact('product'));
     }
+
     public function registration()
     {
         return view('registration');
