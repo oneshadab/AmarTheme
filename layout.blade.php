@@ -33,7 +33,7 @@
             });
             $(window).scroll(function() {
                 var windowBottom = $(this).scrollTop() + $(this).innerHeight();
-                $(".amar-fade").each(function() {
+                $(".fade").each(function() {
                     var objectBottom = $(this).offset().top;
                     if (objectBottom < windowBottom) {
                         if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
@@ -62,48 +62,26 @@
             background-color: rgb(236, 239, 241);
         }
         .bg-deep-blue{
-            background-color: #349aed"
-        }
-        .bg-nav{
-            background: #2a88f9;
+            background-color: #349aed;
         }
         .transparent{
             background: none !important;
             box-shadow: none !important;
         }
-        .amar-fade {
+        .fade {
             opacity: 0;
         }
         .nav-row{
             background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%);
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
-        .full-height{
-            height: 100vh;
-        }
-        .text-nav{
-            color: #349aed !important;
-        }
-        .shadow-nav{
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        .bg-nav{
+            background: linear-gradient(145deg, #349aed 100%, #34d8ed 100%);
         }
 
     </style>
 <!-- -------------------------- !-->
 
-
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered " role="document">
-        <div class="modal-content">
-
-            <div class="modal-body p-0">
-
-                @include('registration_card')
-            </div>
-        </div>
-    </div>
-
-</div>
 <div class="container-fluid bg-tint w-100">
     <div class="row fixed-top nav-row">
         <nav class="col-11 navbar navbar-expand navbar-dark mx-auto" style="min-height: 82px;">
@@ -115,7 +93,7 @@
 
                 <div class="collapse navbar-collapse">
                     <div class="row w-100">
-                        <div class="col-4">
+                        <div class="col-7">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Themes</a>
@@ -131,21 +109,23 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-5 text-right">
-                            @if(Session::has('email'))
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('profile')}}">
-                                Profile
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('dash')}}">
-                                Dashboard
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="{{route('logout')}}">
-                                Logout
-                            </a>
+                        <div class="col-2 text-right pl-2">
+                            @if( True || Session::has('email'))
+                            <div class='dropdown text-right w-100'>
+                                <button class="roboto btn transparent border text-right text-white dropdown-toggle" data-toggle="dropdown">
+                                    Antor
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right w-100" style="width: 100px;">
+                                    <a class="dropdown-item w-100" href="{{route('dash')}}">Dashboard</a>
+                                    <a class="dropdown-item " href="#">Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item " href="{{route('logout')}}">Logout</a>
+                                </div>
+                            </div>
                             @else
-                            <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
+                            <a class="roboto btn transparent border text-right text-white" href="{{route('registration')}}">
                                 Login
-                            </button>
+                            </a>
                             @endif
                         </div>
                         <div class="col-3">

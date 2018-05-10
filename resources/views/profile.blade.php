@@ -6,65 +6,11 @@
 
 
     @endphp
-    <script>
-        $(document).ready(function ($) {
-            var navbar = $('.nav-row');
-            navbar.css('transition', 'all 300ms ease-in');
-            $(window).scroll(function(){
-                if($(window).scrollTop() >= 40){
-                    navbar.css('background', 'linear-gradient(145deg, #349aed 50%, #34d8ed 100%');
-                    navbar.css('box-shadow', '0 1px 2px rgba(0, 0, 0, 0.3)');
-                } else {
-                    navbar.css('background', 'none');
-                    navbar.css('box-shadow', 'none');
-                }
-            });
-        });
-    </script>
-    <style>
-        .splash {
-            padding: 12em 0 6em;
-            background: #349aed;
-            background-image: url('https://www.codexcoder.com/wp-content/themes/codexcoder/assets/images/banner/bg.jpg');
-            background-size: 100%;
-            color: #fff;
-            text-align: center;
-        }
-        .nav-row{
-            background: none;
-            box-shadow: none;
-        }
-    </style>
-    <div class="container-fluid splash" style="min-height: 500px;">
-        <div class="col-12 amar-fade">
-            <div class="row">
-                <h1 class="col-12 roboto">Welcome to Amar Theme</h1>
-            </div>
-            <div class="row">
-                <h1 class="col-12 roboto" style="font-size: 18px;">Jinish jeta bhalo, dam tar ektu beshi...</h1>
-            </div>
-            <div class="row">
-                <form class="mx-auto col-7">
-                    <div class="input-group py-5">
-                        <input class="form-control border-light py-3 roboto shadow-nav" type="search" placeholder="Search">
-                        <div class="input-group-append">
-                            <button class="btn bg-transparent text-white btn-outline-light px-5 shadow-nav">
-                                <h4><i class="fas fa-search"></i></h4>
-                            </button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="container">
+    <div class="container mt-5">
+        <div class="row mt-5">a</div>
         <div class="row mt-5 mb-3">
             <div class="col-12 text-center">
-                <h2 class="roboto amar-fade">Most popular</h2>
+                <h2 class="roboto amar-fade">My Products</h2>
             </div>
         </div>
         @foreach($categories as $c)
@@ -94,9 +40,11 @@
                                                     @endif
                                                 @endfor
                                             </p>
-                                            <h4 class="col-6 text-right align-middle roboto">
-                                                $5
-                                            </h4>
+                                            <div class="col-6 text-right">
+                                                <a class="btn btn-success text-white" href="#">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -1,9 +1,11 @@
-<?php $__env->startSection('content'); ?>
-    <?php 
+
+@extends('layout')
+@section('content')
+    @php
         #Remove this snippet once backend is complete
 
 
-     ?>
+    @endphp
     <script>
         $(document).ready(function ($) {
             var navbar = $('.nav-row');
@@ -23,7 +25,7 @@
         .splash {
             padding: 12em 0 6em;
             background: #349aed;
-            background-image: url('https://www.codexcoder.com/wp-content/themes/codexcoder/assets/images/banner/bg.jpg');
+            background-image: url('http://i68.tinypic.com/a1kcxf.jpg');
             background-size: 100%;
             color: #fff;
             text-align: center;
@@ -34,7 +36,7 @@
         }
     </style>
     <div class="container-fluid splash" style="min-height: 500px;">
-        <div class="col-12 amar-fade">
+        <div class="col-12 fade">
             <div class="row">
                 <h1 class="col-12 roboto">Welcome to Amar Theme</h1>
             </div>
@@ -44,9 +46,9 @@
             <div class="row">
                 <form class="mx-auto col-7">
                     <div class="input-group py-5">
-                        <input class="form-control border-light py-3 roboto shadow-nav" type="search" placeholder="Search">
+                        <input class="form-control border-light py-3 roboto" type="search" placeholder="Search">
                         <div class="input-group-append">
-                            <button class="btn bg-transparent text-white btn-outline-light px-5 shadow-nav">
+                            <button class="btn bg-transparent text-white btn-outline-light px-5">
                                 <h4><i class="fas fa-search"></i></h4>
                             </button>
                         </div>
@@ -62,20 +64,20 @@
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col-12 text-center">
-                <h2 class="roboto amar-fade">Most popular</h2>
+                <h2 class="roboto fade">Most popular</h2>
             </div>
         </div>
-        <?php foreach($categories as $c): ?>
+        @foreach($categories as $c)
             <div class="row">
-                <?php foreach($c['products'] as $p): ?>
+                    @foreach($c['products'] as $p)
                     <div class="col-4">
                         <div class="row" >
                             <div class="col-12">
-                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card amar-fade shadow-nav" data-url="<?php echo e(route('product', $p['id'])); ?>">
-                                    <img src="<?php echo e($p['img']); ?>" style="object-fit: cover;" height="290px" width="348px">
+                                <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card fade" data-url="{{route('product', $p['id'])}}">
+                                    <img src="{{ $p['img'] }}" style="object-fit: cover;" height="290px" width="348px">
                                     <div class="card-body p-4">
                                         <div class="row">
-                                            <p class="col-12 mb-1" style="font-size: 22px;"><?php echo e($p['name']); ?></p>
+                                            <p class="col-12 mb-1" style="font-size: 22px;">{{ $p['name']  }}</p>
                                         </div>
                                         <div class="row" style="height: 50px;">
                                             <p class="col-12 text-secondary">
@@ -84,13 +86,13 @@
                                         </div>
                                         <div class="row align-middle pt-1" style="align-content: center">
                                             <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
-                                                <?php for($i = 1; $i <= 5; $i++): ?>
-                                                    <?php if($p['rating'] >= $i): ?>
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    @if($p['rating'] >= $i)
                                                         <i class="fas fa-star"></i>
-                                                    <?php else: ?>
+                                                    @else
                                                         <i class="far fa-star"></i>
-                                                    <?php endif; ?>
-                                                <?php endfor; ?>
+                                                    @endif
+                                                @endfor
                                             </p>
                                             <h4 class="col-6 text-right align-middle roboto">
                                                 $5
@@ -103,11 +105,10 @@
 
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                    @endforeach
+                </div>
             <div class="row ml-2 mt-3 mb-2 text-center">
             </div>
-        <?php endforeach; ?>
+        @endforeach
     </div>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@stop

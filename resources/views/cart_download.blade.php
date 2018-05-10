@@ -3,11 +3,7 @@
 
 
 @php
-    $total = 0;
-    foreach ($items as $i){
-        $total += $i['price'] * $i['count'];
-    }
-    $refer = "";
+$total  = 0;
 @endphp
 <div class="container p-5 " style="min-height: 700px;">
     <div class="row pl-5 mt-5">
@@ -15,13 +11,9 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
-                        <p class="display-4" style="font-size: 32px;">Shopping Cart</p>
+                        <p class="display-4" style="font-size: 32px;">Payment Successful</p>
                     </div>
-                    <div class="col-6 text-right">
-                        <a class="btn btn-danger text-right text-white mt-1" href="{{route('clearCart')}}">
-                            <i class="fas fa-trash"></i> Clear
-                        </a>
-                    </div>
+
                 </div>
             </div>
             <div class="card-body">
@@ -30,7 +22,7 @@
                     <tr>
                         <th></th>
                         <th class="text-left "><p class="lead mb-0" style="font-size: 22px;">Name</p></th>
-                        <th class="text-right"><p class="lead mb-0" style="font-size: 22px;">Price</p></th></tr>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 22px;">Link</p></th></tr>
                     </thead>
                     <tbody>
                     @foreach ($items as $i)
@@ -39,18 +31,15 @@
                             <img src="{{$i['img']}}"  style="object-fit: cover;" align="right" height="128px" width="188px">
                         </td>
                         <th class="text-left "><p class="lead mb-0" style="font-size: 18px;">{{$i['name']}}</p></th>
-                        <th class="text-right"><p class="lead mb-0" style="font-size: 18px;">${{$i['price']}}</p></th>
+                        <th class="text-right">
+                            <a class="btn btn-success text-white" href="#">
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        </th>
 
                     </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td></td>
-                        <td class="text-right"><h4 class="lead" style="font-size: 28px;">Total:</h4> </td>
-                        <td class="text-right"><h4 class="lead" style="font-size: 28px;">${{$total}}</h4></td>
-                    </tr>
-                    </tfoot>
 
                 </table>
 
@@ -68,7 +57,7 @@
 
                     <div class="col-6 text-right">
                         <button type="submit" class="btn btn-primary text-white">
-                            Proceed to checkout
+                            Proceed to home
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>

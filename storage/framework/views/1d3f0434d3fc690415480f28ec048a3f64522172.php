@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="http://i65.tinypic.com/27zlnn.jpg" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body class="w-100 bg-info">
+<body class="w-100">
 <!--
     Snippet for clickable class
     Usage <... class="clickable" data-url=$target_url >
@@ -31,6 +31,16 @@
                     return false;
                 }
             });
+            $(window).scroll(function() {
+                var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+                $(".amar-fade").each(function() {
+                    var objectBottom = $(this).offset().top;
+                    if (objectBottom < windowBottom) {
+                        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+                    }
+                });
+            }).scroll();
+
         });
     </script>
     <style>
@@ -45,24 +55,68 @@
             box-shadow: 0 20px 25px rgba(0,0,0,0.15);
             transform: translateY(-4px);
         }
+        .roboto{
+            font-family: Roboto, sans-serif;
+        }
+        .bg-tint{
+            background-color: rgb(236, 239, 241);
+        }
+        .bg-deep-blue{
+            background-color: #349aed"
+        }
+        .bg-nav{
+            background: #2a88f9;
+        }
+        .transparent{
+            background: none !important;
+            box-shadow: none !important;
+        }
+        .amar-fade {
+            opacity: 0;
+        }
+        .nav-row{
+            background: linear-gradient(145deg, #349aed 50%, #34d8ed 100%);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .full-height{
+            height: 100vh;
+        }
+        .text-nav{
+            color: #349aed !important;
+        }
+        .shadow-nav{
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
     </style>
 <!-- -------------------------- !-->
 
-<div class="container-fluid bg-light">
 
-    <div class="row bg-primary fixed-top">
-        <nav class="col-11 navbar navbar-expand navbar-dark bg-primary rounded mx-auto pl-5" style="min-height: 82px;">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+
+            <div class="modal-body p-0">
+
+                <?php echo $__env->make('registration_card', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid bg-tint w-100">
+    <div class="row fixed-top nav-row">
+        <nav class="col-11 navbar navbar-expand navbar-dark mx-auto" style="min-height: 82px;">
+            <div class="container">
+                <a class="navbar-brand roboto" href="<?php echo e(route('home')); ?>" style="font-size: 24px;">Amar Theme</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" style="font-family: Roboto, sans-serif; font-weight: 500;">
+                <div class="collapse navbar-collapse">
                     <div class="row w-100">
-                        <div class="col-6">
+                        <div class="col-4">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="navbar-brand" href="<?php echo e(route('home')); ?>">Amar Theme<span class="sr-only">(current)</span></a>
-                                </li>
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Themes</a>
                                 </li>
@@ -77,26 +131,36 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-1"></div>
-                        <div class="col-2 text-right">
-                            <a class="btn btn-primary border text-right" href="<?php echo e(route('registration')); ?>">
-                                Login
+                        <div class="col-5 text-right">
+                            <?php if(Session::has('email')): ?>
+                            <a class="roboto btn transparent border text-right text-white" href="<?php echo e(route('profile')); ?>">
+                                Profile
                             </a>
+                            <a class="roboto btn transparent border text-right text-white" href="<?php echo e(route('dash')); ?>">
+                                Dashboard
+                            </a>
+                            <a class="roboto btn transparent border text-right text-white" href="<?php echo e(route('logout')); ?>">
+                                Logout
+                            </a>
+                            <?php else: ?>
+                            <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
+                                Login
+                            </button>
+                            <?php endif; ?>
                         </div>
                         <div class="col-3">
-
                             <form action="<?php echo e(route('search')); ?>" method="get">
                                 <div class="row text-right">
-                                    <div class="col-8 p-0">
-                                        <input class="form-control" type="text" name='text' placeholder="Search" aria-label="Search">
+                                    <div class="col-9 p-0">
+                                        <input class="form-control roboto" type="text" name='text' placeholder="Search" aria-label="Search">
                                     </div>
                                     <div class="col-2 p-0 text-left">
-                                        <button class="btn btn-primary text-white">
+                                        <button class="btn transparent text-white">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>
                                     <div class="col-1 p-0">
-                                        <a class="btn btn-primary text-white" href="<?php echo e(route('cart')); ?>">
+                                        <a class="btn transparent text-white" href="<?php echo e(route('cart')); ?>">
                                             <i class="fas fa-shopping-cart"></i>
                                         </a>
                                     </div>
@@ -109,13 +173,15 @@
 
 
                 </div>
+            </div>
             </nav>
     </div>
-
-    <div class="row p-0 bg-light pt-5 p-5">
-        <?php echo $__env->yieldContent('content'); ?>
+    <div class="row">
+        <div class="col-12 p-0">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div>
     </div>
-    <div class="row bg-light" style="min-height: 200px;">
+    <div class="row" style="min-height: 200px;">
 
     </div>
 
