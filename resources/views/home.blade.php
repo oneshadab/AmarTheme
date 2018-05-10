@@ -67,6 +67,7 @@
                 <h2 class="roboto amar-fade">Most popular</h2>
             </div>
         </div>
+
         @foreach($categories as $c)
             <div class="row">
                 @foreach($c['products'] as $p)

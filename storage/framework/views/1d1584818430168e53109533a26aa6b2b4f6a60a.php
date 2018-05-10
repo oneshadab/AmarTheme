@@ -65,6 +65,7 @@
                 <h2 class="roboto amar-fade">Most popular</h2>
             </div>
         </div>
+
         <?php foreach($categories as $c): ?>
             <div class="row">
                 <?php foreach($c['products'] as $p): ?>

@@ -107,8 +107,5 @@ class productController extends Controller
     public function show($id){
         return view('product', ['product' => self::get($id)]);
     }
-    public function search($text){
-        #SELECT * FROM PRODUCT WHERE * LIKE '%$text%'
-        #return view(search with array of product data)
-    }
+
 }

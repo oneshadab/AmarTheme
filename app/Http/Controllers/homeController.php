@@ -19,6 +19,8 @@ class homeController extends Controller
         $result = productController::getAll();
         //dd($result);
         $products = json_decode(json_encode($result), true);
+        $categories=$products;
+        return view('home',compact('categories'));
         //dd($categories);
         $categories = [];
         foreach (array_chunk($products, 3) as $p){
@@ -41,6 +43,11 @@ class homeController extends Controller
 
 
     }
+    public function demoView($id)
+    {
+        $redir=""
+        return redirect("/public/themes/demo/".$id."/"); //<- Change to themes/demo/... when deploying to server
+    }
 
     public static function startsWith($haystack, $needle)
     {
@@ -52,13 +59,25 @@ class homeController extends Controller
     public function searchProduct(Request $request)
     {
         $text = $request->input('text');
-        $results = array();
-        $products = productController::getAll();
-        foreach($products as $p){
-            if(self::startsWith($p['name'], $text)){
-                $results[] = $p;
-            }
-        }
+        $result = DB::select("SELECT DISTINCT products.product_name AS name,
+                                          products.product_id as id,
+                                          products.product_description as details,
+                                          products.product_price as price,
+                                          ratings.rating as rating,
+                                          images.link as img 
+                                     FROM products,ratings,images 
+                                    WHERE 
+                                      (products.product_name like '%$text%'
+                                      OR 
+                                      products.product_description like '%$text%'                                   
+                                      )
+                                      
+                                      AND products.product_id=ratings.product_id
+                                      AND products.product_id=images.product_id
+                                      LIMIT 9
+                              ");
+        $results=json_decode(json_encode($result), true);
+        //return $result;
         return view('search', ['results' => $results]);
     }
     public function productDetails($id)

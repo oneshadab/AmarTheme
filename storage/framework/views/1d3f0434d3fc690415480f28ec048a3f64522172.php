@@ -20,9 +20,12 @@
     Usage <... class="clickable" data-url=$target_url >
 !-->
     <script>
+
+
         $(document).ready(function ($) {
-            $('.clickable a').click(function () {
-               event.stopPropagation();
+
+            $('.clickable a').click(function (e) {
+               e.stopPropagation();
             });
             $('.clickable').click(function () {
                 var url = $(this).data('url');
@@ -40,7 +43,6 @@
                     }
                 });
             }).scroll();
-
         });
     </script>
     <style>
@@ -87,7 +89,13 @@
         .shadow-nav{
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
-
+        .dropdown-item:hover{
+            color: white;
+            background-color: #349aed;
+        }
+        .no-highlight:hover{
+            outline: 0px !important;
+        }
     </style>
 <!-- -------------------------- !-->
 
@@ -131,41 +139,49 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-5 text-right">
+                        <div class="col-4 text-right">
                             <?php if(Session::has('email')): ?>
-                            <a class="roboto btn transparent border text-right text-white" href="<?php echo e(route('profile')); ?>">
-                                Profile
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="<?php echo e(route('dash')); ?>">
-                                Dashboard
-                            </a>
-                            <a class="roboto btn transparent border text-right text-white" href="<?php echo e(route('logout')); ?>">
-                                Logout
-                            </a>
+                                <div class="dropdown">
+                                    <button class="btn transparent text-white border roboto dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php echo e(Session::get('email')); ?>
+
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right text-white" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="<?php echo e(route('dash')); ?>">Dashboard</a>
+                                        <a class="dropdown-item" href="<?php echo e(route('profile')); ?>">Profile</a>
+                                        <a class="dropdown-item" href="<?php echo e(route('logout')); ?>">Logout</a>
+                                    </div>
+                                </div>
                             <?php else: ?>
                             <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
                                 Login
                             </button>
                             <?php endif; ?>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <form action="<?php echo e(route('search')); ?>" method="get">
-                                <div class="row text-right">
-                                    <div class="col-9 p-0">
-                                        <input class="form-control roboto" type="text" name='text' placeholder="Search" aria-label="Search">
-                                    </div>
-                                    <div class="col-2 p-0 text-left">
-                                        <button class="btn transparent text-white">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-1 p-0">
-                                        <a class="btn transparent text-white" href="<?php echo e(route('cart')); ?>">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
+                                    <div class="input-group">
+                                        <input class="form-control border-light roboto" type="search" name="text" placeholder="Search">
+                                        <div class="input-group-append mr-3">
+                                            <button class="btn rounded bg-transparent text-white btn-outline-light no-highlight">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <a class="btn btn-dark text-white roboto transparent border rounded shopping-icon search-icon" href="<?php echo e(route('cart')); ?>" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Added successfully">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                <span class='cart-count' class="badge badge-light transparent text-white" style="font-size: 14px">
+                                                    <?php if(Session::has('cart')): ?>
+                                                        <?php echo e(sizeof(Session::get('cart'))); ?>
+
+                                                    <?php else: ?>
+                                                        0
+                                                    <?php endif; ?>
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
 
-                                </div>
                             </form>
 
                         </div>

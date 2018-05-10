@@ -16,6 +16,7 @@ Route::get('/search', 'homeController@searchProduct')->name('search');
 //Route::get('/product', 'homeController@productDetails')->name('product');
 Route::get('/product/{id}', 'homeController@productDetails')->name('product'); //<- Should be like this
 Route::get('/registration', 'homeController@registration')->name('registration');
+Route::get('/viewDemo/{id}', 'homeController@demoView')->name('viewdemo');
 
 
 Route::get('/cart', 'userController@viewCart')->name('cart');
