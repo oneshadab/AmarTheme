@@ -45,7 +45,8 @@
                            $('#login-message').hide()
                        }
                        else{
-                           $('#login-message').show()
+                           $('#login-message').html('Wrong username or password');
+                           $('#login-message').show();
                        }
                    },
                 });

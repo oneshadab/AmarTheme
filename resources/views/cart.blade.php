@@ -3,12 +3,30 @@
 
 
 @php
-    $total = 0;
+    $total = 0.0;
     foreach ($items as $i){
         $total += $i['price'] * $i['count'];
     }
     $refer = "";
 @endphp
+<script>
+    $(document).ready(function () {
+        var logged_in = false;
+        @if(Session::has('email'))
+            logged_in = true;
+        @endif
+        $('#checkout-button').click(function (e) {
+           if(!logged_in){
+               $('#login-message').html('Please login first');
+               $('#login-message').show();
+               $('#login-button').click();
+               e.preventDefault();
+           }
+        });
+    });
+
+</script>
+
 <div class="container p-5 " style="min-height: 700px;">
     <div class="row pl-5 mt-5">
         <div class="card ml-5 mr-5 w-100 mt-2 shadow-nav">
@@ -67,7 +85,7 @@
                     </div>
 
                     <div class="col-6 text-right">
-                        <button type="submit" class="btn btn-primary text-white">
+                        <button id='checkout-button' type="submit" class="btn btn-primary text-white">
                             Proceed to checkout
                             <i class="fas fa-chevron-right"></i>
                         </button>

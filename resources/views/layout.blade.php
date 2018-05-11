@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
                             @else
-                            <button class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
+                            <button id='login-button' class="roboto btn transparent border text-right text-white" data-toggle="modal" data-target="#login-modal">
                                 Login
                             </button>
                             @endif
