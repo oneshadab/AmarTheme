@@ -81,6 +81,7 @@
         <form id="register-form">
             <div class="card-body">
                 <div class="container" style="height: 300px;">
+
                     <div class="form-group row">
                         <label class="col-3 col-form-label" for="email">Name: </label>
                         <div class="col-9"> <input type="text" class="form-control" name="name" placeholder="Full name"></div>
@@ -96,6 +97,19 @@
                     <div class="form-group row">
                         <label class="col-3 col-form-label" for="email">Confirm: </label>
                         <div class="col-9"> <input type="password" class="form-control" placeholder="Confirm"></div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label" for="email">Account:</label>
+                        <div class="col-9 align-middle pt-2">
+                            <div class="form-check form-check-inline" id="accountOption">
+                                <input class="form-check-input" type="radio" name="accountType" value="user" id="checkbox-user">
+                                <label class="form-check-label" for="checkbox-user">Customer</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="accountType" value="developer" id="checkbox-developer">
+                                <label class="form-check-label" for="checkbox-developer">Developer</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
