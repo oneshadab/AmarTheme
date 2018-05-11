@@ -29,7 +29,7 @@ Route::get('/addToCart/{id}','userController@toCart')->name('addToCart');
 Route::get('/addToCartREST/{id}','userController@toCartREST')->name('addToCartREST');
 Route::get('/clearCart/','userController@clearCart')->name('clearCart');
 Route::get('/viewCartREST', 'userController@viewCartREST')->name('viewCartREST');
-
+Route::post('/validateLoginREST', 'userController@validateLoginREST')->name('validateLoginREST');
 
 
 Route::post('/validateUpload', 'productController@validateUploadedProduct')->name('upload');
