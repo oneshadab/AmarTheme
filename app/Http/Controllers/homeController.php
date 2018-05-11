@@ -48,7 +48,7 @@ class homeController extends Controller
         $redir="";
 
 
-        return redirect("themes/demo/".$id."/"); //<- Change to themes/demo/... when deploying to server
+        return view('demo', ['id' => $id]);
     }
 
     public static function startsWith($haystack, $needle)

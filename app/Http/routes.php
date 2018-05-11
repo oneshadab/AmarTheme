@@ -64,6 +64,6 @@ Route::get('/profile', function (){
     }
     return view('profile', ['categories' => $categories]);
 })->name('profile');
-
+Route::get('/themes/demo/{id}/index.html', function(){})->name('demo_url');
 
 
