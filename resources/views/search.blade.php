@@ -5,8 +5,6 @@
         #Remove this snippet once backend is complete
         $filters = array(
             array("name" => "Category", "options" => array("E-Commerce", "Event", "WordPress")),
-            array("name" => "Rating", "options" => array("1", "2", "3", "4", "5")),
-            array("name" => "Price", "options" => array("$5", "$10", "$20", "$50")),
         );
     @endphp
     <style>
@@ -41,6 +39,10 @@
                                 </select>
                             </div>
                             @endforeach
+                            <div class="form-group">
+                                <label class="roboto text-center" for="priceRange">Price</label>
+                                <input type="range" class="form-control-range" id="priceRange" min="0" max="100" step="1" />
+                            </div>
                         </form>
                         
                     </div>
@@ -107,7 +109,7 @@
                                     <div class="col-3">
                                         <div class="row">
                                             <h2 class="col-12 text-right mb-0 roboto">
-                                                $5
+                                                {{formatPrice(4.99)}}
                                             </h2>
                                         </div>
                                         

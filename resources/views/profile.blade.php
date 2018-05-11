@@ -41,7 +41,7 @@
                                                 @endfor
                                             </p>
                                             <div class="col-6 text-right">
-                                                <a class="btn btn-success text-white" href="#">
+                                                <a class="btn btn-success text-white" href="{{route('download', $p['id'])}}">
                                                     <i class="fas fa-download"></i>
                                                 </a>
                                             </div>

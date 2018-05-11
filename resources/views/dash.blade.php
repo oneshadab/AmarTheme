@@ -65,7 +65,7 @@
                                         <div class="col-3">
                                             <div class="row">
                                                 <h2 class="col-12 text-right mb-0 roboto">
-                                                    $5
+                                                    {{formatPrice(4.99)}}
                                                 </h2>
                                             </div>
 
@@ -73,7 +73,7 @@
                                             <div class="row text-right mt-5 mb-2">
                                                 <div class="col-12 mt-3">
                                                     <a class="btn btn-primary text-white"
-                                                       href="{{route('addToCart', $r['id'])}}">
+                                                       href="{{route('product', $r['id'])}}">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </a>
                                                 </div>
@@ -98,7 +98,16 @@
                         <h3 class="roboto text-center">Dashboard</h3>
                     </div>
                     <div class="card-body w-100 bg-white text-dark">
-
+                        <table class="table roboto" style="font-size: 18px;">
+                            <tr>
+                                <td class="text-left">Products:</td>
+                                <td class="text-right">98</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Earnings:</td>
+                                <td class="text-right">$500</td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="card-footer bg-white">
                         <button class="btn btn-dark btn-block roboto" data-toggle="modal" data-target="#uploadModal">

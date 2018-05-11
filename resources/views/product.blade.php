@@ -114,11 +114,15 @@
                         <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
                             <div class="">
                                 <div class=" col-12 carousel-inner p-0">
-                                    @foreach($images as $i)
+                                    @forelse($images as $i)
                                     <div class="carousel-item">
                                         <img class="d-block w-100 bg-secondary" src="{{$i}}" style="object-fit: contain;" height="440px" width="500px">
                                     </div>
-                                    @endforeach
+                                    @empty
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100 bg-secondary" src="https://i.stack.imgur.com/Vkq2a.png" style="object-fit: contain;" height="440px" width="500px" onerror="this.src='fallback-img.jpg'">
+                                        </div>
+                                    @endforelse
                                 </div>
                                 <a class="carousel-control-prev" href="#product-carousel" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -135,6 +139,11 @@
                                         <img src="{{$images[$i]}}" height="90px" width="90px" style="object-fit: cover;" align="left">
                                     </li>
                                     @endfor
+                                    @if(sizeof($images) == 0)
+                                    <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="{{$i}}">
+                                        <img src="https://i.stack.imgur.com/Vkq2a.png" height="90px" width="90px" style="object-fit: cover;" align="left" onerror="">
+                                    </li>
+                                    @endif
                                 </ol>
                         </div>
                     </div>

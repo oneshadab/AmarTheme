@@ -96,7 +96,7 @@
                                                 @endfor
                                             </p>
                                             <h4 class="col-6 text-right align-middle roboto">
-                                                $5
+                                                {{formatPrice(4.99)}}
                                             </h4>
                                         </div>
                                     </div>
