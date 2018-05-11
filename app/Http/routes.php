@@ -30,16 +30,12 @@ Route::get('/addToCartREST/{id}','userController@toCartREST')->name('addToCartRE
 Route::get('/clearCart/','userController@clearCart')->name('clearCart');
 Route::get('/viewCartREST', 'userController@viewCartREST')->name('viewCartREST');
 Route::post('/validateLoginREST', 'userController@validateLoginREST')->name('validateLoginREST');
-
+Route::get('/dash', 'homeController@viewDashboard')->name('dash');
 
 Route::post('/validateUpload', 'productController@validateUploadedProduct')->name('upload');
 Route::get('/downloadTheme/{id}', 'productController@validateDownload')->name('download');
 //Route::get('/cart/','userController@viewCart')->name('cart');
 //Route::get('/product/{id}', 'productController@show')->name('product');
-
-Route::get('/dash', function(){
-    return view('dash');
-})->name('dash');
 
 Route::get('/checkout', function (){return view('checkout');})->name('checkout');
 Route::post('/checkout', function (){return view('checkout');})->name('checkout');

@@ -40,9 +40,33 @@ class homeController extends Controller
         {
             return redirect('/');
         }
-
-
     }
+
+    public function viewDashboard(Request $request)
+    {
+        $text = '';
+        $result = DB::select("SELECT DISTINCT products.product_name AS name,
+                                          products.product_id as id,
+                                          products.product_description as details,
+                                          products.product_price as price,
+                                          ratings.rating as rating,
+                                          images.link as img 
+                                     FROM products,ratings,images 
+                                    WHERE 
+                                      (products.product_name like '%$text%'
+                                      OR 
+                                      products.product_description like '%$text%'                                   
+                                      )
+                                      
+                                      AND products.product_id=ratings.product_id
+                                      AND products.product_id=images.product_id
+                                      LIMIT 9
+                              ");
+        $results=json_decode(json_encode($result), true);
+        //return $result;
+        return view('dash', ['results' => $results]);
+    }
+
     public function demoView($id)
     {
         $redir="";

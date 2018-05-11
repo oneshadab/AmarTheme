@@ -128,4 +128,6 @@ class userController extends Controller
         Session::put('cart', $cart);
         return json_encode($cart);
     }
+
+
 }

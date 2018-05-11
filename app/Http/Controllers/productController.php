@@ -64,6 +64,8 @@ class productController extends Controller
     }
     public function validateUploadedProduct(Request $request)
     {
+
+        dd($request->allFiles());
         if ($request->hasFile('zip')) {
             // your code here
             $file = $request->file('zip');
