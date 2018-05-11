@@ -5,6 +5,11 @@
 @php
 $total  = 0;
 @endphp
+<script>
+    $(document).ready(function(){
+        $.get('{{route('clearCart')}}');
+    })
+</script>
 <div class="container p-5 " style="min-height: 700px;">
     <div class="row pl-5 mt-5">
         <div class="card ml-5 mr-5 w-100 mt-2 shadow-nav">

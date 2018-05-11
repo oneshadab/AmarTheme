@@ -115,7 +115,7 @@ class userController extends Controller
 
 
     public function clearCart(){
-        Session()->flush();
+        Session::put('cart', []);
         return redirect('/cart');
     }
 
