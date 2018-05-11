@@ -28,7 +28,7 @@ Route::get('/addToCartREST/{id}','userController@toCartREST')->name('addToCartRE
 Route::get('/clearCart/','userController@clearCart')->name('clearCart');
 Route::get('/cart/','userController@viewCart')->name('cart');
 Route::get('/viewCartREST', 'userController@viewCartREST')->name('viewCartREST');
-
+Route::post('/validateLoginREST', 'userController@validateLoginREST')->name('validateLoginREST');
 
 Route::get('/product/{id}', 'productController@show')->name('product');
 Route::get('/registration', function(){
