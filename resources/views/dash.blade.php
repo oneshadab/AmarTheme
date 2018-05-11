@@ -72,9 +72,9 @@
                                             <div class="row mt-5"></div>
                                             <div class="row text-right mt-5 mb-2">
                                                 <div class="col-12 mt-3">
-                                                    <a class="btn btn-success text-white"
+                                                    <a class="btn btn-primary text-white"
                                                        href="{{route('addToCart', $r['id'])}}">
-                                                        <i class="fas fa-shopping-cart"></i>
+                                                        <i class="fas fa-edit"></i> Edit
                                                     </a>
                                                 </div>
 

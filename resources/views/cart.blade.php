@@ -39,7 +39,7 @@
                             <img src="{{$i['img']}}"  style="object-fit: cover;" align="right" height="128px" width="188px">
                         </td>
                         <th class="text-left "><p class="lead mb-0" style="font-size: 18px;">{{$i['name']}}</p></th>
-                        <th class="text-right"><p class="lead mb-0" style="font-size: 18px;">${{$i['price']}}</p></th>
+                        <th class="text-right"><p class="lead mb-0" style="font-size: 28px;">{{formatPrice($i['price'])}}</p></th>
 
                     </tr>
                     @endforeach
@@ -47,8 +47,8 @@
                     <tfoot>
                     <tr>
                         <td></td>
-                        <td class="text-right"><h4 class="lead" style="font-size: 28px;">Total:</h4> </td>
-                        <td class="text-right"><h4 class="lead" style="font-size: 28px;">${{$total}}</h4></td>
+                        <td class="text-right"><h4 class="lead" style="font-size: 36px;">Total:</h4> </td>
+                        <td class="text-right"><h4 class="lead" style="font-size: 36px;">{{formatPrice($total)}}</h4></td>
                     </tr>
                     </tfoot>
 

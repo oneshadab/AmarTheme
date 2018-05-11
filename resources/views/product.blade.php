@@ -146,7 +146,7 @@
                     <div class="card-header bg-dark" >
                         <div class="container-fluid">
                             <div class="row mb-0">
-                                <div class="col-8">
+                                <div class="col-6">
                                     <div class="row">
                                         <p class="col-12 text-left lead mb-1" style="font-size: 28px;">{{$product['name']}}</p>
                                     </div>
@@ -162,8 +162,10 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <p class="text-right" style="font-size: 36px;">$5</p>
+                                <div class="col-6">
+                                    <p class="text-right roboto  mb-0" style="font-size: 30px;">
+                                       {{formatPrice($product['price'])}}
+                                    </p>
                                 </div>
                             </div>
 
