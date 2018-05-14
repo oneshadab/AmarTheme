@@ -55,9 +55,11 @@ class userController extends Controller
         if(Auth::attempt($user_data))
         {
             $email = $request->get('email');
-            $user_info=DB::select("SELECT * FROM users WHERE email LIKE '$email' ");
-            Session::set('user_id', $user_info[0]->user_id);
-            Session::set('email',$request->get('email'));
+            $user_info=DB::table('users')->where('email', $email)->first();
+            Session::set('user_id', $user_info->user_id);
+            Session::set('email',$user_info->email);
+            Session::set('type', $user_info->user_type);
+            Session::set('name', $user_info->user_name);
             return json_encode(['login' => True]);
         }
         else
@@ -145,17 +147,23 @@ class userController extends Controller
         return view('profile', ["categories" => $categories]);
     }
 
+    public static function hasBought($user_id, $product_id){
+        $has = DB::table('transactions')
+            ->where('product_id', $product_id)
+            ->where('buyer_id', $user_id)
+            ->first();
+        return !empty($has);
+    }
+
     public function completePayment(){
         if(!Session::has('cart')) Session::put('cart', array());
         $user_id = Session::get('user_id');
         $items = [];
         foreach (Session::get('cart') as $id => $count){
             $t = ['quantity' => $count, 'product_id' => $id, 'buyer_id' => $user_id];
-            $has = DB::table('transactions')
-                ->where('product_id', $id)
-                ->where('buyer_id', $user_id)
-                ->first();
-            if(empty($has)) DB::table('transactions')->insert($t);
+            if(self::hasBought($user_id, $id) == false){
+                DB::table('transactions')->insert($t);
+            }
             $items[] = productController::get($id);
         }
         return view('cart_download', ['items' => $items]);

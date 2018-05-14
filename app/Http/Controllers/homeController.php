@@ -103,7 +103,11 @@ class homeController extends Controller
         $result = productController::get($id);
         $product = json_decode(json_encode($result), true);
         // dd($product);
-        return view('product',compact('product'));
+        $bought = false;
+        if(Session::has('user_id')){
+            $bought = userController::hasBought(Session::get('user_id'), $id);
+        }
+        return view('product',['product' => $product, 'bought' => $bought]);
     }
 
     public function registration()

@@ -211,7 +211,7 @@
                             </a>
                         </div>
                         <div class="row p-1">
-                            @if(Session::has('email'))
+                            @if($bought)
                             <button class="btn btn-success btn-block text-white cart-add" data-url="{{route('download', $product['id'])}}" >
                                 <i class="fas fa-download"></i> Download
                             </button>

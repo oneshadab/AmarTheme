@@ -109,8 +109,5 @@ class productController extends Controller
             return response()->file("themes/".$id.'.zip');
         return view('home');
     }
-    public function show($id){
-        return view('product', ['product' => self::get($id)]);
-    }
 
 }
