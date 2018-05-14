@@ -14,16 +14,22 @@ class productController extends Controller
         $products=DB::select("SELECT products.product_name AS name,
                                           products.product_id as id,
                                           ratings.rating as rating,
-                                          images.link as img,
                                           products.product_price as price 
-                                     FROM products,ratings,images 
+                                     FROM products,ratings 
                                     WHERE products.product_id=ratings.product_id
-                                      AND products.product_id=images.product_id
                                     GROUP BY id
                                     ORDER BY rand() 
                                     LIMIT 9");
         $products=json_decode(json_encode($products), true);
-        return $products;
+        $result = [];
+        foreach ($products as $p){
+            $r = $p;
+            $i = self::getImages($p['id']);;
+            $r['img'] = 'https://i.stack.imgur.com/Vkq2a.png';
+            if(!empty($i[0])) $r['img'] = $i[0];
+            $result[] = $r;
+        }
+        return $result;
     }
 
     public static function get($id){
@@ -31,16 +37,16 @@ class productController extends Controller
                                           products.product_id as id,
                                           products.product_description as details,
                                           products.product_price as price,
-                                          ratings.rating as rating,
-                                          images.link as img 
-                                     FROM products,ratings,images 
+                                          ratings.rating as rating
+                                     FROM products,ratings
                                     WHERE 
                                       products.product_id=$id 
                                       AND products.product_id=ratings.product_id
-                                      AND products.product_id=images.product_id
                                       LIMIT 1");
         $result=json_decode(json_encode($result), true);
-        return $result[0];
+        $result = $result[0];
+        $result['img'] = '';
+        return $result;
     }
 
     public static function getImages($id){
@@ -62,9 +68,7 @@ class productController extends Controller
             ['rating'=> 5, 'product_id' => $id,'user_id'=>2]
         );
 
-        DB::table('images')->insert(
-            ['link'=> 'http://i66.tinypic.com/2najjw4.jpg', 'product_id' => $id]
-        );
+
 
         return $id;
     }
@@ -90,9 +94,9 @@ class productController extends Controller
             //insert product entry into database
             //get product id in $fileid
 
-            $filename=productController::insertProduct($request->input('name'),$request->input('category'),$request->input('description'),$request->input('price'),1);
-            $filename_without_zip=$filename;
-            $filename="".$filename.".zip";
+            $id=productController::insertProduct($request->input('name'),$request->input('category'),$request->input('description'),$request->input('price'),1);
+            $filename_without_zip=$id;
+            $filename="".$id.".zip";
 
             $file->move($destinationPath,$filename);
 
@@ -104,7 +108,7 @@ class productController extends Controller
             if ($res === TRUE) {
                 $zip->extractTo("themes/demo/".$filename_without_zip."/");
                 $zip->close();
-                return redirect('/dash');
+                return redirect(route('product', $id));
             } else {
                 return 'doh! 1';
             }

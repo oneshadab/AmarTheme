@@ -92,8 +92,7 @@ class homeController extends Controller
     }
     public function productDetails($id)
     {
-        $result = productController::get($id);
-        $product = json_decode(json_encode($result), true);
+        $product = productController::get($id);
         // dd($product);
         $bought = false;
         $developer = false;
