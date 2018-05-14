@@ -39,27 +39,9 @@ Route::get('/downloadTheme/{id}', 'productController@validateDownload')->name('d
 
 Route::get('/checkout', function (){return view('checkout');})->name('checkout');
 Route::post('/checkout', function (){return view('checkout');})->name('checkout');
-Route::get('/cart_download', function (){
-    $items = array();
-    foreach (Session::get('cart') as $id => $count) {
-        $items[] = \App\Http\Controllers\productController::get($id);
-    }
-    return view('cart_download', ['items' => $items]);
-})->name('cart_download');
+Route::get('/complete', 'userController@completePayment')->name('cart_download');
 
-Route::get('/profile', function (){
-    $categories = array(
-        array("title" => "E-Commerce", "icon" => "fab fa-sellcast"),
-        array("title" => "Event", "icon" => "fas fa-calendar"),
-    );
-    for($i = 0; $i < 2; $i++){
-        $categories[$i]['products'] = array();
-        for($j = 0; $j < 3; $j++){
-            $categories[$i]['products'][] = \App\Http\Controllers\productController::get($i * 3 + $j + 1);
-        }
-    }
-    return view('profile', ['categories' => $categories]);
-})->name('profile');
+Route::get('/profile', 'userController@viewProfile')->name('profile');
 Route::get('/themes/demo/{id}/index.html', function(){})->name('demo_url');
 Route::post('/uploadImage', 'productController@validate')->name('uploadImage');
 

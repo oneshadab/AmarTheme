@@ -27,8 +27,10 @@ class userController extends Controller
         );
         if(Auth::attempt($user_data))
         {
-
+            $email = $request->get('email');
+            $user_info=DB::select("SELECT * FROM users WHERE email LIKE '$email' ");
             Session::set('email',$request->get('email'));
+            Session::set('user_id', $user_info[0]->user_id);
             return redirect('/dash');
         }
         else
@@ -52,7 +54,9 @@ class userController extends Controller
         );
         if(Auth::attempt($user_data))
         {
-
+            $email = $request->get('email');
+            $user_info=DB::select("SELECT * FROM users WHERE email LIKE '$email' ");
+            Session::set('user_id', $user_info[0]->user_id);
             Session::set('email',$request->get('email'));
             return json_encode(['login' => True]);
         }
@@ -129,5 +133,33 @@ class userController extends Controller
         return json_encode($cart);
     }
 
+    public function viewProfile(){
+        $user_id = Session::get('user_id');
+        $product_id = DB::select("SELECT product_id FROM transactions WHERE buyer_id=$user_id");
+        $product_id = json_decode(json_encode($product_id), true);
+        $products = [];
+        foreach ($product_id as $row){
+            $products[] = productController::get($row['product_id']);
+        }
+        $categories = cutArray($products, 3);
+        return view('profile', ["categories" => $categories]);
+    }
+
+    public function completePayment(){
+        if(!Session::has('cart')) Session::put('cart', array());
+        $user_id = Session::get('user_id');
+        $items = [];
+        foreach (Session::get('cart') as $id => $count){
+            $t = ['quantity' => $count, 'product_id' => $id, 'buyer_id' => $user_id];
+            $has = DB::table('transactions')
+                ->where('product_id', $id)
+                ->where('buyer_id', $user_id)
+                ->first();
+            if(empty($has)) DB::table('transactions')->insert($t);
+            $items[] = productController::get($id);
+        }
+        return view('cart_download', ['items' => $items]);
+
+    }
 
 }

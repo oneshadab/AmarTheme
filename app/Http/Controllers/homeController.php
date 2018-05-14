@@ -16,16 +16,8 @@ class homeController extends Controller
     //
     public function index()
     {
-        $result = productController::getAll();
-        //dd($result);
-        $products = json_decode(json_encode($result), true);
-        $categories=$products;
-        return view('home',compact('categories'));
-        //dd($categories);
-        $categories = [];
-        foreach (array_chunk($products, 3) as $p){
-            $categories[] = ['products' => $p];
-        }
+        $products = productController::getAll();
+        $categories = cutArray($products, 3);
         return view('home', ["categories" => $categories]);
     }
 

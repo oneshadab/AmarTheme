@@ -61,10 +61,10 @@ $total  = 0;
                     </div>
 
                     <div class="col-6 text-right">
-                        <button type="submit" class="btn btn-primary text-white">
+                        <a class="btn btn-primary rounded" href="{{route('home')}}">
                             Proceed to home
                             <i class="fas fa-chevron-right"></i>
-                        </button>
+                        </a>
                     </div>
                 </form>
             </div>
