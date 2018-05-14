@@ -5,7 +5,7 @@
 @php
     $total = 0.0;
     foreach ($items as $i){
-        $total += $i['price'] * $i['count'];
+        $total += $i['price'];
     }
     $refer = "";
 @endphp

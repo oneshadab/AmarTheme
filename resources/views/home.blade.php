@@ -44,7 +44,7 @@
                 <h1 class="col-12 roboto" style="font-size: 18px;">Jinish jeta bhalo, dam tar ektu beshi...</h1>
             </div>
             <div class="row">
-                <form class="mx-auto col-7">
+                <form class="mx-auto col-7" action="{{route('search')}}" method="get">
                     <div class="input-group py-5">
                         <input class="form-control border-light py-3 roboto shadow-nav" type="search" placeholder="Search">
                         <div class="input-group-append">

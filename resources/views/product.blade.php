@@ -64,6 +64,9 @@
                     }
                 });
             });
+            $('.clickable.upload-image').click(function (e) {
+                $('#uploadImageModal').modal();
+            });
         });
     </script>
     <style type='text/css'>
@@ -144,6 +147,10 @@
                                         <img src="https://i.stack.imgur.com/Vkq2a.png" height="90px" width="90px" style="object-fit: cover;" align="left" onerror="">
                                     </li>
                                     @endif
+                                    <li class="carousel-indicators-li p-1 clickable upload-image"  data-target="#product-carousel">
+                                        <img src="http://i66.tinypic.com/mhabk6.png" height="90px" width="90px" style="object-fit: cover;" align="left" onerror="">
+                                    </li>
+                                    @include('upload_image_modal')
                                 </ol>
                         </div>
                     </div>
@@ -204,9 +211,15 @@
                             </a>
                         </div>
                         <div class="row p-1">
+                            @if(Session::has('email'))
+                            <button class="btn btn-success btn-block text-white cart-add" data-url="{{route('download', $product['id'])}}" >
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            @else
                             <button class="btn btn-success btn-block text-white cart-add" data-url="{{route('addToCartREST', $product['id'])}}" >
                                 <i class="fas fa-shopping-cart"></i> Add to cart
                             </button>
+                            @endif
                         </div>
                     </div>
 
