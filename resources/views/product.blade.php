@@ -4,11 +4,6 @@
     @php
     
         #Remove this snippet once backend is complete
-        $images = array(
-            $product['img'],
-            $product['img'],
-            $product['img'],
-        );
         $features = array(
             "30 day money-back guarantee",
             "Future updates",
@@ -142,14 +137,16 @@
                                         <img src="{{$images[$i]}}" height="90px" width="90px" style="object-fit: cover;" align="left">
                                     </li>
                                     @endfor
-                                    @if(sizeof($images) == 0)
+                                    @if($developer)
+                                    <li class="carousel-indicators-li p-1 clickable upload-image"  data-target="#product-carousel">
+                                        <img src="http://i66.tinypic.com/mhabk6.png" height="90px" width="90px" style="object-fit: cover;" align="left" onerror="">
+                                    </li>
+                                    @elseif(sizeof($images) == 0)
                                     <li class="carousel-indicators-li p-1 clickable"  data-target="#product-carousel" data-slide-to="{{$i}}">
                                         <img src="https://i.stack.imgur.com/Vkq2a.png" height="90px" width="90px" style="object-fit: cover;" align="left" onerror="">
                                     </li>
                                     @endif
-                                    <li class="carousel-indicators-li p-1 clickable upload-image"  data-target="#product-carousel">
-                                        <img src="http://i66.tinypic.com/mhabk6.png" height="90px" width="90px" style="object-fit: cover;" align="left" onerror="">
-                                    </li>
+
                                     @include('upload_image_modal')
                                 </ol>
                         </div>
@@ -200,6 +197,7 @@
                                 <li class="list-group-item border-0 p-0 pb-2 pl-3"><i class="fas fa-check text-dark" style="font-size: 13px;"></i> <span class="p-2">{{$f}}</span></li>
                             @endforeach
                         </ul>
+
                         <div class="text-right">
                             <img class="text-right" src="http://i67.tinypic.com/2r2m9tk.png" height="100px">
                         </div>
@@ -258,105 +256,45 @@
             <p class="col-12 text-center lead" style="font-size: 32px;">You may also like</p>
         </div>
         <div class="row">
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card" data-url="http://localhost/Git/AmarTheme/public/product/1">
-                            <img src="http://i67.tinypic.com/6h8ec9.jpg" style="object-fit: cover;" height="290px" width="348px">
-                            <div class="card-body p-4">
-                                <div class="row">
-                                    <p class="col-12 mb-1" style="font-size: 22px;">80's MOD</p>
-                                </div>
-                                <div class="row" style="height: 50px;">
-                                    <p class="col-12 text-secondary">
-                                        Joomla Template for Home Maintenance and Handyman Service Websites
-                                    </p>
-                                </div>
-                                <div class="row align-middle pt-1" style="align-content: center">
-                                    <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </p>
-                                    <h4 class="col-6 text-right align-middle">
-                                        $5
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card" data-url="http://localhost/Git/AmarTheme/public/product/2">
-                            <img src="http://i66.tinypic.com/2najjw4.jpg" style="object-fit: cover;" height="290px" width="348px">
-                            <div class="card-body p-4">
-                                <div class="row">
-                                    <p class="col-12 mb-1" style="font-size: 22px;">Bootshop</p>
-                                </div>
-                                <div class="row" style="height: 50px;">
-                                    <p class="col-12 text-secondary">
-                                        Joomla Template for Home Maintenance and Handyman Service Websites
-                                    </p>
-                                </div>
-                                <div class="row align-middle pt-1" style="align-content: center">
-                                    <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </p>
-                                    <h4 class="col-6 text-right align-middle">
-                                        $5
-                                    </h4>
+            @foreach($suggestions as $p)
+                <div class="col-4">
+                    <div class="row" >
+                        <div class="col-12">
+                            <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card amar-fade shadow-nav" data-url="{{route('product', $p['id'])}}">
+                                <img src="{{ $p['img'] }}" style="object-fit: cover;" height="290px" width="348px">
+                                <div class="card-body p-4">
+                                    <div class="row">
+                                        <p class="col-12 mb-1" style="font-size: 22px;">{{ $p['name']  }}</p>
+                                    </div>
+                                    <div class="row" style="height: 50px;">
+                                        <p class="col-12 text-secondary">
+                                            Joomla Template for Home Maintenance and Handyman Service Websites
+                                        </p>
+                                    </div>
+                                    <div class="row align-middle pt-1" style="align-content: center">
+                                        <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                @if($p['rating'] >= $i)
+                                                    <i class="fas fa-star"></i>
+                                                @else
+                                                    <i class="far fa-star"></i>
+                                                @endif
+                                            @endfor
+                                        </p>
+                                        <h4 class="col-6 text-right align-middle roboto">
+                                            {{formatPrice($p['price'])}}
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="w-100 card pl-0 pr-0 clickable rounded-0 product-card" data-url="http://localhost/Git/AmarTheme/public/product/3">
-                            <img src="http://i65.tinypic.com/2vanla1.jpg" style="object-fit: cover;" height="290px" width="348px">
-                            <div class="card-body p-4">
-                                <div class="row">
-                                    <p class="col-12 mb-1" style="font-size: 22px;">MayaShop</p>
-                                </div>
-                                <div class="row" style="height: 50px;">
-                                    <p class="col-12 text-secondary">
-                                        Joomla Template for Home Maintenance and Handyman Service Websites
-                                    </p>
-                                </div>
-                                <div class="row align-middle pt-1" style="align-content: center">
-                                    <p class="col-6 text-warning align-middle pt-2" style="font-size: 12px">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </p>
-                                    <h4 class="col-6 text-right align-middle">
-                                        $5
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+            @endforeach
+        </div>
+        <div class="row ml-2 mt-3 mb-2 text-center">
         </div>
     </div>
 

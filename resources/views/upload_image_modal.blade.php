@@ -13,13 +13,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{route('upload')}}" method='post' enctype="multipart/form-data">
+            <form action="{{route('uploadImage')}}" method='post' enctype="multipart/form-data">
 
                 <div class="modal-body">
 
                     <div class="form-group">
                         <label for="image">File</label>
-                        <input class="form-control" type="file" id="image" name="zip">
+                        <input class="form-control" type="file" id="image" name="image">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -29,6 +29,7 @@
 
                 </div>
                 {{ csrf_field() }}
+                <input type="hidden" name="product_id" value="{{$product['id']}}">
             </form>
 
         </div>

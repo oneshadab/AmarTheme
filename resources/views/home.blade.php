@@ -96,7 +96,7 @@
                                                 @endfor
                                             </p>
                                             <h4 class="col-6 text-right align-middle roboto">
-                                                {{formatPrice(4.99)}}
+                                                {{formatPrice($p['price'])}}
                                             </h4>
                                         </div>
                                     </div>

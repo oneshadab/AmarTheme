@@ -65,7 +65,7 @@
                                         <div class="col-3">
                                             <div class="row">
                                                 <h2 class="col-12 text-right mb-0 roboto">
-                                                    {{formatPrice(4.99)}}
+                                                    {{formatPrice($r['price'])}}
                                                 </h2>
                                             </div>
 

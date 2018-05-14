@@ -138,7 +138,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
                                     <div class="dropdown-menu" aria-labelledby="dropdown09">
-                                        <a class="dropdown-item" href="#">Custom</a>
+                                        <a class="dropdown-item" href="#">Custom Theme</a>
                                         <a class="dropdown-item" href="#">Team</a>
                                         <a class="dropdown-item" href="#">About</a>
                                     </div>

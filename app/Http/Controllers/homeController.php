@@ -36,6 +36,7 @@ class homeController extends Controller
 
     public function viewDashboard(Request $request)
     {
+        $user_id = Session::get('user_id');
         $text = '';
         $result = DB::select("SELECT DISTINCT products.product_name AS name,
                                           products.product_id as id,
@@ -44,12 +45,7 @@ class homeController extends Controller
                                           ratings.rating as rating,
                                           images.link as img 
                                      FROM products,ratings,images 
-                                    WHERE 
-                                      (products.product_name like '%$text%'
-                                      OR 
-                                      products.product_description like '%$text%'                                   
-                                      )
-                                      
+                                    WHERE products.developer_id=$user_id
                                       AND products.product_id=ratings.product_id
                                       AND products.product_id=images.product_id
                                       LIMIT 9
@@ -85,11 +81,7 @@ class homeController extends Controller
                                           images.link as img 
                                      FROM products,ratings,images 
                                     WHERE 
-                                      (products.product_name like '%$text%'
-                                      OR 
-                                      products.product_description like '%$text%'                                   
-                                      )
-                                      
+                                      products.product_name like '%$text%'
                                       AND products.product_id=ratings.product_id
                                       AND products.product_id=images.product_id
                                       LIMIT 9
@@ -104,10 +96,21 @@ class homeController extends Controller
         $product = json_decode(json_encode($result), true);
         // dd($product);
         $bought = false;
+        $developer = false;
         if(Session::has('user_id')){
-            $bought = userController::hasBought(Session::get('user_id'), $id);
+            $user_id = Session::get('user_id');
+            $bought = userController::hasBought($user_id, $id);
+            $developer = userController::isDeveloper($user_id, $id);
         }
-        return view('product',['product' => $product, 'bought' => $bought]);
+        $images = productController::getImages($id);
+        $suggestions = cutArray(productController::getAll(), 3)[0]['products'];
+        return view('product',[
+            'product' => $product,
+            'bought' => $bought,
+            'developer' => $developer,
+            'images' => $images,
+            'suggestions' => $suggestions,
+        ]);
     }
 
     public function registration()

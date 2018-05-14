@@ -149,10 +149,18 @@ class userController extends Controller
 
     public static function hasBought($user_id, $product_id){
         $has = DB::table('transactions')
-            ->where('product_id', $product_id)
             ->where('buyer_id', $user_id)
+            ->where('product_id', $product_id)
             ->first();
         return !empty($has);
+    }
+
+    public static function isDeveloper($user_id, $product_id){
+        $res = DB::table('products')
+            ->where('developer_id', $user_id)
+            ->where('product_id', $product_id)
+            ->first();
+        return !empty($res);
     }
 
     public function completePayment(){

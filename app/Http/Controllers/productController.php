@@ -7,16 +7,19 @@ use Auth;
 use Session;
 use ZipArchive;
 use DB;
+use Storage;
 class productController extends Controller
 {
     public static function getAll(){
         $products=DB::select("SELECT products.product_name AS name,
                                           products.product_id as id,
                                           ratings.rating as rating,
-                                          images.link as img 
+                                          images.link as img,
+                                          products.product_price as price 
                                      FROM products,ratings,images 
                                     WHERE products.product_id=ratings.product_id
                                       AND products.product_id=images.product_id
+                                    GROUP BY id
                                     ORDER BY rand() 
                                     LIMIT 9");
         $products=json_decode(json_encode($products), true);
@@ -39,6 +42,15 @@ class productController extends Controller
         $result=json_decode(json_encode($result), true);
         return $result[0];
     }
+
+    public static function getImages($id){
+        $images = DB::table('images')
+            ->where('product_id', $id)
+            ->pluck('link');
+        return $images;
+
+    }
+
     public function insertProduct($name,$category,$description,$price,$dev_id)
     {
         $id =DB::table('products')->insertGetId(
@@ -59,7 +71,6 @@ class productController extends Controller
     public function validateUploadedProduct(Request $request)
     {
 
-        dd($request->allFiles());
         if ($request->hasFile('zip')) {
             // your code here
             $file = $request->file('zip');
@@ -95,14 +106,35 @@ class productController extends Controller
                 $zip->close();
                 return redirect('/dash');
             } else {
-                return 'doh!';
+                return 'doh! 1';
             }
 
         }
-        return "doh!";
-
-
+        return "doh! 2";
     }
+
+    public function uploadImage(Request $request)
+    {
+
+        if ($request->hasFile('image')) {
+            // your code here
+            $file = $request->file('image');
+
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $link = url('images/'.$name);
+            $product_id = $request->input('product_id');
+            self::insertImage($link,$product_id);
+            return redirect()->back();
+        }
+        return "doh! 2";
+    }
+
+    public static function insertImage($link, $product_id)
+    {
+        DB::table('images')->insert(['link' => $link, 'product_id' => $product_id]);
+    }
+
     public function validateDownload($id)
     {
         if (1)//check if file exists
