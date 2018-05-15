@@ -48,10 +48,11 @@ class homeController extends Controller
                                     WHERE products.developer_id=$user_id
                                       AND products.product_id=ratings.product_id
                                       AND products.product_id=images.product_id
-                                      LIMIT 9
+                                      
                               ");
         $results=json_decode(json_encode($result), true);
         //return $result;
+        $results = array_reverse($results);
         return view('dash', ['results' => $results]);
     }
 

@@ -146,4 +146,15 @@ class productController extends Controller
         return view('home');
     }
 
+    public function edit(Request $r, $id){
+        DB::table('products')
+            ->where('product_id', $id)
+            ->update([
+                'product_name' => $r->input('name'),
+                'product_description' => $r->input('description'),
+                'product_price' => $r->input('price'),
+            ]);
+        return redirect()->back();
+    }
+
 }

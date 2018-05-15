@@ -44,5 +44,5 @@ Route::get('/complete', 'userController@completePayment')->name('cart_download')
 Route::get('/profile', 'userController@viewProfile')->name('profile');
 Route::get('/themes/demo/{id}/index.html', function(){})->name('demo_url');
 Route::post('/uploadImage', 'productController@uploadImage')->name('uploadImage');
-
+Route::post('/edit/{id}', 'productController@edit')->name('edit');
 

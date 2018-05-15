@@ -105,7 +105,19 @@
     </style>
     <div class="container ">
         <div class="row pt-5" style="height: 100px;"></div>
-        <div class="row mt-5 " >
+        @if($developer)
+        <div class="row text-right">
+            <div class="col-12">
+                <button class="btn btn-primary text-white" data-toggle="modal" data-target="#editModal">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+            </div>
+        </div>
+        @include('edit_modal')
+        @else
+        <div class="row mt-3"></div>
+        @endif
+        <div class="row mt-4 " >
             <div class="col-8">
                 <div class="card shadow-nav h-100"  >
                     <div class="card-body p-0">
@@ -159,7 +171,7 @@
                     <div class="card-header bg-dark" >
                         <div class="container-fluid">
                             <div class="row mb-0">
-                                <div class="col-6">
+                                <div class="col-8">
                                     <div class="row">
                                         <p class="col-12 text-left lead mb-1" style="font-size: 28px;">{{$product['name']}}</p>
                                     </div>
@@ -175,7 +187,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <p class="text-right roboto  mb-0" style="font-size: 30px;">
                                        {{formatPrice($product['price'])}}
                                     </p>
