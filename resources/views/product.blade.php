@@ -94,6 +94,12 @@
         .carousel-indicators-li.active img{
             border: 2px solid #005cbf;
         }
+        .carousel-control-next{
+            max-width: 50px;
+        }
+        .carousel-control-prev{
+            max-width: 50px;
+        }
 
         .product-description {
             overflow: hidden;
@@ -101,6 +107,12 @@
         }
         .carousel-indicators {
             justify-content: flex-start;
+        }
+        .remove-button{
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 8%;
+            left: 91%;
         }
     </style>
     <div class="container ">
@@ -124,15 +136,21 @@
                         <div id="product-carousel" class="carousel slide m-0" data-ride="carousel">
                             <div class="">
                                 <div class=" col-12 carousel-inner p-0">
-                                    @forelse($images as $i)
+                                    @for($k = 0; $k < sizeof($images); $k++)
                                     <div class="carousel-item">
-                                        <img class="d-block w-100 bg-secondary" src="{{$i}}" style="object-fit: contain;" height="440px" width="500px">
+                                        <img class="d-block w-100 bg-secondary" src="{{$images[$k]}}" style="object-fit: contain;" height="440px" width="500px">
+                                        @if($developer)
+                                        <a class="btn btn-danger roboto remove-button" href="{{route('removeImage', $image_id[$k])}}">
+                                            <i class="fas fa-times"></i> Remove
+                                        </a>
+                                        @endif
                                     </div>
-                                    @empty
+                                    @endfor
+                                    @if(sizeof($images) == 0)
                                         <div class="carousel-item">
                                             <img class="d-block w-100 bg-secondary" src="https://i.stack.imgur.com/Vkq2a.png" style="object-fit: contain;" height="440px" width="500px" onerror="this.src='fallback-img.jpg'">
                                         </div>
-                                    @endforelse
+                                    @endif
                                 </div>
                                 <a class="carousel-control-prev" href="#product-carousel" role="button" data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

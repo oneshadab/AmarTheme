@@ -57,6 +57,16 @@ class productController extends Controller
 
     }
 
+    public static function getImageIds($id){
+        $images = DB::table('images')
+            ->where('product_id', $id)
+            ->pluck('image_id');
+        return $images;
+
+    }
+
+
+
     public function insertProduct($name,$category,$description,$price,$dev_id)
     {
         $id =DB::table('products')->insertGetId(
@@ -157,4 +167,12 @@ class productController extends Controller
         return redirect()->back();
     }
 
+
+    public function removeImage(Request $r, $id){
+        DB::table('images')
+            ->where('image_id', $id)
+            ->delete();
+        return redirect()->back();
+
+    }
 }

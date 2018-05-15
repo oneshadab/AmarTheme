@@ -104,12 +104,14 @@ class homeController extends Controller
         }
         $images = productController::getImages($id);
         $suggestions = cutArray(productController::getAll(), 3)[0]['products'];
+        $image_id = productController::getImageIds($id);
         return view('product',[
             'product' => $product,
             'bought' => $bought,
             'developer' => $developer,
             'images' => $images,
             'suggestions' => $suggestions,
+            'image_id' => $image_id,
         ]);
     }
 

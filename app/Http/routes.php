@@ -45,4 +45,5 @@ Route::get('/profile', 'userController@viewProfile')->name('profile');
 Route::get('/themes/demo/{id}/index.html', function(){})->name('demo_url');
 Route::post('/uploadImage', 'productController@uploadImage')->name('uploadImage');
 Route::post('/edit/{id}', 'productController@edit')->name('edit');
+Route::get('/removeImage/{id}', 'productController@removeImage')->name('removeImage');
 
