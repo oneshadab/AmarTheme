@@ -75,7 +75,7 @@ class userController extends Controller
         $user_data = array(
             'user_name' => $request->get('name'),
             'email'  => $request->get('email'),
-            'password' => $request->get('password'),
+            'password' => bcrypt($request->get('password')),
             'user_type' => $request->get('accountType'),
         );
         DB::table('users')->insert($user_data);
