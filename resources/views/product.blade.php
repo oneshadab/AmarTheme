@@ -121,7 +121,7 @@
         <div class="row">
             <div class="col-6 text-left">
                 <a class="btn btn-danger text-white" href="{{route('remove', $product['id'])}}">
-                    <i class="fas fa-trash"></i> Remove
+                    <i class="fas fa-trash"></i> Delete
                 </a>
             </div>
             <div class="col-6 text-right">
@@ -194,7 +194,7 @@
                     <div class="card-header bg-dark" >
                         <div class="container-fluid">
                             <div class="row mb-0">
-                                <div class="col-8">
+                                <div class="col-7">
                                     <div class="row">
                                         <p class="col-12 text-left lead mb-1" style="font-size: 28px;">{{$product['name']}}</p>
                                     </div>
@@ -210,7 +210,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="text-right roboto  mb-0" style="font-size: 30px;">
                                        {{formatPrice($product['price'])}}
                                     </p>

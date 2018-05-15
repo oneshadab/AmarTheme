@@ -43,6 +43,10 @@
                                 <label class="roboto text-center" for="priceRange">Price</label>
                                 <input type="range" class="form-control-range" id="priceRange" min="0" max="100" step="1" />
                             </div>
+                                <div class="form-group">
+                                    <label class="roboto text-center" for="priceRange">Rating</label>
+                                    <input type="range" class="form-control-range" id="ratingRange" min="0" max="5" step="1" />
+                                </div>
                         </form>
                         
                     </div>

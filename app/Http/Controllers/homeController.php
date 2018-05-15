@@ -42,17 +42,23 @@ class homeController extends Controller
                                           products.product_id as id,
                                           products.product_description as details,
                                           products.product_price as price,
-                                          ratings.rating as rating,
-                                          images.link as img 
-                                     FROM products,ratings,images 
+                                          ratings.rating as rating
+                                     FROM products,ratings
                                     WHERE products.developer_id=$user_id
                                       AND products.product_id=ratings.product_id
-                                      AND products.product_id=images.product_id
                                       
                               ");
         $results=json_decode(json_encode($result), true);
         //return $result;
-        $results = array_reverse($results);
+        $products = array_reverse($results);
+        $results = [];
+        foreach ($products as $p){
+            $r = $p;
+            $i = productController::getImages($p['id']);;
+            $r['img'] = 'https://i.stack.imgur.com/Vkq2a.png';
+            if(!empty($i[0])) $r['img'] = $i[0];
+            $results[] = $r;
+        }
         return view('dash', ['results' => $results]);
     }
 
@@ -73,22 +79,30 @@ class homeController extends Controller
 
     public function searchProduct(Request $request)
     {
-        $text = $request->input('text');
+        $user_id = Session::get('user_id');
+        $text = '';
         $result = DB::select("SELECT DISTINCT products.product_name AS name,
                                           products.product_id as id,
                                           products.product_description as details,
                                           products.product_price as price,
-                                          ratings.rating as rating,
-                                          images.link as img 
-                                     FROM products,ratings,images 
-                                    WHERE 
-                                      products.product_name like '%$text%'
+                                          ratings.rating as rating
+                                     FROM products,ratings
+                                    WHERE products.product_name like '%$text%'
+                                      AND products.developer_id=$user_id
                                       AND products.product_id=ratings.product_id
-                                      AND products.product_id=images.product_id
-                                      LIMIT 9
+                                      
                               ");
         $results=json_decode(json_encode($result), true);
         //return $result;
+        $products = array_reverse($results);
+        $results = [];
+        foreach ($products as $p){
+            $r = $p;
+            $i = productController::getImages($p['id']);;
+            $r['img'] = 'https://i.stack.imgur.com/Vkq2a.png';
+            if(!empty($i[0])) $r['img'] = $i[0];
+            $results[] = $r;
+        }
         return view('search', ['results' => $results]);
     }
     public function productDetails($id)

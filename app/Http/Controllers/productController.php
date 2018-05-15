@@ -57,6 +57,14 @@ class productController extends Controller
 
     }
 
+    public static function getImageOrNone($id){
+        $images = DB::table('images')
+            ->where('product_id', $id)
+            ->pluck('link');
+        if(sizeof($images) == 0) return '';
+        return $images[0];
+    }
+
     public static function getImageIds($id){
         $images = DB::table('images')
             ->where('product_id', $id)
