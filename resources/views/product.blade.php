@@ -118,8 +118,13 @@
     <div class="container ">
         <div class="row pt-5" style="height: 100px;"></div>
         @if($developer)
-        <div class="row text-right">
-            <div class="col-12">
+        <div class="row">
+            <div class="col-6 text-left">
+                <a class="btn btn-danger text-white" href="{{route('remove', $product['id'])}}">
+                    <i class="fas fa-trash"></i> Remove
+                </a>
+            </div>
+            <div class="col-6 text-right">
                 <button class="btn btn-primary text-white" data-toggle="modal" data-target="#editModal">
                     <i class="fas fa-edit"></i> Edit
                 </button>

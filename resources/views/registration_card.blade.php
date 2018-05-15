@@ -52,6 +52,26 @@
                 });
                 e.preventDefault();
             });
+            $('#register-form').submit(function (e) {
+                var url = '{{route('validateRegisterREST')}}';
+                $.ajax({
+                    method: "POST",
+                    url: url,
+                    data: $('#register-form').serialize(),
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        if(data['login']){
+                            location.reload();
+                            $('#login-message').hide()
+                        }
+                        else{
+                            $('#login-message').html('Registration Unsuccessfull');
+                            $('#login-message').show();
+                        }
+                    },
+                });
+                e.preventDefault();
+            });
             $('#login-message').hide();
         })
     </script>
@@ -81,7 +101,7 @@
         <form id="register-form">
             <div class="card-body">
                 <div class="container" style="height: 300px;">
-
+                    {{csrf_field()}}
                     <div class="form-group row">
                         <label class="col-3 col-form-label" for="email">Name: </label>
                         <div class="col-9"> <input type="text" class="form-control" name="name" placeholder="Full name"></div>
@@ -102,7 +122,7 @@
                         <label class="col-3 col-form-label" for="email">Account:</label>
                         <div class="col-9 align-middle pt-2">
                             <div class="form-check form-check-inline" id="accountOption">
-                                <input class="form-check-input" type="radio" name="accountType" value="user" id="checkbox-user">
+                                <input class="form-check-input" type="radio" name="accountType" value="buyer" id="checkbox-user">
                                 <label class="form-check-label" for="checkbox-user">Customer</label>
                             </div>
                             <div class="form-check form-check-inline">

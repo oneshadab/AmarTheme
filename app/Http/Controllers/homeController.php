@@ -119,4 +119,6 @@ class homeController extends Controller
     {
         return view('registration');
     }
+
+
 }

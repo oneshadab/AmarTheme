@@ -70,6 +70,25 @@ class userController extends Controller
 
     }
 
+    public function  validateRegisterREST(Request $request)
+    {
+        $user_data = array(
+            'user_name' => $request->get('name'),
+            'email'  => $request->get('email'),
+            'password' => $request->get('password'),
+            'user_type' => $request->get('accountType'),
+        );
+        DB::table('users')->insert($user_data);
+        $email = $request->get('email');
+        $user_info=DB::table('users')->where('email', $email)->first();
+        Session::set('user_id', $user_info->user_id);
+        Session::set('email',$user_info->email);
+        Session::set('type', $user_info->user_type);
+        Session::set('name', $user_info->user_name);
+        return json_encode(['login' => True]);
+
+    }
+
 
     public function userLogin()
     {

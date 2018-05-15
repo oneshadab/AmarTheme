@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 Route::get('/','homeController@index')->name('home');
 Route::get('/dashboard','homeController@dashboard');
 Route::get('/search', 'homeController@searchProduct')->name('search');
@@ -30,6 +31,7 @@ Route::get('/addToCartREST/{id}','userController@toCartREST')->name('addToCartRE
 Route::get('/clearCart/','userController@clearCart')->name('clearCart');
 Route::get('/viewCartREST', 'userController@viewCartREST')->name('viewCartREST');
 Route::post('/validateLoginREST', 'userController@validateLoginREST')->name('validateLoginREST');
+Route::post('/validateRegisterREST', 'userController@validateRegisterREST')->name('validateRegisterREST');
 Route::get('/dash', 'homeController@viewDashboard')->name('dash');
 
 Route::post('/validateUpload', 'productController@validateUploadedProduct')->name('upload');
@@ -46,5 +48,7 @@ Route::get('/themes/demo/{id}/index.html', function(){})->name('demo_url');
 Route::post('/uploadImage', 'productController@uploadImage')->name('uploadImage');
 Route::post('/edit/{id}', 'productController@edit')->name('edit');
 Route::get('/removeImage/{id}', 'productController@removeImage')->name('removeImage');
+Route::get('/remove/{id}', 'productController@remove')->name('remove');
 Route::get('/removeFromCart/{id}', 'userController@removeFromCart')->name('removeFromCart');
+
 

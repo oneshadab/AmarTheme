@@ -175,4 +175,11 @@ class productController extends Controller
         return redirect()->back();
 
     }
+
+    public function remove(Request $r, $id){
+        DB::table('products')
+            ->where('product_id', $id)
+            ->delete();
+        return redirect(route('dash'));
+    }
 }
