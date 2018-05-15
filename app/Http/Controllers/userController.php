@@ -105,7 +105,9 @@ class userController extends Controller
         $products = array();
         foreach (Session::get('cart') as $id => $count){
             $p = productController::get($id);
-
+            $p['img'] = '';
+            $i = productController::getImages($id);
+            if(!empty($i[0])) $p['img'] = $i[0];
             $p['count'] = $count;
             $products[] = $p;
         }
@@ -176,6 +178,14 @@ class userController extends Controller
         }
         return view('cart_download', ['items' => $items]);
 
+    }
+
+    public function removeFromCart($id){
+        if(!Session::has('cart')) Session::put('cart', array());
+        $cart = Session::get('cart');
+        if(!empty($cart[$id])) unset($cart[$id]);
+        Session::put('cart', $cart);
+        return redirect()->back();
     }
 
 }

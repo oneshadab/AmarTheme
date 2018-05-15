@@ -140,7 +140,7 @@
                                     <div class="carousel-item">
                                         <img class="d-block w-100 bg-secondary" src="{{$images[$k]}}" style="object-fit: contain;" height="440px" width="500px">
                                         @if($developer)
-                                        <a class="btn btn-danger roboto remove-button" href="{{route('removeImage', $image_id[$k])}}">
+                                        <a class="btn bg-transparent text-white roboto remove-button border" href="{{route('removeImage', $image_id[$k])}}">
                                             <i class="fas fa-times"></i> Remove
                                         </a>
                                         @endif

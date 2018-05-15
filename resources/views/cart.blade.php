@@ -23,9 +23,19 @@
                e.preventDefault();
            }
         });
+
     });
 
 </script>
+
+<style>
+    .remove-cart-button{
+        top: 0%;
+        left: 0%;
+        transform: translate(0%, -350%);
+        display: none;
+    }
+</style>
 
 <div class="container p-5 " style="min-height: 700px;">
     <div class="row pl-5 mt-5">
@@ -55,6 +65,9 @@
                     <tr>
                         <td style="width: 64px;">
                             <img src="{{$i['img']}}"  style="object-fit: cover;" align="right" height="128px" width="188px">
+                            <a class="btn bg-transparent remove-cart-button text-white border" href="{{route('removeFromCart', $i['id'])}}">
+                                <i class="fas fa-times"></i> Remove
+                            </a>
                         </td>
                         <th class="text-left "><p class="lead mb-0" style="font-size: 18px;">{{$i['name']}}</p></th>
                         <th class="text-right"><p class="lead mb-0" style="font-size: 28px;">{{formatPrice($i['price'])}}</p></th>
